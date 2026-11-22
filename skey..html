@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skey. — Diseñamos y programamos lo que tu negocio necesita</title>
+  <meta name="description" content="Estudio de desarrollo web y soluciones digitales a medida en España. Páginas web, tiendas online, aplicaciones y herramientas personalizadas." />
+
+  <!-- Tailwind CSS vía CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            ink: '#0F172A',
+            muted: '#475569',
+            surface: '#F8FAFC',
+            line: '#E2E8F0',
+            electric: '#2563EB',
+            electricDark: '#1D4ED8',
+          },
+          boxShadow: {
+            subtle: '0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02)',
+            browser: '0 24px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.05)',
+            cardHover: '0 14px 32px -12px rgba(15, 23, 42, 0.09)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+
+    /* Cuadrícula arquitectónica muy sutil para el fondo del Hero */
+    .hero-grid {
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 18%, #000 35%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 18%, #000 35%, transparent 100%);
+    }
+
+    /* Animación suave para cambios de pestañas y confirmaciones */
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-slide {
+      animation: fadeSlide 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Quitar triángulo nativo del summary en Safari/Chrome */
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
+</head>
+<body class="font-sans text-ink antialiased selection:bg-blue-100 selection:text-electric">
+
+  <!-- =========================================================================
+       1. BARRA DE NAVEGACIÓN FIJA MINIMALISTA
+       ========================================================================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md border-b border-line/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+
+      <!-- Logotipo "Skey." con punto azul eléctrico -->
+      <a href="#inicio" class="font-display font-extrabold text-2xl tracking-tight text-ink flex items-center shrink-0">
+        Skey<span class="text-electric">.</span>
+      </a>
+
+      <!-- Enlaces de navegación escritorio -->
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#servicios" class="hover:text-ink transition">Qué hacemos</a>
+        <a href="#ejemplos" class="hover:text-ink transition">Ejemplos</a>
+        <a href="#proceso" class="hover:text-ink transition">Proceso</a>
+        <a href="#preguntas" class="hover:text-ink transition">Preguntas</a>
+      </nav>
+
+      <!-- Botón CTA + Menú móvil -->
+      <div class="flex items-center gap-2.5">
+        <a href="#contacto" class="px-4 sm:px-5 py-2.5 rounded-xl bg-electric hover:bg-electricDark text-white text-xs sm:text-sm font-semibold shadow-sm shadow-blue-600/20 transition whitespace-nowrap">
+          Pedir presupuesto
+        </a>
+
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden p-2.5 rounded-xl border border-line text-slate-700 hover:bg-surface transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-line px-4 py-3 shadow-lg">
+      <div class="flex flex-col space-y-1 text-sm font-medium text-slate-700">
+        <a href="#servicios" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Qué hacemos</a>
+        <a href="#ejemplos" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Ejemplos</a>
+        <a href="#proceso" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Proceso</a>
+        <a href="#preguntas" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Preguntas</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. HERO PRINCIPAL + MAQUETA INTERACTIVA DE NAVEGADOR (3 PESTAÑAS)
+       ========================================================================= -->
+  <section id="inicio" class="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden">
+    <!-- Fondo sutil tipo Stripe/Vercel Light -->
+    <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[780px] h-[360px] bg-blue-500/[0.06] blur-3xl rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Columna de Copy Principal -->
+        <div class="lg:col-span-6 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-line text-xs font-semibold text-slate-700 mb-6 shadow-subtle">
+            <span class="w-2 h-2 rounded-full bg-electric"></span>
+            Estudio digital a medida · España
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.35rem] tracking-tight text-ink leading-[1.09]">
+            Diseñamos y programamos lo que tu negocio necesita<span class="text-electric">.</span>
+          </h1>
+
+          <p class="mt-5 text-base sm:text-lg text-muted leading-relaxed max-w-xl">
+            Desde una página web profesional hasta una tienda online o una herramienta a medida. Nos cuentas tu idea y la hacemos realidad sin complicaciones.
+          </p>
+
+          <!-- Botones CTA del Hero -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-electric hover:bg-electricDark text-white font-semibold text-sm sm:text-base shadow-md shadow-blue-600/20 transition">
+              <span>Cuéntanos tu proyecto</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a href="#servicios" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white hover:bg-surface border border-line text-ink font-semibold text-sm sm:text-base shadow-subtle transition">
+              Ver qué hacemos
+            </a>
+          </div>
+
+          <!-- Indicadores breves de tranquilidad -->
+          <div class="mt-8 pt-6 border-t border-line/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500">
+            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> Presupuesto cerrado en 24h</span>
+            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> 100% a tu medida</span>
+            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> Sin permanencia</span>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Maqueta de Navegador Interactiva con 3 Pestañas -->
+        <div id="ejemplos" class="lg:col-span-6 scroll-mt-24">
+          <!-- Selector superior de pestañas -->
+          <div class="flex items-center gap-1.5 bg-surface p-1.5 rounded-2xl border border-line mb-3.5 overflow-x-auto">
+            <button type="button" data-browser-tab="0" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold bg-white text-ink shadow-subtle border border-line/60 transition whitespace-nowrap cursor-pointer">
+              Web Corporativa
+            </button>
+            <button type="button" data-browser-tab="1" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-ink transition whitespace-nowrap cursor-pointer">
+              Tienda / Catálogo
+            </button>
+            <button type="button" data-browser-tab="2" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-ink transition whitespace-nowrap cursor-pointer">
+              Herramienta a Medida
+            </button>
+          </div>
+
+          <!-- Ventana de Navegador Elegante -->
+          <div class="bg-white rounded-2xl shadow-browser overflow-hidden border border-line">
+            <!-- Barra superior del navegador -->
+            <div class="bg-surface px-4 py-3 border-b border-line flex items-center justify-between gap-3">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+              </div>
+              <div id="browser-url" class="flex-1 max-w-xs mx-auto bg-white border border-line rounded-lg px-3 py-1 text-[11px] text-slate-500 text-center truncate">
+                tunegocio.es
+              </div>
+              <div class="w-10"></div>
+            </div>
+
+            <!-- Contenido Dinámico del Navegador -->
+            <div class="p-5 sm:p-6 min-h-[340px] flex flex-col justify-between bg-white">
+
+              <!-- PESTAÑA 1: WEB CORPORATIVA -->
+              <div id="browser-panel-0" class="browser-panel animate-fade-slide space-y-5">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <span class="font-display font-bold text-sm text-ink">Norte Arquitectura</span>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-500">
+                    <span>Proyectos</span>
+                    <span>Estudio</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-ink text-white font-semibold">Contacto</span>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl bg-surface border border-line/80 p-5">
+                  <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-electric text-[10px] font-bold uppercase tracking-wide mb-2">
+                    Reformas y Obra Nueva
+                  </span>
+                  <h3 class="font-display font-bold text-xl text-ink leading-snug">
+                    Espacios pensados para durar y disfrutarse cada día.
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Más de 12 años diseñando viviendas y locales comerciales con presupuesto cerrado y seguimiento transparente.
+                  </p>
+                  <div class="mt-4 flex items-center gap-2.5">
+                    <span class="px-3.5 py-2 rounded-lg bg-electric text-white text-xs font-semibold">Pedir valoración</span>
+                    <span class="px-3.5 py-2 rounded-lg bg-white border border-line text-slate-700 text-xs font-semibold">Ver obras</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2.5 text-center">
+                  <div class="p-3 rounded-xl bg-surface border border-line/70">
+                    <div class="font-display font-bold text-base text-ink">+140</div>
+                    <div class="text-[10px] text-slate-500">Proyectos</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-surface border border-line/70">
+                    <div class="font-display font-bold text-base text-ink">4.9 ★</div>
+                    <div class="text-[10px] text-slate-500">Valoración</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-surface border border-line/70">
+                    <div class="font-display font-bold text-base text-electric">100%</div>
+                    <div class="text-[10px] text-slate-500">A medida</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PESTAÑA 2: TIENDA / CATÁLOGO (CON CARRITO INTERACTIVO) -->
+              <div id="browser-panel-1" class="browser-panel hidden animate-fade-slide space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <span class="font-display font-bold text-sm text-ink">Kora Cerámica · Tienda</span>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 text-electric text-xs font-bold">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span>Carrito (<span id="mock-cart-count">1</span>)</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <!-- Producto 1 -->
+                  <div class="rounded-xl border border-line p-3 bg-surface/60 flex flex-col justify-between">
+                    <div class="h-20 rounded-lg bg-gradient-to-br from-slate-200 to-slate-100 mb-2.5 flex items-center justify-center text-xs font-semibold text-slate-500">
+                      Set Tazas Arena
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-ink">Set 2 Tazas Artesanales</div>
+                      <div class="flex items-center justify-between mt-2">
+                        <span class="font-display font-bold text-sm text-ink">34 €</span>
+                        <button type="button" data-add-price="34" class="mock-add-btn px-2.5 py-1 rounded-lg bg-electric hover:bg-electricDark text-white text-[11px] font-semibold transition cursor-pointer">
+                          + Añadir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Producto 2 -->
+                  <div class="rounded-xl border border-line p-3 bg-surface/60 flex flex-col justify-between">
+                    <div class="h-20 rounded-lg bg-gradient-to-br from-blue-100 to-slate-100 mb-2.5 flex items-center justify-center text-xs font-semibold text-blue-700">
+                      Jarrón Minimal
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-ink">Jarrón Mate Blanco</div>
+                      <div class="flex items-center justify-between mt-2">
+                        <span class="font-display font-bold text-sm text-ink">48 €</span>
+                        <button type="button" data-add-price="48" class="mock-add-btn px-2.5 py-1 rounded-lg bg-electric hover:bg-electricDark text-white text-[11px] font-semibold transition cursor-pointer">
+                          + Añadir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 rounded-xl bg-surface border border-line text-xs">
+                  <span class="text-slate-600">Total estimado en carrito: <strong id="mock-cart-total" class="text-ink">34 €</strong></span>
+                  <span class="font-semibold text-electric">Pago seguro con tarjeta</span>
+                </div>
+              </div>
+
+              <!-- PESTAÑA 3: HERRAMIENTA A MEDIDA (PANEL DE GESTIÓN) -->
+              <div id="browser-panel-2" class="browser-panel hidden animate-fade-slide space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <div>
+                    <div class="font-display font-bold text-sm text-ink">Panel de Clientes y Proyectos</div>
+                    <div class="text-[11px] text-slate-500">Resumen semanal en tiempo real</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold">
+                    Todo al día
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2.5">
+                  <div class="p-3 rounded-xl bg-surface border border-line/80">
+                    <div class="text-[10px] text-slate-500">Activos</div>
+                    <div class="font-display font-bold text-lg text-ink mt-0.5">18</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-surface border border-line/80">
+                    <div class="text-[10px] text-slate-500">Entregas mes</div>
+                    <div class="font-display font-bold text-lg text-electric mt-0.5">7</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-surface border border-line/80">
+                    <div class="text-[10px] text-slate-500">Facturación</div>
+                    <div class="font-display font-bold text-lg text-emerald-600 mt-0.5">+22%</div>
+                  </div>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line/70">
+                    <div>
+                      <div class="font-semibold text-ink">Clínica Soler · Portal Pacientes</div>
+                      <div class="text-[10px] text-slate-500">Actualizado hoy · 10:15</div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-full bg-blue-50 text-electric font-semibold text-[10px]">En curso</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line/70">
+                    <div>
+                      <div class="font-semibold text-ink">Distribuciones Alba · Pedidos B2B</div>
+                      <div class="text-[10px] text-slate-500">Entregado · Revisado</div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold text-[10px]">Completado</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. SECCIÓN "QUÉ PODEMOS CONSTRUIR PARA TI" (4 TARJETAS GENÉRICAS)
+       ========================================================================= -->
+  <section id="servicios" class="py-20 sm:py-28 bg-surface border-y border-line/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="max-w-2xl mb-12 sm:mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-electric">Qué hacemos</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
+          Qué podemos construir para ti
+        </h2>
+        <p class="text-muted mt-3 text-base leading-relaxed">
+          No te limitamos a un solo tipo de proyecto. Nos adaptamos a lo que tu negocio necesita hoy y preparamos el terreno para que pueda crecer mañana.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Tarjeta 1: Páginas Web Profesionales -->
+        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-ink mb-2">Páginas Web Profesionales</h3>
+            <p class="text-sm sm:text-base text-muted leading-relaxed">
+              Webs rápidas, claras, 100% adaptadas a móvil y diseñadas para transmitir confianza y conseguir nuevos clientes desde el primer día.
+            </p>
+          </div>
+          <button type="button" data-quick-select="Página Web" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+            <span>Pedir una página web</span>
+            <span>→</span>
+          </button>
+        </article>
+
+        <!-- Tarjeta 2: Tiendas y Catálogos Online -->
+        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-ink mb-2">Tiendas y Catálogos Online</h3>
+            <p class="text-sm sm:text-base text-muted leading-relaxed">
+              Vende tus productos o servicios 24/7 sin complicaciones. Pagos seguros, gestión sencilla de pedidos y una experiencia de compra impecable.
+            </p>
+          </div>
+          <button type="button" data-quick-select="Tienda Online" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+            <span>Montar mi tienda online</span>
+            <span>→</span>
+          </button>
+        </article>
+
+        <!-- Tarjeta 3: Aplicaciones y Paneles a Medida -->
+        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-ink mb-2">Aplicaciones y Paneles a Medida</h3>
+            <p class="text-sm sm:text-base text-muted leading-relaxed">
+              Sistemas de reservas, áreas privadas de clientes, paneles de gestión interna o cualquier flujo específico para ahorrar horas a tu equipo.
+            </p>
+          </div>
+          <button type="button" data-quick-select="App / Sistema a Medida" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+            <span>Crear una herramienta a medida</span>
+            <span>→</span>
+          </button>
+        </article>
+
+        <!-- Tarjeta 4: Tu Idea Personalizada -->
+        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-ink mb-2">Tu Idea Personalizada</h3>
+            <p class="text-sm sm:text-base text-muted leading-relaxed">
+              ¿Necesitas algo diferente que no encaja en una categoría estándar? Lo analizamos contigo con calma y lo programamos exactamente a tu medida.
+            </p>
+          </div>
+          <button type="button" data-quick-select="Tengo otra idea" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+            <span>Contarnos tu idea</span>
+            <span>→</span>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. SECCIÓN "CÓMO TRABAJAMOS" (3 PASOS SENCILLOS EN HORIZONTAL)
+       ========================================================================= -->
+  <section id="proceso" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-electric">Proceso claro</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
+          Cómo trabajamos
+        </h2>
+        <p class="text-muted mt-3 text-base">
+          Sin rodeos ni procesos eternos. Sabrás en todo momento en qué punto está tu proyecto.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-7 rounded-3xl bg-surface border border-line/90">
+          <div class="font-display font-extrabold text-3xl text-electric mb-4">01</div>
+          <h3 class="font-display font-bold text-lg text-ink mb-2">Nos cuentas qué quieres</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Sin tecnicismos, incluso si solo tienes una idea inicial o una referencia. Escuchamos tu objetivo y te orientamos sobre la mejor opción.
+          </p>
+        </div>
+
+        <div class="p-7 rounded-3xl bg-surface border border-line/90">
+          <div class="font-display font-extrabold text-3xl text-electric mb-4">02</div>
+          <h3 class="font-display font-bold text-lg text-ink mb-2">Presupuesto cerrado en 24h</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Recibes una propuesta clara por escrito para que sepas exactamente cuánto cuesta, qué incluye y cuándo estará listo, sin sorpresas.
+          </p>
+        </div>
+
+        <div class="p-7 rounded-3xl bg-surface border border-line/90">
+          <div class="font-display font-extrabold text-3xl text-electric mb-4">03</div>
+          <h3 class="font-display font-bold text-lg text-ink mb-2">Diseño, desarrollo y entrega llave en mano</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Nos encargamos de todo el proceso y lo dejamos publicado y funcionando en tu dominio para que tú solo te centres en tu negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. SECCIÓN ESTRELLA: CONFIGURADOR INTERACTIVO "CUÉNTANOS QUÉ NECESITAS"
+       ========================================================================= -->
+  <section id="contacto" class="py-20 sm:py-28 bg-surface border-y border-line/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-electric">Configurador de proyecto</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
+          Cuéntanos qué necesitas
+        </h2>
+        <p class="text-muted mt-3 text-base">
+          Marca las opciones que encajen con tu idea y explícanos con tus palabras qué te gustaría crear. Te respondemos en menos de 24 horas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-line shadow-browser p-6 sm:p-10">
+
+        <form id="project-configurator-form" class="space-y-8">
+          <!-- PASO 1: Chips de selección múltiple -->
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <label class="text-sm font-display font-bold text-ink">
+                1. ¿Qué tipo de proyecto tienes en mente? <span class="text-slate-400 font-normal">(Puedes marcar varios)</span>
+              </label>
+            </div>
+            <div class="flex flex-wrap gap-2.5" id="project-type-chips">
+              <button type="button" data-chip="Página Web" class="type-chip px-4 py-2.5 rounded-xl border-2 border-electric bg-blue-50 text-electric text-sm font-semibold transition cursor-pointer">
+                Página Web
+              </button>
+              <button type="button" data-chip="Tienda Online" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
+                Tienda Online
+              </button>
+              <button type="button" data-chip="App / Sistema a Medida" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
+                App / Sistema a Medida
+              </button>
+              <button type="button" data-chip="Rediseño de web actual" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
+                Rediseño de web actual
+              </button>
+              <button type="button" data-chip="Automatización" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
+                Automatización
+              </button>
+              <button type="button" data-chip="Tengo otra idea" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
+                Tengo otra idea
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 2: Presupuesto orientativo (selección única opcional) -->
+          <div class="pt-6 border-t border-slate-100">
+            <label class="block text-sm font-display font-bold text-ink mb-3">
+              2. Presupuesto orientativo <span class="text-slate-400 font-normal">(Opcional)</span>
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="budget-chips">
+              <button type="button" data-budget="Menos de 500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                Menos de 500 €
+              </button>
+              <button type="button" data-budget="500 € - 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border-2 border-electric bg-blue-50 text-electric text-xs sm:text-sm font-semibold transition cursor-pointer">
+                500 € - 1.500 €
+              </button>
+              <button type="button" data-budget="Más de 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                Más de 1.500 €
+              </button>
+              <button type="button" data-budget="Aún no lo sé" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                Aún no lo sé
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 3: Datos de contacto y descripción libre -->
+          <div class="pt-6 border-t border-slate-100 space-y-4">
+            <label class="block text-sm font-display font-bold text-ink">
+              3. Tus datos y detalles de la idea
+            </label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="cfg-name" class="block text-xs font-semibold text-slate-600 mb-1.5">Nombre</label>
+                <input id="cfg-name" name="nombre" type="text" required placeholder="Tu nombre o empresa" class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition" />
+              </div>
+              <div>
+                <label for="cfg-contact" class="block text-xs font-semibold text-slate-600 mb-1.5">Email o Teléfono</label>
+                <input id="cfg-contact" name="contacto" type="text" required placeholder="tu@correo.es o 600 000 000" class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition" />
+              </div>
+            </div>
+
+            <div>
+              <label for="cfg-desc" class="block text-xs font-semibold text-slate-600 mb-1.5">Tu proyecto</label>
+              <textarea id="cfg-desc" name="descripcion" rows="4" required placeholder="Explícanos con tus palabras qué te gustaría crear..." class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition resize-y"></textarea>
+            </div>
+
+            <!-- Mensaje de error inline si algo falla -->
+            <div id="form-error-msg" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 font-medium">
+              No se pudo enviar automáticamente. Puedes reintentar o usar el envío directo por correo.
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-xs text-slate-500">
+                Sin compromiso. Te respondemos en menos de 24 horas laborables.
+              </p>
+              <button id="btn-submit-project" type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-electric hover:bg-electricDark text-white font-semibold text-sm sm:text-base shadow-md shadow-blue-600/20 transition cursor-pointer">
+                Enviar solicitud
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Vista de Confirmación Elegante con Resumen Exacto + Envío Directo Mailto -->
+        <div id="configurator-success" class="hidden animate-fade-slide text-center py-4">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 text-electric mx-auto mb-4 flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="font-display font-extrabold text-2xl text-ink">¡Solicitud recibida correctamente!</h3>
+          <p class="text-sm text-muted mt-2 max-w-lg mx-auto">
+            Gracias por escribirnos. Revisaremos los detalles de tu proyecto y te responderemos en menos de 24 horas con una propuesta clara.
+          </p>
+
+          <!-- Resumen exacto de lo pedido por el cliente -->
+          <div class="mt-6 text-left bg-surface rounded-2xl border border-line p-5 max-w-xl mx-auto space-y-2.5 text-sm">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Resumen de tu solicitud</div>
+            <div><span class="text-slate-500">Nombre:</span> <strong id="sum-name" class="text-ink"></strong></div>
+            <div><span class="text-slate-500">Contacto:</span> <strong id="sum-contact" class="text-ink"></strong></div>
+            <div><span class="text-slate-500">Necesitas:</span> <strong id="sum-types" class="text-electric"></strong></div>
+            <div><span class="text-slate-500">Presupuesto orientativo:</span> <strong id="sum-budget" class="text-ink"></strong></div>
+            <div class="pt-2 border-t border-line">
+              <span class="text-slate-500 block mb-1">Tu mensaje:</span>
+              <p id="sum-desc" class="text-slate-700 whitespace-pre-line text-xs sm:text-sm leading-relaxed"></p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a id="btn-mailto-backup" href="#" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-ink hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition">
+              Enviar copia también por email directo
+            </a>
+            <button id="btn-new-request" type="button" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-surface border border-line text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
+              Hacer otra consulta
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. PREGUNTAS FRECUENTES (ACORDEÓN INTERACTIVO)
+       ========================================================================= -->
+  <section id="preguntas" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-electric">Dudas habituales</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
+          Preguntas frecuentes
+        </h2>
+      </div>
+
+      <div class="space-y-3.5">
+        <!-- FAQ 1 -->
+        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition" open>
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+            <span>¿Y si no sé exactamente qué necesito?</span>
+            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-muted leading-relaxed">
+            No pasa nada, es lo más normal. Solo cuéntanos en el formulario a qué te dedicas y qué problema quieres resolver o qué objetivo buscas. Nosotros te propondremos la solución más sencilla y rentable para tu caso.
+          </p>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+            <span>¿Cuánto tarda un proyecto?</span>
+            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-muted leading-relaxed">
+            Una página web profesional suele estar lista entre 7 y 10 días laborables. Para tiendas online o herramientas a medida, definimos un calendario exacto por hitos (habitualmente de 2 a 4 semanas) antes de empezar.
+          </p>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+            <span>¿Cuánto cuesta?</span>
+            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-muted leading-relaxed">
+            Depende de lo que necesites, pero siempre trabajamos con presupuesto cerrado por adelantado. Así sabes el importe exacto desde el primer día sin horas extra ni costes escondidos.
+          </p>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+            <span>¿Ofrecéis mantenimiento después?</span>
+            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-muted leading-relaxed">
+            Sí, de forma totalmente opcional y sin permanencia. Si quieres que nos encarguemos de actualizaciones, copias de seguridad y cambios futuros, te ofrecemos un plan mensual sencillo; si prefieres gestionarlo tú, te entregamos todo listo y documentado.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. FOOTER LIMPIO Y PROFESIONAL
+       ========================================================================= -->
+  <footer class="bg-surface border-t border-line py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+        <a href="#inicio" class="font-display font-extrabold text-xl tracking-tight text-ink">
+          Skey<span class="text-electric">.</span>
+        </a>
+        <span class="hidden sm:inline text-slate-300">|</span>
+        <span class="text-xs sm:text-sm text-slate-500">Desarrollo web y soluciones digitales · España</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-xs sm:text-sm">
+        <a id="footer-email-link" href="mailto:hola@skey.es" class="font-semibold text-ink hover:text-electric transition">
+          hola@skey.es
+        </a>
+        <span class="text-slate-400">© 2026 Skey. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * ============================================================================
+     * CONFIGURACIÓN DE SKEY (EDITA ESTOS DOS VALORES ANTES DE PUBLICAR)
+     * ============================================================================
+     */
+    // 1. Tu dirección de correo de contacto (se actualiza automáticamente en el footer y en el botón mailto)
+    const CONTACT_EMAIL = 'hola@skey.es';
+
+    // 2. Clave gratuita de Web3Forms (https://web3forms.com/) para recibir los formularios en tu correo sin backend.
+    //    Mientras mantenga el texto de ejemplo, el formulario funcionará en modo simulación para que puedas probarlo.
+    const WEB3FORMS_ACCESS_KEY = 'PEGA_AQUI_TU_WEB3FORMS_ACCESS_KEY';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Aplicar correo de contacto en el footer
+      const footerEmailLink = document.getElementById('footer-email-link');
+      if (footerEmailLink) {
+        footerEmailLink.href = `mailto:${CONTACT_EMAIL}`;
+        footerEmailLink.textContent = CONTACT_EMAIL;
+      }
+
+      /* ----------------------------------------------------------------------
+         1. MENÚ MÓVIL
+         ---------------------------------------------------------------------- */
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         2. MAQUETA DE NAVEGADOR INTERACTIVA EN EL HERO (3 PESTAÑAS + CARRITO)
+         ---------------------------------------------------------------------- */
+      const browserTabs = document.querySelectorAll('.browser-tab');
+      const browserPanels = document.querySelectorAll('.browser-panel');
+      const browserUrl = document.getElementById('browser-url');
+      const tabUrls = ['nortearquitectura.es', 'koraceramica.es/tienda', 'app.tunegocio.es/panel'];
+
+      browserTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const idx = parseInt(tab.getAttribute('data-browser-tab'), 10);
+
+          browserTabs.forEach((t, i) => {
+            if (i === idx) {
+              t.classList.add('bg-white', 'text-ink', 'shadow-subtle', 'border', 'border-line/60');
+              t.classList.remove('text-slate-600');
+            } else {
+              t.classList.remove('bg-white', 'text-ink', 'shadow-subtle', 'border', 'border-line/60');
+              t.classList.add('text-slate-600');
+            }
+          });
+
+          browserPanels.forEach((panel, i) => {
+            if (i === idx) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+
+          if (browserUrl && tabUrls[idx]) {
+            browserUrl.textContent = tabUrls[idx];
+          }
+        });
+      });
+
+      // Mini carrito interactivo en la pestaña "Tienda / Catálogo"
+      let mockCartCount = 1;
+      let mockCartTotal = 34;
+      const cartCountEl = document.getElementById('mock-cart-count');
+      const cartTotalEl = document.getElementById('mock-cart-total');
+
+      document.querySelectorAll('.mock-add-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const price = parseInt(btn.getAttribute('data-add-price'), 10) || 0;
+          mockCartCount += 1;
+          mockCartTotal += price;
+          if (cartCountEl) cartCountEl.textContent = String(mockCartCount);
+          if (cartTotalEl) cartTotalEl.textContent = `${mockCartTotal} €`;
+
+          const prevText = btn.textContent;
+          btn.textContent = '✓ Añadido';
+          setTimeout(() => { btn.textContent = prevText; }, 850);
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         3. CONFIGURADOR INTERACTIVO DE PROYECTO (SELECCIÓN MÚLTIPLE + PRESUPUESTO)
+         ---------------------------------------------------------------------- */
+      const selectedTypes = new Set(['Página Web']);
+      let selectedBudget = '500 € - 1.500 €';
+
+      const typeChips = document.querySelectorAll('.type-chip');
+      const budgetChips = document.querySelectorAll('.budget-chip');
+
+      function syncTypeChipsUI() {
+        typeChips.forEach((chip) => {
+          const val = chip.getAttribute('data-chip');
+          if (selectedTypes.has(val)) {
+            chip.classList.add('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
+            chip.classList.remove('border', 'border-line', 'bg-white', 'text-slate-700');
+          } else {
+            chip.classList.remove('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
+            chip.classList.add('border', 'border-line', 'bg-white', 'text-slate-700');
+          }
+        });
+      }
+
+      typeChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const val = chip.getAttribute('data-chip');
+          if (selectedTypes.has(val)) {
+            selectedTypes.delete(val);
+          } else {
+            selectedTypes.add(val);
+          }
+          syncTypeChipsUI();
+        });
+      });
+
+      // Selección rápida desde las 4 tarjetas de "Qué podemos construir para ti"
+      document.querySelectorAll('.quick-select-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetType = btn.getAttribute('data-quick-select');
+          if (targetType) {
+            selectedTypes.clear();
+            selectedTypes.add(targetType);
+            syncTypeChipsUI();
+          }
+          document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Chips de presupuesto orientativo (selección única opcional)
+      budgetChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const val = chip.getAttribute('data-budget');
+          selectedBudget = (selectedBudget === val) ? 'No especificado' : val;
+
+          budgetChips.forEach((b) => {
+            const bVal = b.getAttribute('data-budget');
+            if (bVal === selectedBudget) {
+              b.classList.add('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
+              b.classList.remove('border', 'border-line', 'bg-white', 'text-slate-700');
+            } else {
+              b.classList.remove('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
+              b.classList.add('border', 'border-line', 'bg-white', 'text-slate-700');
+            }
+          });
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         4. ENVÍO DEL FORMULARIO (WEB3FORMS + RESUMEN EXACTO + BACKUP MAILTO)
+         ---------------------------------------------------------------------- */
+      const form = document.getElementById('project-configurator-form');
+      const submitBtn = document.getElementById('btn-submit-project');
+      const errorMsg = document.getElementById('form-error-msg');
+      const successView = document.getElementById('configurator-success');
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorMsg?.classList.add('hidden');
+
+        const nameVal = document.getElementById('cfg-name').value.trim();
+        const contactVal = document.getElementById('cfg-contact').value.trim();
+        const descVal = document.getElementById('cfg-desc').value.trim();
+        const typesList = selectedTypes.size > 0 ? Array.from(selectedTypes).join(', ') : 'Consulta general';
+        const budgetVal = selectedBudget || 'No especificado';
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando solicitud...';
+
+        try {
+          if (WEB3FORMS_ACCESS_KEY !== 'PEGA_AQUI_TU_WEB3FORMS_ACCESS_KEY') {
+            const payload = new FormData();
+            payload.append('access_key', WEB3FORMS_ACCESS_KEY);
+            payload.append('subject', `Nueva solicitud Skey. — ${typesList}`);
+            payload.append('Nombre', nameVal);
+            payload.append('Contacto', contactVal);
+            payload.append('Tipo de proyecto', typesList);
+            payload.append('Presupuesto orientativo', budgetVal);
+            payload.append('Descripción', descVal);
+
+            const res = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: payload
+            });
+            if (!res.ok) throw new Error('Error al conectar con Web3Forms');
+          } else {
+            // Simulación local si aún no se ha pegado la clave de Web3Forms
+            await new Promise((r) => setTimeout(r, 500));
+          }
+
+          // Rellenar el resumen exacto de la confirmación
+          document.getElementById('sum-name').textContent = nameVal;
+          document.getElementById('sum-contact').textContent = contactVal;
+          document.getElementById('sum-types').textContent = typesList;
+          document.getElementById('sum-budget').textContent = budgetVal;
+          document.getElementById('sum-desc').textContent = descVal;
+
+          // Construir enlace mailto directo con el resumen completo
+          const mailSubject = encodeURIComponent(`Nuevo proyecto para Skey. (${typesList})`);
+          const mailBody = encodeURIComponent(
+            `Hola Skey,\n\nSoy ${nameVal} (${contactVal}).\n\nTipo de proyecto: ${typesList}\nPresupuesto orientativo: ${budgetVal}\n\nDetalles:\n${descVal}\n`
+          );
+          const mailtoBtn = document.getElementById('btn-mailto-backup');
+          if (mailtoBtn) {
+            mailtoBtn.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${mailBody}`;
+          }
+
+          form.classList.add('hidden');
+          successView.classList.remove('hidden');
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          errorMsg?.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar solicitud';
+        }
+      });
+
+      document.getElementById('btn-new-request')?.addEventListener('click', () => {
+        successView.classList.add('hidden');
+        form.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
