@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skey. — Diseñamos y programamos lo que tu negocio necesita</title>
-  <meta name="description" content="Estudio de desarrollo web y soluciones digitales a medida en España. Páginas web, tiendas online, aplicaciones y herramientas personalizadas." />
+  <title>Skey. — Diseño y desarrollo digital a medida en España</title>
+  <meta name="description" content="Estudio digital en España. Creamos páginas web, tiendas online y herramientas a medida con presupuesto cerrado en 24h y entrega llave en mano." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2309090B'/%3E%3Ctext x='7' y='23' font-family='sans-serif' font-weight='800' font-size='18' fill='%23FAFAFA'%3ES%3C/text%3E%3Ccircle cx='24' cy='21' r='2.5' fill='%233B82F6'/%3E%3C/svg%3E" />
 
   <!-- Tailwind CSS vía CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    
     tailwind.config = {
       theme: {
         extend: {
@@ -18,17 +18,24 @@
             sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
           },
           colors: {
+            void: '#09090B',
+            carbon: '#111114',
+            slateDark: '#18181B',
             ink: '#0F172A',
             muted: '#475569',
             surface: '#F8FAFC',
             line: '#E2E8F0',
+            darkLine: 'rgba(255, 255, 255, 0.09)',
             electric: '#2563EB',
+            electricBright: '#3B82F6',
             electricDark: '#1D4ED8',
           },
           boxShadow: {
-            subtle: '0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02)',
-            browser: '0 24px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.05)',
-            cardHover: '0 14px 32px -12px rgba(15, 23, 42, 0.09)',
+            subtle: '0 1px 2px rgba(15, 23, 42, 0.04)',
+            darkCard: '0 24px 60px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08)',
+            elevated: '0 20px 50px -16px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.05)',
+            cardHover: '0 14px 32px -12px rgba(15, 23, 42, 0.10)',
+            blueGlow: '0 12px 32px -8px rgba(59, 130, 246, 0.45)',
           }
         }
       }
@@ -47,668 +54,715 @@
       overflow-x: hidden;
     }
 
-    /* Cuadrícula arquitectónica muy sutil para el fondo del Hero */
-    .hero-grid {
+    .dark-grid {
       background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 85% 70% at 50% 18%, #000 35%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 18%, #000 35%, transparent 100%);
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 30%, transparent 100%);
     }
 
-    /* Animación suave para cambios de pestañas y confirmaciones */
     @keyframes fadeSlide {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-slide {
-      animation: fadeSlide 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Quitar triángulo nativo del summary en Safari/Chrome */
     details > summary::-webkit-details-marker {
       display: none;
     }
   </style>
 </head>
-<body class="font-sans text-ink antialiased selection:bg-blue-100 selection:text-electric">
+<body class="font-sans text-ink antialiased selection:bg-blue-500/20 selection:text-electricBright">
 
   <!-- =========================================================================
-       1. BARRA DE NAVEGACIÓN FIJA MINIMALISTA
+       1. BARRA DE NAVEGACIÓN FIJA EN NEGRO CARBÓN TRANSLÚCIDO
        ========================================================================= -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md border-b border-line/80">
+  <header class="fixed top-0 inset-x-0 z-50 bg-void/85 backdrop-blur-xl border-b border-darkLine">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
 
-      <!-- Logotipo "Skey." con punto azul eléctrico -->
-      <a href="#inicio" class="font-display font-extrabold text-2xl tracking-tight text-ink flex items-center shrink-0">
-        Skey<span class="text-electric">.</span>
+      <a href="#inicio" class="font-display font-extrabold text-2xl tracking-tight text-white flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-electricBright rounded-lg">
+        Skey<span class="text-electricBright">.</span>
       </a>
 
-      <!-- Enlaces de navegación escritorio -->
-      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#servicios" class="hover:text-ink transition">Qué hacemos</a>
-        <a href="#ejemplos" class="hover:text-ink transition">Ejemplos</a>
-        <a href="#proceso" class="hover:text-ink transition">Proceso</a>
-        <a href="#preguntas" class="hover:text-ink transition">Preguntas</a>
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+        <a href="#servicios" class="hover:text-white transition">Soluciones</a>
+        <a href="#ejemplos" class="hover:text-white transition">Alcance</a>
+        <a href="#proceso" class="hover:text-white transition">Cómo trabajamos</a>
+        <a href="#preguntas" class="hover:text-white transition">Preguntas</a>
       </nav>
 
-      <!-- Botón CTA + Menú móvil -->
       <div class="flex items-center gap-2.5">
-        <a href="#contacto" class="px-4 sm:px-5 py-2.5 rounded-xl bg-electric hover:bg-electricDark text-white text-xs sm:text-sm font-semibold shadow-sm shadow-blue-600/20 transition whitespace-nowrap">
-          Pedir presupuesto
+        <a href="#contacto" class="px-4 sm:px-5 py-2.5 rounded-xl bg-electricBright hover:bg-electric text-white text-xs sm:text-sm font-semibold shadow-blueGlow transition whitespace-nowrap">
+          Pedir propuesta
         </a>
 
-        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden p-2.5 rounded-xl border border-line text-slate-700 hover:bg-surface transition">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="md:hidden p-2.5 rounded-xl border border-darkLine text-zinc-200 hover:bg-slateDark transition"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Menú móvil desplegable -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-line px-4 py-3 shadow-lg">
-      <div class="flex flex-col space-y-1 text-sm font-medium text-slate-700">
-        <a href="#servicios" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Qué hacemos</a>
-        <a href="#ejemplos" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Ejemplos</a>
-        <a href="#proceso" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Proceso</a>
-        <a href="#preguntas" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-surface">Preguntas</a>
-      </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-carbon border-b border-darkLine px-4 py-3 shadow-2xl">
+      <nav aria-label="Navegación móvil" class="flex flex-col space-y-1 text-sm font-medium text-zinc-300">
+        <a href="#servicios" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-slateDark hover:text-white">Soluciones</a>
+        <a href="#ejemplos" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-slateDark hover:text-white">Alcance</a>
+        <a href="#proceso" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-slateDark hover:text-white">Cómo trabajamos</a>
+        <a href="#preguntas" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-slateDark hover:text-white">Preguntas</a>
+      </nav>
     </div>
   </header>
 
-  <!-- =========================================================================
-       2. HERO PRINCIPAL + MAQUETA INTERACTIVA DE NAVEGADOR (3 PESTAÑAS)
-       ========================================================================= -->
-  <section id="inicio" class="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden">
-    <!-- Fondo sutil tipo Stripe/Vercel Light -->
-    <div class="absolute inset-0 hero-grid pointer-events-none"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[780px] h-[360px] bg-blue-500/[0.06] blur-3xl rounded-full pointer-events-none"></div>
+  <main>
+    <!-- =========================================================================
+         2. HERO EN NEGRO PROFUNDO + FICHA DE ENTREGA INTERACTIVA
+         ========================================================================= -->
+    <section id="inicio" class="relative pt-28 pb-24 sm:pt-36 sm:pb-32 bg-void text-white overflow-hidden">
+      <div class="absolute inset-0 dark-grid pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[820px] h-[380px] bg-blue-600/20 blur-[130px] rounded-full pointer-events-none" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
 
-        <!-- Columna de Copy Principal -->
-        <div class="lg:col-span-6 text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-line text-xs font-semibold text-slate-700 mb-6 shadow-subtle">
-            <span class="w-2 h-2 rounded-full bg-electric"></span>
-            Estudio digital a medida · España
-          </div>
-
-          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.35rem] tracking-tight text-ink leading-[1.09]">
-            Diseñamos y programamos lo que tu negocio necesita<span class="text-electric">.</span>
-          </h1>
-
-          <p class="mt-5 text-base sm:text-lg text-muted leading-relaxed max-w-xl">
-            Desde una página web profesional hasta una tienda online o una herramienta a medida. Nos cuentas tu idea y la hacemos realidad sin complicaciones.
-          </p>
-
-          <!-- Botones CTA del Hero -->
-          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-            <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-electric hover:bg-electricDark text-white font-semibold text-sm sm:text-base shadow-md shadow-blue-600/20 transition">
-              <span>Cuéntanos tu proyecto</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a href="#servicios" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white hover:bg-surface border border-line text-ink font-semibold text-sm sm:text-base shadow-subtle transition">
-              Ver qué hacemos
-            </a>
-          </div>
-
-          <!-- Indicadores breves de tranquilidad -->
-          <div class="mt-8 pt-6 border-t border-line/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500">
-            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> Presupuesto cerrado en 24h</span>
-            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> 100% a tu medida</span>
-            <span class="inline-flex items-center gap-1.5"><span class="text-electric font-bold">✓</span> Sin permanencia</span>
-          </div>
-        </div>
-
-        <!-- Columna Derecha: Maqueta de Navegador Interactiva con 3 Pestañas -->
-        <div id="ejemplos" class="lg:col-span-6 scroll-mt-24">
-          <!-- Selector superior de pestañas -->
-          <div class="flex items-center gap-1.5 bg-surface p-1.5 rounded-2xl border border-line mb-3.5 overflow-x-auto">
-            <button type="button" data-browser-tab="0" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold bg-white text-ink shadow-subtle border border-line/60 transition whitespace-nowrap cursor-pointer">
-              Web Corporativa
-            </button>
-            <button type="button" data-browser-tab="1" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-ink transition whitespace-nowrap cursor-pointer">
-              Tienda / Catálogo
-            </button>
-            <button type="button" data-browser-tab="2" class="browser-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-ink transition whitespace-nowrap cursor-pointer">
-              Herramienta a Medida
-            </button>
-          </div>
-
-          <!-- Ventana de Navegador Elegante -->
-          <div class="bg-white rounded-2xl shadow-browser overflow-hidden border border-line">
-            <!-- Barra superior del navegador -->
-            <div class="bg-surface px-4 py-3 border-b border-line flex items-center justify-between gap-3">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-              </div>
-              <div id="browser-url" class="flex-1 max-w-xs mx-auto bg-white border border-line rounded-lg px-3 py-1 text-[11px] text-slate-500 text-center truncate">
-                tunegocio.es
-              </div>
-              <div class="w-10"></div>
+          <!-- Columna Izquierda -->
+          <div class="lg:col-span-6 text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-darkLine text-xs font-semibold text-zinc-200 mb-6">
+              <span class="w-2 h-2 rounded-full bg-electricBright animate-pulse"></span>
+              Estudio digital a medida · España
             </div>
 
-            <!-- Contenido Dinámico del Navegador -->
-            <div class="p-5 sm:p-6 min-h-[340px] flex flex-col justify-between bg-white">
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.4rem] tracking-[-0.03em] text-white leading-[1.07]">
+              Software y webs hechas para vender y ahorrar horas<span class="text-electricBright">.</span>
+            </h1>
 
-              <!-- PESTAÑA 1: WEB CORPORATIVA -->
-              <div id="browser-panel-0" class="browser-panel animate-fade-slide space-y-5">
-                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <span class="font-display font-bold text-sm text-ink">Norte Arquitectura</span>
-                  <div class="flex items-center gap-3 text-[11px] text-slate-500">
-                    <span>Proyectos</span>
-                    <span>Estudio</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-ink text-white font-semibold">Contacto</span>
-                  </div>
-                </div>
+            <p class="mt-5 text-base sm:text-lg text-zinc-400 leading-relaxed max-w-xl">
+              Construimos tu página web, tienda online o herramienta interna desde cero, sin plantillas pesadas ni permanencias. Presupuesto cerrado por escrito en menos de 24h.
+            </p>
 
-                <div class="rounded-2xl bg-surface border border-line/80 p-5">
-                  <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-electric text-[10px] font-bold uppercase tracking-wide mb-2">
-                    Reformas y Obra Nueva
-                  </span>
-                  <h3 class="font-display font-bold text-xl text-ink leading-snug">
-                    Espacios pensados para durar y disfrutarse cada día.
-                  </h3>
-                  <p class="text-xs text-slate-500 mt-2 leading-relaxed">
-                    Más de 12 años diseñando viviendas y locales comerciales con presupuesto cerrado y seguimiento transparente.
-                  </p>
-                  <div class="mt-4 flex items-center gap-2.5">
-                    <span class="px-3.5 py-2 rounded-lg bg-electric text-white text-xs font-semibold">Pedir valoración</span>
-                    <span class="px-3.5 py-2 rounded-lg bg-white border border-line text-slate-700 text-xs font-semibold">Ver obras</span>
-                  </div>
-                </div>
+            <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-electricBright hover:bg-electric text-white font-semibold text-sm sm:text-base shadow-blueGlow transition">
+                <span>Configurar mi proyecto</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a href="#servicios" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-darkLine text-white font-semibold text-sm sm:text-base transition">
+                Ver soluciones
+              </a>
+            </div>
 
-                <div class="grid grid-cols-3 gap-2.5 text-center">
-                  <div class="p-3 rounded-xl bg-surface border border-line/70">
-                    <div class="font-display font-bold text-base text-ink">+140</div>
-                    <div class="text-[10px] text-slate-500">Proyectos</div>
-                  </div>
-                  <div class="p-3 rounded-xl bg-surface border border-line/70">
-                    <div class="font-display font-bold text-base text-ink">4.9 ★</div>
-                    <div class="text-[10px] text-slate-500">Valoración</div>
-                  </div>
-                  <div class="p-3 rounded-xl bg-surface border border-line/70">
-                    <div class="font-display font-bold text-base text-electric">100%</div>
-                    <div class="text-[10px] text-slate-500">A medida</div>
-                  </div>
+            <div class="mt-9 pt-6 border-t border-darkLine flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-zinc-400">
+              <span class="inline-flex items-center gap-1.5"><span class="text-electricBright font-bold">✓</span> Propuesta cerrada en 24h</span>
+              <span class="inline-flex items-center gap-1.5"><span class="text-electricBright font-bold">✓</span> Código y dominio 100% tuyos</span>
+              <span class="inline-flex items-center gap-1.5"><span class="text-electricBright font-bold">✓</span> Sin cuotas obligatorias</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Ficha de Entrega en Negro Carbón -->
+          <div id="ejemplos" class="lg:col-span-6 scroll-mt-24">
+            <div role="tablist" aria-label="Ejemplos de alcance por tipo de solución" class="flex items-center gap-1.5 bg-carbon p-1.5 rounded-2xl border border-darkLine mb-3.5 overflow-x-auto">
+              <button
+                type="button"
+                role="tab"
+                id="tab-0"
+                aria-selected="true"
+                aria-controls="panel-0"
+                data-scope-tab="0"
+                class="scope-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold bg-slateDark text-white border border-white/10 transition whitespace-nowrap cursor-pointer"
+              >
+                Web de Captación
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-1"
+                aria-selected="false"
+                aria-controls="panel-1"
+                data-scope-tab="1"
+                class="scope-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition whitespace-nowrap cursor-pointer"
+              >
+                Tienda / Catálogo
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-2"
+                aria-selected="false"
+                aria-controls="panel-2"
+                data-scope-tab="2"
+                class="scope-tab flex-1 px-3 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition whitespace-nowrap cursor-pointer"
+              >
+                Herramienta Interna
+              </button>
+            </div>
+
+            <div class="bg-carbon rounded-3xl shadow-darkCard overflow-hidden border border-darkLine">
+              <div class="bg-slateDark/80 px-5 py-3.5 border-b border-darkLine flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span id="scope-header-label" class="text-xs font-semibold text-zinc-300">Ficha de entrega · Web Profesional</span>
                 </div>
+                <span id="scope-timeline-badge" class="px-2.5 py-0.5 rounded-md bg-blue-500/15 border border-blue-400/20 text-blue-300 text-[11px] font-bold">
+                  7 – 10 días
+                </span>
               </div>
 
-              <!-- PESTAÑA 2: TIENDA / CATÁLOGO (CON CARRITO INTERACTIVO) -->
-              <div id="browser-panel-1" class="browser-panel hidden animate-fade-slide space-y-4">
-                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <span class="font-display font-bold text-sm text-ink">Kora Cerámica · Tienda</span>
-                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 text-electric text-xs font-bold">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span>Carrito (<span id="mock-cart-count">1</span>)</span>
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                  <!-- Producto 1 -->
-                  <div class="rounded-xl border border-line p-3 bg-surface/60 flex flex-col justify-between">
-                    <div class="h-20 rounded-lg bg-gradient-to-br from-slate-200 to-slate-100 mb-2.5 flex items-center justify-center text-xs font-semibold text-slate-500">
-                      Set Tazas Arena
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-ink">Set 2 Tazas Artesanales</div>
-                      <div class="flex items-center justify-between mt-2">
-                        <span class="font-display font-bold text-sm text-ink">34 €</span>
-                        <button type="button" data-add-price="34" class="mock-add-btn px-2.5 py-1 rounded-lg bg-electric hover:bg-electricDark text-white text-[11px] font-semibold transition cursor-pointer">
-                          + Añadir
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Producto 2 -->
-                  <div class="rounded-xl border border-line p-3 bg-surface/60 flex flex-col justify-between">
-                    <div class="h-20 rounded-lg bg-gradient-to-br from-blue-100 to-slate-100 mb-2.5 flex items-center justify-center text-xs font-semibold text-blue-700">
-                      Jarrón Minimal
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-ink">Jarrón Mate Blanco</div>
-                      <div class="flex items-center justify-between mt-2">
-                        <span class="font-display font-bold text-sm text-ink">48 €</span>
-                        <button type="button" data-add-price="48" class="mock-add-btn px-2.5 py-1 rounded-lg bg-electric hover:bg-electricDark text-white text-[11px] font-semibold transition cursor-pointer">
-                          + Añadir
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between p-3 rounded-xl bg-surface border border-line text-xs">
-                  <span class="text-slate-600">Total estimado en carrito: <strong id="mock-cart-total" class="text-ink">34 €</strong></span>
-                  <span class="font-semibold text-electric">Pago seguro con tarjeta</span>
-                </div>
-              </div>
-
-              <!-- PESTAÑA 3: HERRAMIENTA A MEDIDA (PANEL DE GESTIÓN) -->
-              <div id="browser-panel-2" class="browser-panel hidden animate-fade-slide space-y-4">
-                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div class="p-6 sm:p-7">
+                <!-- PANEL 0 -->
+                <div id="panel-0" role="tabpanel" aria-labelledby="tab-0" class="scope-panel animate-fade-slide space-y-5">
                   <div>
-                    <div class="font-display font-bold text-sm text-ink">Panel de Clientes y Proyectos</div>
-                    <div class="text-[11px] text-slate-500">Resumen semanal en tiempo real</div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-electricBright">Ideal para servicios y empresas locales</span>
+                    <h2 class="font-display font-bold text-xl text-white mt-1">
+                      Presencia profesional orientada a recibir contactos
+                    </h2>
+                    <p class="text-sm text-zinc-400 mt-1.5 leading-relaxed">
+                      Estructura clara, carga instantánea en móvil y formularios conectados directamente a tu correo o WhatsApp.
+                    </p>
                   </div>
-                  <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold">
-                    Todo al día
-                  </span>
-                </div>
 
-                <div class="grid grid-cols-3 gap-2.5">
-                  <div class="p-3 rounded-xl bg-surface border border-line/80">
-                    <div class="text-[10px] text-slate-500">Activos</div>
-                    <div class="font-display font-bold text-lg text-ink mt-0.5">18</div>
-                  </div>
-                  <div class="p-3 rounded-xl bg-surface border border-line/80">
-                    <div class="text-[10px] text-slate-500">Entregas mes</div>
-                    <div class="font-display font-bold text-lg text-electric mt-0.5">7</div>
-                  </div>
-                  <div class="p-3 rounded-xl bg-surface border border-line/80">
-                    <div class="text-[10px] text-slate-500">Facturación</div>
-                    <div class="font-display font-bold text-lg text-emerald-600 mt-0.5">+22%</div>
-                  </div>
-                </div>
-
-                <div class="space-y-2 text-xs">
-                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line/70">
-                    <div>
-                      <div class="font-semibold text-ink">Clínica Soler · Portal Pacientes</div>
-                      <div class="text-[10px] text-slate-500">Actualizado hoy · 10:15</div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Diseño a medida</div>
+                        <div class="text-zinc-400 mt-0.5">Adaptado a tu marca y sector</div>
+                      </div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-full bg-blue-50 text-electric font-semibold text-[10px]">En curso</span>
-                  </div>
-                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line/70">
-                    <div>
-                      <div class="font-semibold text-ink">Distribuciones Alba · Pedidos B2B</div>
-                      <div class="text-[10px] text-slate-500">Entregado · Revisado</div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">SEO técnico base</div>
+                        <div class="text-zinc-400 mt-0.5">Indexación y velocidad optimizada</div>
+                      </div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold text-[10px]">Completado</span>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Captación directa</div>
+                        <div class="text-zinc-400 mt-0.5">Formularios y botones sin fricción</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Publicación incluida</div>
+                        <div class="text-zinc-400 mt-0.5">Dominio, SSL y puesta en marcha</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-4 border-t border-darkLine flex items-center justify-between gap-4">
+                    <div>
+                      <div class="text-[11px] text-zinc-400">Inversión orientativa</div>
+                      <div class="font-display font-extrabold text-lg text-white">Desde 450 € <span class="text-xs font-normal text-zinc-400">· pago único</span></div>
+                    </div>
+                    <button type="button" data-quick-select="Página Web" class="quick-select-btn px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-void text-xs font-bold transition cursor-pointer">
+                      Elegir esta opción →
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PANEL 1 -->
+                <div id="panel-1" role="tabpanel" aria-labelledby="tab-1" class="scope-panel hidden animate-fade-slide space-y-5">
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-electricBright">Ideal para venta de productos o reservas</span>
+                    <h2 class="font-display font-bold text-xl text-white mt-1">
+                      Catálogo online con cobro seguro y gestión sencilla
+                    </h2>
+                    <p class="text-sm text-zinc-400 mt-1.5 leading-relaxed">
+                      Vende las 24 horas sin comisiones extra sobre tus ventas y gestiona pedidos o stock desde un panel claro.
+                    </p>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Pasarela de pago</div>
+                        <div class="text-zinc-400 mt-0.5">Tarjeta, Apple Pay / Google Pay</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Panel autogestionable</div>
+                        <div class="text-zinc-400 mt-0.5">Sube productos y precios tú mismo</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Avisos automáticos</div>
+                        <div class="text-zinc-400 mt-0.5">Confirmación de pedido por email</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Envíos e impuestos</div>
+                        <div class="text-zinc-400 mt-0.5">Zonas y tarifas configuradas</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-4 border-t border-darkLine flex items-center justify-between gap-4">
+                    <div>
+                      <div class="text-[11px] text-zinc-400">Inversión orientativa</div>
+                      <div class="font-display font-extrabold text-lg text-white">Desde 850 € <span class="text-xs font-normal text-zinc-400">· pago único</span></div>
+                    </div>
+                    <button type="button" data-quick-select="Tienda Online" class="quick-select-btn px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-void text-xs font-bold transition cursor-pointer">
+                      Elegir esta opción →
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PANEL 2 -->
+                <div id="panel-2" role="tabpanel" aria-labelledby="tab-2" class="scope-panel hidden animate-fade-slide space-y-5">
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-electricBright">Ideal para eliminar tareas manuales</span>
+                    <h2 class="font-display font-bold text-xl text-white mt-1">
+                      Paneles privados, reservas y automatizaciones
+                    </h2>
+                    <p class="text-sm text-zinc-400 mt-1.5 leading-relaxed">
+                      Sustituye hojas de cálculo dispersas o procesos repetitivos por una aplicación web pensada exactamente para tu flujo.
+                    </p>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Acceso con roles</div>
+                        <div class="text-zinc-400 mt-0.5">Área privada para equipo o clientes</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Base de datos propia</div>
+                        <div class="text-zinc-400 mt-0.5">Historial, filtros y exportación</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Flujos automáticos</div>
+                        <div class="text-zinc-400 mt-0.5">Recordatorios, citas o informes</div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-void/70 border border-darkLine flex items-start gap-2.5">
+                      <span class="text-electricBright font-bold mt-0.5">✓</span>
+                      <div>
+                        <div class="font-semibold text-white">Escalable por fases</div>
+                        <div class="text-zinc-400 mt-0.5">Empieza con lo esencial y amplía</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-4 border-t border-darkLine flex items-center justify-between gap-4">
+                    <div>
+                      <div class="text-[11px] text-zinc-400">Inversión orientativa</div>
+                      <div class="font-display font-extrabold text-lg text-white">Según alcance <span class="text-xs font-normal text-zinc-400">· presupuesto cerrado</span></div>
+                    </div>
+                    <button type="button" data-quick-select="App / Sistema a Medida" class="quick-select-btn px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-void text-xs font-bold transition cursor-pointer">
+                      Elegir esta opción →
+                    </button>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
-       3. SECCIÓN "QUÉ PODEMOS CONSTRUIR PARA TI" (4 TARJETAS GENÉRICAS)
-       ========================================================================= -->
-  <section id="servicios" class="py-20 sm:py-28 bg-surface border-y border-line/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- =========================================================================
+         3. SECCIÓN "SOLUCIONES" (CONTRASTE LUMINOSO CON BLOQUE PRINCIPAL NEGRO)
+         ========================================================================= -->
+    <section id="servicios" class="py-24 sm:py-32 bg-surface border-b border-line/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-      <div class="max-w-2xl mb-12 sm:mb-14">
-        <span class="text-xs font-bold uppercase tracking-wider text-electric">Qué hacemos</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
-          Qué podemos construir para ti
-        </h2>
-        <p class="text-muted mt-3 text-base leading-relaxed">
-          No te limitamos a un solo tipo de proyecto. Nos adaptamos a lo que tu negocio necesita hoy y preparamos el terreno para que pueda crecer mañana.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Tarjeta 1: Páginas Web Profesionales -->
-        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-xl text-ink mb-2">Páginas Web Profesionales</h3>
-            <p class="text-sm sm:text-base text-muted leading-relaxed">
-              Webs rápidas, claras, 100% adaptadas a móvil y diseñadas para transmitir confianza y conseguir nuevos clientes desde el primer día.
-            </p>
-          </div>
-          <button type="button" data-quick-select="Página Web" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
-            <span>Pedir una página web</span>
-            <span>→</span>
-          </button>
-        </article>
-
-        <!-- Tarjeta 2: Tiendas y Catálogos Online -->
-        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-xl text-ink mb-2">Tiendas y Catálogos Online</h3>
-            <p class="text-sm sm:text-base text-muted leading-relaxed">
-              Vende tus productos o servicios 24/7 sin complicaciones. Pagos seguros, gestión sencilla de pedidos y una experiencia de compra impecable.
-            </p>
-          </div>
-          <button type="button" data-quick-select="Tienda Online" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
-            <span>Montar mi tienda online</span>
-            <span>→</span>
-          </button>
-        </article>
-
-        <!-- Tarjeta 3: Aplicaciones y Paneles a Medida -->
-        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-electric flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-xl text-ink mb-2">Aplicaciones y Paneles a Medida</h3>
-            <p class="text-sm sm:text-base text-muted leading-relaxed">
-              Sistemas de reservas, áreas privadas de clientes, paneles de gestión interna o cualquier flujo específico para ahorrar horas a tu equipo.
-            </p>
-          </div>
-          <button type="button" data-quick-select="App / Sistema a Medida" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
-            <span>Crear una herramienta a medida</span>
-            <span>→</span>
-          </button>
-        </article>
-
-        <!-- Tarjeta 4: Tu Idea Personalizada -->
-        <article class="bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-blue-300 hover:shadow-cardHover transition flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-xl text-ink mb-2">Tu Idea Personalizada</h3>
-            <p class="text-sm sm:text-base text-muted leading-relaxed">
-              ¿Necesitas algo diferente que no encaja en una categoría estándar? Lo analizamos contigo con calma y lo programamos exactamente a tu medida.
-            </p>
-          </div>
-          <button type="button" data-quick-select="Tengo otra idea" class="quick-select-btn mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
-            <span>Contarnos tu idea</span>
-            <span>→</span>
-          </button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       4. SECCIÓN "CÓMO TRABAJAMOS" (3 PASOS SENCILLOS EN HORIZONTAL)
-       ========================================================================= -->
-  <section id="proceso" class="py-20 sm:py-28 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-xs font-bold uppercase tracking-wider text-electric">Proceso claro</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
-          Cómo trabajamos
-        </h2>
-        <p class="text-muted mt-3 text-base">
-          Sin rodeos ni procesos eternos. Sabrás en todo momento en qué punto está tu proyecto.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-7 rounded-3xl bg-surface border border-line/90">
-          <div class="font-display font-extrabold text-3xl text-electric mb-4">01</div>
-          <h3 class="font-display font-bold text-lg text-ink mb-2">Nos cuentas qué quieres</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Sin tecnicismos, incluso si solo tienes una idea inicial o una referencia. Escuchamos tu objetivo y te orientamos sobre la mejor opción.
+        <div class="max-w-2xl mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-electric">Soluciones</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.02em] text-ink mt-2">
+            Qué podemos construir para tu negocio
+          </h2>
+          <p class="text-muted mt-3 text-base leading-relaxed">
+            Desde una web rápida para captar clientes hasta software interno diseñado para ahorrarte horas cada semana.
           </p>
         </div>
 
-        <div class="p-7 rounded-3xl bg-surface border border-line/90">
-          <div class="font-display font-extrabold text-3xl text-electric mb-4">02</div>
-          <h3 class="font-display font-bold text-lg text-ink mb-2">Presupuesto cerrado en 24h</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Recibes una propuesta clara por escrito para que sepas exactamente cuánto cuesta, qué incluye y cuándo estará listo, sin sorpresas.
-          </p>
-        </div>
-
-        <div class="p-7 rounded-3xl bg-surface border border-line/90">
-          <div class="font-display font-extrabold text-3xl text-electric mb-4">03</div>
-          <h3 class="font-display font-bold text-lg text-ink mb-2">Diseño, desarrollo y entrega llave en mano</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Nos encargamos de todo el proceso y lo dejamos publicado y funcionando en tu dominio para que tú solo te centres en tu negocio.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       5. SECCIÓN ESTRELLA: CONFIGURADOR INTERACTIVO "CUÉNTANOS QUÉ NECESITAS"
-       ========================================================================= -->
-  <section id="contacto" class="py-20 sm:py-28 bg-surface border-y border-line/80">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-
-      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-        <span class="text-xs font-bold uppercase tracking-wider text-electric">Configurador de proyecto</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
-          Cuéntanos qué necesitas
-        </h2>
-        <p class="text-muted mt-3 text-base">
-          Marca las opciones que encajen con tu idea y explícanos con tus palabras qué te gustaría crear. Te respondemos en menos de 24 horas.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-3xl border border-line shadow-browser p-6 sm:p-10">
-
-        <form id="project-configurator-form" class="space-y-8">
-          <!-- PASO 1: Chips de selección múltiple -->
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <label class="text-sm font-display font-bold text-ink">
-                1. ¿Qué tipo de proyecto tienes en mente? <span class="text-slate-400 font-normal">(Puedes marcar varios)</span>
-              </label>
-            </div>
-            <div class="flex flex-wrap gap-2.5" id="project-type-chips">
-              <button type="button" data-chip="Página Web" class="type-chip px-4 py-2.5 rounded-xl border-2 border-electric bg-blue-50 text-electric text-sm font-semibold transition cursor-pointer">
-                Página Web
-              </button>
-              <button type="button" data-chip="Tienda Online" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
-                Tienda Online
-              </button>
-              <button type="button" data-chip="App / Sistema a Medida" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
-                App / Sistema a Medida
-              </button>
-              <button type="button" data-chip="Rediseño de web actual" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
-                Rediseño de web actual
-              </button>
-              <button type="button" data-chip="Automatización" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
-                Automatización
-              </button>
-              <button type="button" data-chip="Tengo otra idea" class="type-chip px-4 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-sm font-semibold transition cursor-pointer">
-                Tengo otra idea
-              </button>
-            </div>
-          </div>
-
-          <!-- PASO 2: Presupuesto orientativo (selección única opcional) -->
-          <div class="pt-6 border-t border-slate-100">
-            <label class="block text-sm font-display font-bold text-ink mb-3">
-              2. Presupuesto orientativo <span class="text-slate-400 font-normal">(Opcional)</span>
-            </label>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="budget-chips">
-              <button type="button" data-budget="Menos de 500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
-                Menos de 500 €
-              </button>
-              <button type="button" data-budget="500 € - 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border-2 border-electric bg-blue-50 text-electric text-xs sm:text-sm font-semibold transition cursor-pointer">
-                500 € - 1.500 €
-              </button>
-              <button type="button" data-budget="Más de 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
-                Más de 1.500 €
-              </button>
-              <button type="button" data-budget="Aún no lo sé" class="budget-chip px-3.5 py-2.5 rounded-xl border border-line bg-white hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
-                Aún no lo sé
-              </button>
-            </div>
-          </div>
-
-          <!-- PASO 3: Datos de contacto y descripción libre -->
-          <div class="pt-6 border-t border-slate-100 space-y-4">
-            <label class="block text-sm font-display font-bold text-ink">
-              3. Tus datos y detalles de la idea
-            </label>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label for="cfg-name" class="block text-xs font-semibold text-slate-600 mb-1.5">Nombre</label>
-                <input id="cfg-name" name="nombre" type="text" required placeholder="Tu nombre o empresa" class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition" />
-              </div>
-              <div>
-                <label for="cfg-contact" class="block text-xs font-semibold text-slate-600 mb-1.5">Email o Teléfono</label>
-                <input id="cfg-contact" name="contacto" type="text" required placeholder="tu@correo.es o 600 000 000" class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition" />
-              </div>
-            </div>
-
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Tarjeta Principal Destacada en Negro Carbón -->
+          <article class="lg:col-span-7 bg-gradient-to-br from-slateDark to-void text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-darkCard border border-darkLine">
             <div>
-              <label for="cfg-desc" class="block text-xs font-semibold text-slate-600 mb-1.5">Tu proyecto</label>
-              <textarea id="cfg-desc" name="descripcion" rows="4" required placeholder="Explícanos con tus palabras qué te gustaría crear..." class="w-full px-4 py-3 rounded-xl bg-surface border border-line focus:bg-white focus:border-electric focus:ring-2 focus:ring-blue-100 focus:outline-none text-sm text-ink transition resize-y"></textarea>
-            </div>
-
-            <!-- Mensaje de error inline si algo falla -->
-            <div id="form-error-msg" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 font-medium">
-              No se pudo enviar automáticamente. Puedes reintentar o usar el envío directo por correo.
-            </div>
-
-            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p class="text-xs text-slate-500">
-                Sin compromiso. Te respondemos en menos de 24 horas laborables.
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/20 text-blue-300 text-xs font-semibold mb-6">
+                Mayor impacto operativo
+              </div>
+              <h3 class="font-display font-extrabold text-2xl sm:text-3xl tracking-tight leading-snug">
+                Aplicaciones, paneles y automatizaciones a medida
+              </h3>
+              <p class="text-zinc-300 text-sm sm:text-base mt-3 leading-relaxed max-w-xl">
+                Sistemas de reservas, portales privados de clientes, paneles internos o conexiones entre herramientas para dejar de perder tiempo en tareas repetitivas.
               </p>
-              <button id="btn-submit-project" type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-electric hover:bg-electricDark text-white font-semibold text-sm sm:text-base shadow-md shadow-blue-600/20 transition cursor-pointer">
-                Enviar solicitud
+
+              <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-200">
+                <div class="flex items-center gap-2"><span class="text-electricBright font-bold">✓</span> Reservas y gestión de citas</div>
+                <div class="flex items-center gap-2"><span class="text-electricBright font-bold">✓</span> Áreas privadas con usuario</div>
+                <div class="flex items-center gap-2"><span class="text-electricBright font-bold">✓</span> Paneles de control y pedidos</div>
+                <div class="flex items-center gap-2"><span class="text-electricBright font-bold">✓</span> Automatización de avisos</div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+              <span class="text-xs text-zinc-400">Entrega por hitos con alcance cerrado</span>
+              <button type="button" data-quick-select="App / Sistema a Medida" class="quick-select-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-electricBright hover:bg-electric text-white text-sm font-semibold shadow-blueGlow transition cursor-pointer">
+                <span>Contarnos tu caso</span>
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Columna Derecha Apilada -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <article class="flex-1 bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-void/30 hover:shadow-cardHover transition flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <div class="w-11 h-11 rounded-2xl bg-void text-white flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-semibold text-slate-500">7 – 10 días</span>
+                </div>
+                <h3 class="font-display font-bold text-xl text-ink mb-2">Páginas Web Profesionales</h3>
+                <p class="text-sm text-muted leading-relaxed">
+                  Webs rápidas, claras y adaptadas a móvil, pensadas para transmitir confianza y convertir visitas en consultas reales.
+                </p>
+              </div>
+              <button type="button" data-quick-select="Página Web" class="quick-select-btn mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+                <span>Pedir una página web</span>
+                <span>→</span>
+              </button>
+            </article>
+
+            <article class="flex-1 bg-white rounded-3xl p-7 sm:p-8 border border-line hover:border-void/30 hover:shadow-cardHover transition flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <div class="w-11 h-11 rounded-2xl bg-void text-white flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-semibold text-slate-500">2 – 3 semanas</span>
+                </div>
+                <h3 class="font-display font-bold text-xl text-ink mb-2">Tiendas y Catálogos Online</h3>
+                <p class="text-sm text-muted leading-relaxed">
+                  Vende tus productos o servicios 24/7 con pagos seguros, control sencillo de pedidos y sin fricción en móvil.
+                </p>
+              </div>
+              <button type="button" data-quick-select="Tienda Online" class="quick-select-btn mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:text-electricDark transition cursor-pointer w-fit">
+                <span>Montar tienda online</span>
+                <span>→</span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SECCIÓN "CÓMO TRABAJAMOS"
+         ========================================================================= -->
+    <section id="proceso" class="py-24 sm:py-32 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-wider text-electric">Proceso claro</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.02em] text-ink mt-2">
+            Cómo trabajamos
+          </h2>
+          <p class="text-muted mt-3 text-base">
+            Sin reuniones interminables ni tecnicismos innecesarios. Sabes qué se entrega y cuánto cuesta desde el primer día.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-8 rounded-3xl bg-surface border border-line/90 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-void text-white font-display font-bold text-sm flex items-center justify-center mb-5">01</div>
+              <h3 class="font-display font-bold text-lg text-ink mb-2">Nos explicas tu objetivo</h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Rellenas el configurador en 2 minutos con lo que necesitas o el problema que quieres resolver. Si hace falta, lo aterrizamos contigo por email o llamada breve.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-line/80 text-xs font-semibold text-slate-600">
+              Sin compromiso ni presión comercial
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-surface border border-line/90 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-void text-white font-display font-bold text-sm flex items-center justify-center mb-5">02</div>
+              <h3 class="font-display font-bold text-lg text-ink mb-2">Propuesta cerrada en 24h</h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Te enviamos un documento claro con funcionalidades incluidas, plazo exacto de entrega y precio cerrado antes de escribir una sola línea de código.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-line/80 text-xs font-semibold text-slate-600">
+              Precio fijo sin sorpresas finales
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-surface border border-line/90 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-void text-white font-display font-bold text-sm flex items-center justify-center mb-5">03</div>
+              <h3 class="font-display font-bold text-lg text-ink mb-2">Desarrollo y entrega llave en mano</h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Ves avances reales durante el desarrollo y lo dejamos publicado en tu dominio, probado en móvil y listo para funcionar desde el primer minuto.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-line/80 text-xs font-semibold text-slate-600">
+              Propiedad 100% tuya al finalizar
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. CONFIGURADOR INTERACTIVO EN BLOQUE NEGRO DE ALTO CONTRASTE
+         ========================================================================= -->
+    <section id="contacto" class="py-24 sm:py-32 bg-void text-white relative overflow-hidden">
+      <div class="absolute inset-0 dark-grid pointer-events-none" aria-hidden="true"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-wider text-electricBright">Configurador de proyecto</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.02em] text-white mt-2">
+            Cuéntanos qué necesitas
+          </h2>
+          <p class="text-zinc-400 mt-3 text-base">
+            Selecciona qué encaja con tu proyecto y explícanos tu idea con tus propias palabras. Respondemos en menos de 24 horas laborables.
+          </p>
+        </div>
+
+        <div class="bg-carbon rounded-3xl border border-darkLine shadow-darkCard p-6 sm:p-10">
+
+          <form id="project-configurator-form" class="space-y-8" novalidate>
+            <!-- PASO 1 -->
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span id="type-group-label" class="text-sm font-display font-bold text-white">
+                  1. ¿Qué necesitas construir? <span class="text-zinc-400 font-normal">(Puedes marcar varios)</span>
+                </span>
+              </div>
+              <div role="group" aria-labelledby="type-group-label" class="flex flex-wrap gap-2.5" id="project-type-chips">
+                <button type="button" aria-pressed="false" data-chip="Página Web" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  Página Web
+                </button>
+                <button type="button" aria-pressed="false" data-chip="Tienda Online" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  Tienda Online
+                </button>
+                <button type="button" aria-pressed="false" data-chip="App / Sistema a Medida" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  App / Sistema a Medida
+                </button>
+                <button type="button" aria-pressed="false" data-chip="Automatización" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  Automatización
+                </button>
+                <button type="button" aria-pressed="false" data-chip="Rediseño de web actual" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  Rediseño de web actual
+                </button>
+                <button type="button" aria-pressed="false" data-chip="Tengo otra idea" class="type-chip px-4 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-sm font-semibold transition cursor-pointer">
+                  Tengo otra idea
+                </button>
+              </div>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="pt-6 border-t border-darkLine">
+              <span id="budget-group-label" class="block text-sm font-display font-bold text-white mb-3">
+                2. Inversión estimada <span class="text-zinc-400 font-normal">(Opcional · nos ayuda a ajustar la solución)</span>
+              </span>
+              <div role="group" aria-labelledby="budget-group-label" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="budget-chips">
+                <button type="button" aria-pressed="false" data-budget="Menos de 500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                  Menos de 500 €
+                </button>
+                <button type="button" aria-pressed="false" data-budget="500 € - 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                  500 € - 1.500 €
+                </button>
+                <button type="button" aria-pressed="false" data-budget="Más de 1.500 €" class="budget-chip px-3.5 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                  Más de 1.500 €
+                </button>
+                <button type="button" aria-pressed="false" data-budget="Aún no lo sé" class="budget-chip px-3.5 py-2.5 rounded-xl border border-darkLine bg-slateDark/70 hover:border-white/25 text-zinc-300 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                  Aún no lo sé
+                </button>
+              </div>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="pt-6 border-t border-darkLine space-y-4">
+              <span class="block text-sm font-display font-bold text-white">
+                3. Tus datos y detalles del proyecto
+              </span>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="cfg-name" class="block text-xs font-semibold text-zinc-300 mb-1.5">Nombre o empresa *</label>
+                  <input id="cfg-name" name="nombre" type="text" required autocomplete="name" placeholder="Ej. Laura · Estudio Norte" class="w-full px-4 py-3 rounded-xl bg-void border border-darkLine focus:border-electricBright focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-sm text-white placeholder:text-zinc-500 transition" />
+                </div>
+                <div>
+                  <label for="cfg-contact" class="block text-xs font-semibold text-zinc-300 mb-1.5">Email o WhatsApp *</label>
+                  <input id="cfg-contact" name="contacto" type="text" required autocomplete="email" placeholder="tu@correo.es o 600 000 000" class="w-full px-4 py-3 rounded-xl bg-void border border-darkLine focus:border-electricBright focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-sm text-white placeholder:text-zinc-500 transition" />
+                </div>
+              </div>
+
+              <div>
+                <label for="cfg-desc" class="block text-xs font-semibold text-zinc-300 mb-1.5">¿Qué te gustaría conseguir? *</label>
+                <textarea id="cfg-desc" name="descripcion" rows="4" required placeholder="Cuéntanos a qué se dedica tu negocio y qué necesitas resolver o crear..." class="w-full px-4 py-3 rounded-xl bg-void border border-darkLine focus:border-electricBright focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-sm text-white placeholder:text-zinc-500 transition resize-y"></textarea>
+              </div>
+
+              <div id="form-validation-msg" role="alert" class="hidden p-3.5 rounded-xl bg-amber-500/15 border border-amber-400/30 text-xs text-amber-200 font-medium"></div>
+              <div id="form-error-msg" role="alert" class="hidden p-3.5 rounded-xl bg-red-500/15 border border-red-400/30 text-xs text-red-200 font-medium">
+                No se pudo enviar automáticamente. Por favor, inténtalo de nuevo o escríbenos directamente a nuestro correo.
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-zinc-400">
+                  Respuesta directa en menos de 24h laborables. Sin spam ni llamadas no solicitadas.
+                </p>
+                <button id="btn-submit-project" type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-electricBright hover:bg-electric text-white font-semibold text-sm sm:text-base shadow-blueGlow transition cursor-pointer shrink-0">
+                  Recibir propuesta
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Vista de Confirmación -->
+          <div id="configurator-success" role="status" aria-live="polite" class="hidden animate-fade-slide text-center py-4">
+            <div class="w-14 h-14 rounded-2xl bg-blue-500/15 border border-blue-400/30 text-electricBright mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="font-display font-extrabold text-2xl text-white">¡Solicitud recibida correctamente!</h3>
+            <p class="text-sm text-zinc-400 mt-2 max-w-lg mx-auto">
+              Hemos recibido los datos de tu proyecto. Analizaremos tu caso y te responderemos en menos de 24 horas laborables con una propuesta clara.
+            </p>
+
+            <div class="mt-6 text-left bg-void rounded-2xl border border-darkLine p-5 max-w-xl mx-auto space-y-2.5 text-sm">
+              <div class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1">Resumen enviado</div>
+              <div><span class="text-zinc-400">Nombre:</span> <strong id="sum-name" class="text-white"></strong></div>
+              <div><span class="text-zinc-400">Contacto:</span> <strong id="sum-contact" class="text-white"></strong></div>
+              <div><span class="text-zinc-400">Necesitas:</span> <strong id="sum-types" class="text-electricBright"></strong></div>
+              <div><span class="text-zinc-400">Inversión estimada:</span> <strong id="sum-budget" class="text-white"></strong></div>
+              <div class="pt-2 border-t border-darkLine">
+                <span class="text-zinc-400 block mb-1">Detalles:</span>
+                <p id="sum-desc" class="text-zinc-300 whitespace-pre-line text-xs sm:text-sm leading-relaxed"></p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a id="btn-mailto-backup" href="#" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-zinc-200 text-void text-xs sm:text-sm font-bold transition">
+                Enviar copia también por email
+              </a>
+              <button id="btn-new-request" type="button" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slateDark hover:bg-white/10 border border-darkLine text-zinc-200 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                Hacer otra consulta
               </button>
             </div>
           </div>
-        </form>
 
-        <!-- Vista de Confirmación Elegante con Resumen Exacto + Envío Directo Mailto -->
-        <div id="configurator-success" class="hidden animate-fade-slide text-center py-4">
-          <div class="w-14 h-14 rounded-2xl bg-blue-50 text-electric mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h3 class="font-display font-extrabold text-2xl text-ink">¡Solicitud recibida correctamente!</h3>
-          <p class="text-sm text-muted mt-2 max-w-lg mx-auto">
-            Gracias por escribirnos. Revisaremos los detalles de tu proyecto y te responderemos en menos de 24 horas con una propuesta clara.
-          </p>
+        </div>
+      </div>
+    </section>
 
-          <!-- Resumen exacto de lo pedido por el cliente -->
-          <div class="mt-6 text-left bg-surface rounded-2xl border border-line p-5 max-w-xl mx-auto space-y-2.5 text-sm">
-            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Resumen de tu solicitud</div>
-            <div><span class="text-slate-500">Nombre:</span> <strong id="sum-name" class="text-ink"></strong></div>
-            <div><span class="text-slate-500">Contacto:</span> <strong id="sum-contact" class="text-ink"></strong></div>
-            <div><span class="text-slate-500">Necesitas:</span> <strong id="sum-types" class="text-electric"></strong></div>
-            <div><span class="text-slate-500">Presupuesto orientativo:</span> <strong id="sum-budget" class="text-ink"></strong></div>
-            <div class="pt-2 border-t border-line">
-              <span class="text-slate-500 block mb-1">Tu mensaje:</span>
-              <p id="sum-desc" class="text-slate-700 whitespace-pre-line text-xs sm:text-sm leading-relaxed"></p>
-            </div>
-          </div>
-
-          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a id="btn-mailto-backup" href="#" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-ink hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition">
-              Enviar copia también por email directo
-            </a>
-            <button id="btn-new-request" type="button" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-surface border border-line text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer">
-              Hacer otra consulta
-            </button>
-          </div>
+    <!-- =========================================================================
+         6. PREGUNTAS FRECUENTES
+         ========================================================================= -->
+    <section id="preguntas" class="py-24 sm:py-32 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-electric">Dudas habituales</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.02em] text-ink mt-2">
+            Preguntas frecuentes
+          </h2>
         </div>
 
+        <div class="space-y-3.5">
+          <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition" open>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+              <span>¿Y si no sé exactamente qué tecnología o solución necesito?</span>
+              <span aria-hidden="true" class="w-7 h-7 rounded-full bg-void text-white flex items-center justify-center font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted leading-relaxed">
+              Es lo habitual. Cuéntanos en el configurador a qué se dedica tu negocio y qué problema quieres resolver. Te propondremos la opción más sencilla, rápida y rentable sin venderte funciones que no necesitas.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+              <span>¿Cuánto tarda un proyecto en estar listo?</span>
+              <span aria-hidden="true" class="w-7 h-7 rounded-full bg-void text-white flex items-center justify-center font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted leading-relaxed">
+              Una página web profesional suele entregarse en 7 a 10 días laborables. Para tiendas online o herramientas a medida, fijamos un calendario exacto por hitos (habitualmente de 2 a 4 semanas) antes de empezar.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+              <span>¿Cómo funciona el pago y el presupuesto?</span>
+              <span aria-hidden="true" class="w-7 h-7 rounded-full bg-void text-white flex items-center justify-center font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted leading-relaxed">
+              Trabajamos siempre con presupuesto cerrado por adelantado. Sabes el importe exacto desde el principio, sin bolsas de horas ni costes ocultos al terminar.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
+              <span>¿Tengo que pagar mantenimiento mensual obligatorio?</span>
+              <span aria-hidden="true" class="w-7 h-7 rounded-full bg-void text-white flex items-center justify-center font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted leading-relaxed">
+              No. Al terminar te entregamos todo funcionando en tu dominio y con acceso total. Si más adelante quieres que nos encarguemos de cambios, soporte o mejoras continuas, puedes contratar un plan opcional sin permanencia.
+            </p>
+          </details>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- =========================================================================
-       6. PREGUNTAS FRECUENTES (ACORDEÓN INTERACTIVO)
+       7. FOOTER EN NEGRO PROFUNDO
        ========================================================================= -->
-  <section id="preguntas" class="py-20 sm:py-28 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <span class="text-xs font-bold uppercase tracking-wider text-electric">Dudas habituales</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-ink mt-2">
-          Preguntas frecuentes
-        </h2>
-      </div>
-
-      <div class="space-y-3.5">
-        <!-- FAQ 1 -->
-        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition" open>
-          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
-            <span>¿Y si no sé exactamente qué necesito?</span>
-            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-muted leading-relaxed">
-            No pasa nada, es lo más normal. Solo cuéntanos en el formulario a qué te dedicas y qué problema quieres resolver o qué objetivo buscas. Nosotros te propondremos la solución más sencilla y rentable para tu caso.
-          </p>
-        </details>
-
-        <!-- FAQ 2 -->
-        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
-            <span>¿Cuánto tarda un proyecto?</span>
-            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-muted leading-relaxed">
-            Una página web profesional suele estar lista entre 7 y 10 días laborables. Para tiendas online o herramientas a medida, definimos un calendario exacto por hitos (habitualmente de 2 a 4 semanas) antes de empezar.
-          </p>
-        </details>
-
-        <!-- FAQ 3 -->
-        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
-            <span>¿Cuánto cuesta?</span>
-            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-muted leading-relaxed">
-            Depende de lo que necesites, pero siempre trabajamos con presupuesto cerrado por adelantado. Así sabes el importe exacto desde el primer día sin horas extra ni costes escondidos.
-          </p>
-        </details>
-
-        <!-- FAQ 4 -->
-        <details class="group rounded-2xl border border-line bg-surface/60 open:bg-white open:shadow-subtle p-5 transition">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-base text-ink">
-            <span>¿Ofrecéis mantenimiento después?</span>
-            <span class="w-7 h-7 rounded-full bg-white border border-line flex items-center justify-center text-electric font-bold shrink-0 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-muted leading-relaxed">
-            Sí, de forma totalmente opcional y sin permanencia. Si quieres que nos encarguemos de actualizaciones, copias de seguridad y cambios futuros, te ofrecemos un plan mensual sencillo; si prefieres gestionarlo tú, te entregamos todo listo y documentado.
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       7. FOOTER LIMPIO Y PROFESIONAL
-       ========================================================================= -->
-  <footer class="bg-surface border-t border-line py-10">
+  <footer class="bg-void border-t border-darkLine py-12 text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-5">
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
-        <a href="#inicio" class="font-display font-extrabold text-xl tracking-tight text-ink">
-          Skey<span class="text-electric">.</span>
+        <a href="#inicio" class="font-display font-extrabold text-xl tracking-tight text-white">
+          Skey<span class="text-electricBright">.</span>
         </a>
-        <span class="hidden sm:inline text-slate-300">|</span>
-        <span class="text-xs sm:text-sm text-slate-500">Desarrollo web y soluciones digitales · España</span>
+        <span class="hidden sm:inline text-zinc-700" aria-hidden="true">|</span>
+        <span class="text-xs sm:text-sm text-zinc-400">Diseño y desarrollo digital a medida · España</span>
       </div>
 
       <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-xs sm:text-sm">
-        <a id="footer-email-link" href="mailto:hola@skey.es" class="font-semibold text-ink hover:text-electric transition">
+        <a id="footer-email-link" href="mailto:hola@skey.es" class="font-semibold text-white hover:text-electricBright transition">
           hola@skey.es
         </a>
-        <span class="text-slate-400">© 2026 Skey. Todos los derechos reservados.</span>
+        <span class="text-zinc-500">© 2026 Skey. Todos los derechos reservados.</span>
       </div>
     </div>
   </footer>
@@ -716,15 +770,13 @@
   <script>
     /**
      * ============================================================================
-     * CONFIGURACIÓN DE SKEY (EDITA ESTOS DOS VALORES ANTES DE PUBLICAR)
+     * CONFIGURACIÓN DE SKEY
      * ============================================================================
      */
-    // 1. Tu dirección de correo de contacto (se actualiza automáticamente en el footer y en el botón mailto)
-const WEB3FORMS_ACCESS_KEY = '92c3f79f-e4a0-4694-948f-81c40cf70bff';
-const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
+    const WEB3FORMS_ACCESS_KEY = '92c3f79f-e4a0-4694-948f-81c40cf70bff';
+    const CONTACT_EMAIL = 'hola@skey.es';
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Aplicar correo de contacto en el footer
       const footerEmailLink = document.getElementById('footer-email-link');
       if (footerEmailLink) {
         footerEmailLink.href = `mailto:${CONTACT_EMAIL}`;
@@ -732,80 +784,75 @@ const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
       }
 
       /* ----------------------------------------------------------------------
-         1. MENÚ MÓVIL
+         1. MENÚ MÓVIL CON ESTADO ARIA-EXPANDED
          ---------------------------------------------------------------------- */
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
+
+      function setMobileMenuOpen(isOpen) {
+        if (!mobileMenu || !mobileMenuBtn) return;
+        mobileMenu.classList.toggle('hidden', !isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+      }
+
       if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
+          const currentlyOpen = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+          setMobileMenuOpen(!currentlyOpen);
         });
+
         document.querySelectorAll('.mobile-nav-link').forEach((link) => {
-          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+          link.addEventListener('click', () => setMobileMenuOpen(false));
         });
       }
 
       /* ----------------------------------------------------------------------
-         2. MAQUETA DE NAVEGADOR INTERACTIVA EN EL HERO (3 PESTAÑAS + CARRITO)
+         2. PESTAÑAS DE ALCANCE Y ENTREGABLES EN EL HERO (CON ARIA-SELECTED)
          ---------------------------------------------------------------------- */
-      const browserTabs = document.querySelectorAll('.browser-tab');
-      const browserPanels = document.querySelectorAll('.browser-panel');
-      const browserUrl = document.getElementById('browser-url');
-      const tabUrls = ['nortearquitectura.es', 'koraceramica.es/tienda', 'app.tunegocio.es/panel'];
+      const scopeTabs = document.querySelectorAll('.scope-tab');
+      const scopePanels = document.querySelectorAll('.scope-panel');
+      const scopeHeaderLabel = document.getElementById('scope-header-label');
+      const scopeTimelineBadge = document.getElementById('scope-timeline-badge');
 
-      browserTabs.forEach((tab) => {
+      const scopeMeta = [
+        { label: 'Ficha de entrega · Web Profesional', timeline: '7 – 10 días' },
+        { label: 'Ficha de entrega · Tienda Online', timeline: '2 – 3 semanas' },
+        { label: 'Ficha de entrega · Sistema a Medida', timeline: 'Por hitos' }
+      ];
+
+      scopeTabs.forEach((tab) => {
         tab.addEventListener('click', () => {
-          const idx = parseInt(tab.getAttribute('data-browser-tab'), 10);
+          const idx = parseInt(tab.getAttribute('data-scope-tab'), 10);
 
-          browserTabs.forEach((t, i) => {
-            if (i === idx) {
-              t.classList.add('bg-white', 'text-ink', 'shadow-subtle', 'border', 'border-line/60');
-              t.classList.remove('text-slate-600');
+          scopeTabs.forEach((t, i) => {
+            const isSelected = i === idx;
+            t.setAttribute('aria-selected', String(isSelected));
+            if (isSelected) {
+              t.classList.add('bg-slateDark', 'text-white', 'border', 'border-white/10');
+              t.classList.remove('text-zinc-400');
             } else {
-              t.classList.remove('bg-white', 'text-ink', 'shadow-subtle', 'border', 'border-line/60');
-              t.classList.add('text-slate-600');
+              t.classList.remove('bg-slateDark', 'text-white', 'border', 'border-white/10');
+              t.classList.add('text-zinc-400');
             }
           });
 
-          browserPanels.forEach((panel, i) => {
-            if (i === idx) {
-              panel.classList.remove('hidden');
-            } else {
-              panel.classList.add('hidden');
-            }
+          scopePanels.forEach((panel, i) => {
+            panel.classList.toggle('hidden', i !== idx);
           });
 
-          if (browserUrl && tabUrls[idx]) {
-            browserUrl.textContent = tabUrls[idx];
+          if (scopeMeta[idx]) {
+            if (scopeHeaderLabel) scopeHeaderLabel.textContent = scopeMeta[idx].label;
+            if (scopeTimelineBadge) scopeTimelineBadge.textContent = scopeMeta[idx].timeline;
           }
         });
       });
 
-      // Mini carrito interactivo en la pestaña "Tienda / Catálogo"
-      let mockCartCount = 1;
-      let mockCartTotal = 34;
-      const cartCountEl = document.getElementById('mock-cart-count');
-      const cartTotalEl = document.getElementById('mock-cart-total');
-
-      document.querySelectorAll('.mock-add-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const price = parseInt(btn.getAttribute('data-add-price'), 10) || 0;
-          mockCartCount += 1;
-          mockCartTotal += price;
-          if (cartCountEl) cartCountEl.textContent = String(mockCartCount);
-          if (cartTotalEl) cartTotalEl.textContent = `${mockCartTotal} €`;
-
-          const prevText = btn.textContent;
-          btn.textContent = '✓ Añadido';
-          setTimeout(() => { btn.textContent = prevText; }, 850);
-        });
-      });
-
       /* ----------------------------------------------------------------------
-         3. CONFIGURADOR INTERACTIVO DE PROYECTO (SELECCIÓN MÚLTIPLE + PRESUPUESTO)
+         3. CONFIGURADOR INTERACTIVO (ESTADO LIMPIO + RESET COMPLETO)
          ---------------------------------------------------------------------- */
-      const selectedTypes = new Set(['Página Web']);
-      let selectedBudget = '500 € - 1.500 €';
+      const selectedTypes = new Set();
+      let selectedBudget = '';
 
       const typeChips = document.querySelectorAll('.type-chip');
       const budgetChips = document.querySelectorAll('.budget-chip');
@@ -813,12 +860,29 @@ const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
       function syncTypeChipsUI() {
         typeChips.forEach((chip) => {
           const val = chip.getAttribute('data-chip');
-          if (selectedTypes.has(val)) {
-            chip.classList.add('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
-            chip.classList.remove('border', 'border-line', 'bg-white', 'text-slate-700');
+          const active = selectedTypes.has(val);
+          chip.setAttribute('aria-pressed', String(active));
+          if (active) {
+            chip.classList.add('border-electricBright', 'bg-blue-500/15', 'text-white');
+            chip.classList.remove('border-darkLine', 'bg-slateDark/70', 'text-zinc-300');
           } else {
-            chip.classList.remove('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
-            chip.classList.add('border', 'border-line', 'bg-white', 'text-slate-700');
+            chip.classList.remove('border-electricBright', 'bg-blue-500/15', 'text-white');
+            chip.classList.add('border-darkLine', 'bg-slateDark/70', 'text-zinc-300');
+          }
+        });
+      }
+
+      function syncBudgetChipsUI() {
+        budgetChips.forEach((chip) => {
+          const val = chip.getAttribute('data-budget');
+          const active = selectedBudget === val;
+          chip.setAttribute('aria-pressed', String(active));
+          if (active) {
+            chip.classList.add('border-electricBright', 'bg-blue-500/15', 'text-white');
+            chip.classList.remove('border-darkLine', 'bg-slateDark/70', 'text-zinc-300');
+          } else {
+            chip.classList.remove('border-electricBright', 'bg-blue-500/15', 'text-white');
+            chip.classList.add('border-darkLine', 'bg-slateDark/70', 'text-zinc-300');
           }
         });
       }
@@ -835,7 +899,14 @@ const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
         });
       });
 
-      // Selección rápida desde las 4 tarjetas de "Qué podemos construir para ti"
+      budgetChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const val = chip.getAttribute('data-budget');
+          selectedBudget = (selectedBudget === val) ? '' : val;
+          syncBudgetChipsUI();
+        });
+      });
+
       document.querySelectorAll('.quick-select-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           const targetType = btn.getAttribute('data-quick-select');
@@ -844,82 +915,95 @@ const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
             selectedTypes.add(targetType);
             syncTypeChipsUI();
           }
-          document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
-        });
-      });
-
-      // Chips de presupuesto orientativo (selección única opcional)
-      budgetChips.forEach((chip) => {
-        chip.addEventListener('click', () => {
-          const val = chip.getAttribute('data-budget');
-          selectedBudget = (selectedBudget === val) ? 'No especificado' : val;
-
-          budgetChips.forEach((b) => {
-            const bVal = b.getAttribute('data-budget');
-            if (bVal === selectedBudget) {
-              b.classList.add('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
-              b.classList.remove('border', 'border-line', 'bg-white', 'text-slate-700');
-            } else {
-              b.classList.remove('border-2', 'border-electric', 'bg-blue-50', 'text-electric');
-              b.classList.add('border', 'border-line', 'bg-white', 'text-slate-700');
-            }
-          });
+          const contactSection = document.getElementById('contacto');
+          contactSection?.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => {
+            document.getElementById('cfg-name')?.focus({ preventScroll: true });
+          }, 450);
         });
       });
 
       /* ----------------------------------------------------------------------
-         4. ENVÍO DEL FORMULARIO (WEB3FORMS + RESUMEN EXACTO + BACKUP MAILTO)
+         4. VALIDACIÓN Y ENVÍO DEL FORMULARIO
          ---------------------------------------------------------------------- */
       const form = document.getElementById('project-configurator-form');
       const submitBtn = document.getElementById('btn-submit-project');
+      const validationMsg = document.getElementById('form-validation-msg');
       const errorMsg = document.getElementById('form-error-msg');
       const successView = document.getElementById('configurator-success');
 
+      function resetConfiguratorState() {
+        form?.reset();
+        selectedTypes.clear();
+        selectedBudget = '';
+        syncTypeChipsUI();
+        syncBudgetChipsUI();
+        validationMsg?.classList.add('hidden');
+        errorMsg?.classList.add('hidden');
+      }
+
       form?.addEventListener('submit', async (e) => {
         e.preventDefault();
+        validationMsg?.classList.add('hidden');
         errorMsg?.classList.add('hidden');
 
-        const nameVal = document.getElementById('cfg-name').value.trim();
-        const contactVal = document.getElementById('cfg-contact').value.trim();
-        const descVal = document.getElementById('cfg-desc').value.trim();
-        const typesList = selectedTypes.size > 0 ? Array.from(selectedTypes).join(', ') : 'Consulta general';
+        const nameInput = document.getElementById('cfg-name');
+        const contactInput = document.getElementById('cfg-contact');
+        const descInput = document.getElementById('cfg-desc');
+
+        const nameVal = nameInput.value.trim();
+        const contactVal = contactInput.value.trim();
+        const descVal = descInput.value.trim();
+
+        if (!nameVal || !contactVal || !descVal) {
+          if (validationMsg) {
+            validationMsg.textContent = 'Por favor, completa tu nombre, un medio de contacto y una breve descripción de tu proyecto.';
+            validationMsg.classList.remove('hidden');
+          }
+          if (!nameVal) nameInput.focus();
+          else if (!contactVal) contactInput.focus();
+          else descInput.focus();
+          return;
+        }
+
+        const typesList = selectedTypes.size > 0 ? Array.from(selectedTypes).join(', ') : 'Por definir en consulta';
         const budgetVal = selectedBudget || 'No especificado';
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando solicitud...';
 
         try {
-          if (WEB3FORMS_ACCESS_KEY !== 'PEGA_AQUI_TU_WEB3FORMS_ACCESS_KEY') {
+          if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'PEGA_AQUI_TU_WEB3FORMS_ACCESS_KEY') {
             const payload = new FormData();
             payload.append('access_key', WEB3FORMS_ACCESS_KEY);
             payload.append('subject', `Nueva solicitud Skey. — ${typesList}`);
             payload.append('Nombre', nameVal);
             payload.append('Contacto', contactVal);
             payload.append('Tipo de proyecto', typesList);
-            payload.append('Presupuesto orientativo', budgetVal);
+            payload.append('Inversión estimada', budgetVal);
             payload.append('Descripción', descVal);
 
             const res = await fetch('https://api.web3forms.com/submit', {
               method: 'POST',
               body: payload
             });
-            if (!res.ok) throw new Error('Error al conectar con Web3Forms');
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || data.success === false) {
+              throw new Error('Error al enviar formulario');
+            }
           } else {
-            // Simulación local si aún no se ha pegado la clave de Web3Forms
-            await new Promise((r) => setTimeout(r, 500));
+            await new Promise((r) => setTimeout(r, 400));
           }
 
-          // Rellenar el resumen exacto de la confirmación
           document.getElementById('sum-name').textContent = nameVal;
           document.getElementById('sum-contact').textContent = contactVal;
           document.getElementById('sum-types').textContent = typesList;
           document.getElementById('sum-budget').textContent = budgetVal;
           document.getElementById('sum-desc').textContent = descVal;
 
-          // Construir enlace mailto directo con el resumen completo
           const mailSubject = encodeURIComponent(`Nuevo proyecto para Skey. (${typesList})`);
           const mailBody = encodeURIComponent(
-            `Hola Skey,\n\nSoy ${nameVal} (${contactVal}).\n\nTipo de proyecto: ${typesList}\nPresupuesto orientativo: ${budgetVal}\n\nDetalles:\n${descVal}\n`
+            `Hola Skey,\n\nSoy ${nameVal} (${contactVal}).\n\nTipo de proyecto: ${typesList}\nInversión estimada: ${budgetVal}\n\nDetalles:\n${descVal}\n`
           );
           const mailtoBtn = document.getElementById('btn-mailto-backup');
           if (mailtoBtn) {
@@ -928,17 +1012,18 @@ const CONTACT_EMAIL = 'ganivetcanosaul@gmail.com'; // Pon aquí tu email real
 
           form.classList.add('hidden');
           successView.classList.remove('hidden');
-          form.reset();
+          resetConfiguratorState();
         } catch (err) {
           console.error(err);
           errorMsg?.classList.remove('hidden');
         } finally {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Enviar solicitud';
+          submitBtn.textContent = 'Recibir propuesta';
         }
       });
 
       document.getElementById('btn-new-request')?.addEventListener('click', () => {
+        resetConfiguratorState();
         successView.classList.add('hidden');
         form.classList.remove('hidden');
       });
