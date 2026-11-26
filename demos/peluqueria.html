@@ -35,9 +35,8 @@
     .ctas{display:flex;gap:12px;flex-wrap:wrap}
     .meta{display:flex;gap:28px;margin-top:44px;font-size:14px;color:var(--muted)}
     .meta b{display:block;color:var(--ink);font-size:15px}
-    .art{position:relative;aspect-ratio:4/5;border-radius:220px 220px 28px 28px;background:linear-gradient(160deg,var(--sage2),var(--sand));overflow:hidden}
-    .art:before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:var(--sage);opacity:.85;top:18%;left:19%}
-    .art:after{content:"";position:absolute;width:120%;height:46%;bottom:-8%;left:-10%;border-radius:50% 50% 0 0;background:var(--ink);opacity:.9}
+    .art{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 28px 28px;box-shadow:0 40px 80px -40px rgba(31,36,33,.45)}
+    .pic{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;margin-top:36px}
     .badge{position:absolute;bottom:28px;left:-24px;background:#fff;padding:16px 20px;border-radius:18px;box-shadow:0 20px 50px rgba(31,36,33,.14);font-size:14px;z-index:2}
     .badge b{display:block;font-size:15px}
     section{padding:110px 0}
@@ -95,7 +94,7 @@
       <div class="meta"><div><b>Mar–Sáb</b>10:00 – 20:00</div><div><b>Sin esperas</b>Solo con cita</div></div>
     </div>
     <div style="position:relative">
-      <div class="art" aria-hidden="true"></div>
+      <img class="art" src="https://res.cloudinary.com/xoimbfu8/image/upload/w_800,h_1000,c_fill,f_auto,q_auto/skey-demos/peluqueria-hero.jpg" alt="Interior luminoso del salón con tocadores de madera" width="800" height="1000" />
       <div class="badge"><b>Próximo hueco</b>Hoy, 17:30</div>
     </div>
   </div></header>
@@ -124,6 +123,7 @@
         <div><i>2</i><div><b>Escoge día y hora</b><span>Solo aparecen los huecos libres.</span></div></div>
         <div><i>3</i><div><b>Recibe la confirmación</b><span>Y un recordatorio el día anterior.</span></div></div>
       </div>
+      <img class="pic" src="https://res.cloudinary.com/xoimbfu8/image/upload/w_900,h_675,c_fill,f_auto,q_auto/skey-demos/peluqueria-detalle.jpg" alt="Productos de cuidado capilar y peine de madera" loading="lazy" width="900" height="675" />
     </div>
     <div class="card">
       <div class="step">Servicio</div>

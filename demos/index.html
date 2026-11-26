@@ -25,7 +25,11 @@
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:40px}
     a.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .25s,border-color .25s}
     a.card:hover{transform:translateY(-5px);border-color:rgba(59,130,246,.5)}
-    .shot{aspect-ratio:16/11;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+    .shot{aspect-ratio:16/11;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background-size:cover;background-position:center}
+    .shot:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 60%)}
+    .shot .t,.shot .bar{z-index:2}
+    .shot .t b{color:#fff!important}
+    a.card:hover .shot{background-size:108%}
     .shot .bar{position:absolute;top:0;left:0;right:0;height:22px;background:rgba(0,0,0,.25);display:flex;gap:5px;align-items:center;padding-left:10px}
     .shot .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35)}
     .shot .t{position:absolute;left:22px;bottom:22px;right:22px}
@@ -34,10 +38,10 @@
     .s1{background:radial-gradient(circle at 80% 30%,rgba(201,164,106,.4),transparent 55%),#14110f;color:#f3ead9;font-family:Georgia,serif}
     .s1 span{border:1px solid #c9a46a;color:#c9a46a;font-family:Inter}
     .s2{background:linear-gradient(160deg,#dfe7e0,#e9dfd0);color:#1f2421;font-family:Georgia,serif}
-    .s2 span{background:#1f2421;color:#fff;font-family:Inter}
+    .s2 span{background:#fff;color:#1f2421;font-family:Inter}
     .s3{background:linear-gradient(160deg,#ead9c8,#d7b79a);color:#111}
     .s3 b{font-weight:800;letter-spacing:-.03em}
-    .s3 span{background:#111;color:#fff}
+    .s3 span{background:#fff;color:#111}
     .info{padding:24px}
     .info h2{font-size:18px;margin-bottom:6px}
     .info p{color:var(--muted);font-size:14.5px;line-height:1.55;margin-bottom:16px}
@@ -65,17 +69,17 @@
   <main class="wrap">
     <div class="grid">
       <a class="card" href="restaurante.html">
-        <div class="shot s1"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>Brasa &amp; Olivo</b><span>Reservar mesa</span></div></div>
+        <div class="shot s1" style="background-image:url(https://res.cloudinary.com/xoimbfu8/image/upload/w_800,h_550,c_fill,f_auto,q_auto/skey-demos/restaurante-hero.jpg)"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>Brasa &amp; Olivo</b><span>Reservar mesa</span></div></div>
         <div class="info"><h2>Restaurante</h2><p>Web elegante con carta por categorías, formulario de reserva e información de horario y ubicación.</p>
           <div class="chips"><em>Carta interactiva</em><em>Reservas</em><em>Móvil</em></div><span class="go">Ver demo →</span></div>
       </a>
       <a class="card" href="peluqueria.html">
-        <div class="shot s2"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>Atelier Salvia</b><span>Pedir cita</span></div></div>
+        <div class="shot s2" style="background-image:url(https://res.cloudinary.com/xoimbfu8/image/upload/w_800,h_550,c_fill,f_auto,q_auto/skey-demos/peluqueria-hero.jpg)"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>Atelier Salvia</b><span>Pedir cita</span></div></div>
         <div class="info"><h2>Peluquería y estética</h2><p>Servicios con precio y duración, y un sistema de cita online paso a paso.</p>
           <div class="chips"><em>Cita online</em><em>Precios</em><em>Recordatorios</em></div><span class="go">Ver demo →</span></div>
       </a>
       <a class="card" href="tienda.html">
-        <div class="shot s3"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>terra.studio</b><span>Comprar ahora</span></div></div>
+        <div class="shot s3" style="background-image:url(https://res.cloudinary.com/xoimbfu8/image/upload/w_800,h_550,c_fill,f_auto,q_auto/skey-demos/tienda-hero.jpg)"><div class="bar"><i></i><i></i><i></i></div><div class="t"><b>terra.studio</b><span>Comprar ahora</span></div></div>
         <div class="info"><h2>Tienda online</h2><p>Catálogo con filtros, carrito, ventajas de compra y captación de suscriptores.</p>
           <div class="chips"><em>Carrito</em><em>Filtros</em><em>Pagos</em></div><span class="go">Ver demo →</span></div>
       </a>

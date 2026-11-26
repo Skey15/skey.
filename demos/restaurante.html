@@ -33,8 +33,13 @@
     .hero h1 em{color:var(--gold)}
     .hero p{color:var(--muted);max-width:460px;font-size:17px;margin-bottom:38px}
     .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
-    .plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#2a231d 0 38%,#3a3027 39% 41%,#211c18 42% 62%,#f3ead9 63% 64%,#1a1613 65%);box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 1px var(--line);position:relative}
-    .plate:after{content:"";position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 40% 40%,#c9a46a,#8a4b2a 55%,#4a2a18);filter:blur(.5px);opacity:.9}
+    .photo{position:relative}.photo img{display:block;width:100%;height:auto;object-fit:cover}
+    .hero .photo img{aspect-ratio:4/5;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+    .hero .photo:before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--gold);opacity:.5}
+    .hero .photo img{position:relative}
+    .cap{position:absolute;right:-1px;bottom:-1px;background:var(--bg);padding:14px 20px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .cap b{color:var(--cream);display:block;font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:600}
+    .wide img{aspect-ratio:16/10}
     section{padding:120px 0}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     h2{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;margin-bottom:24px}
@@ -69,7 +74,7 @@
     footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:13px}
     footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     footer a{color:var(--gold);text-decoration:none}
-    @media(max-width:860px){nav ul{display:none}.hero .wrap,.split{grid-template-columns:1fr;gap:48px}.plate{max-width:320px;margin:0 auto}.dishes{grid-template-columns:1fr}.info{grid-template-columns:1fr}form{grid-template-columns:1fr}section{padding:84px 0}.res-card{padding:30px}}
+    @media(max-width:860px){nav ul{display:none}.hero .wrap,.split{grid-template-columns:1fr;gap:48px}.hero .photo{max-width:420px;margin:0 auto;width:100%}.hero .photo:before{display:none}.dishes{grid-template-columns:1fr}.info{grid-template-columns:1fr}form{grid-template-columns:1fr}section{padding:84px 0}.res-card{padding:30px}}
   </style>
 </head>
 <body>
@@ -88,15 +93,14 @@
       <p>Carnes, pescados y verduras de temporada cocinados sobre brasa de encina. Una carta corta que cambia con el mercado.</p>
       <div class="ctas"><a class="btn solid" href="#reservas">Reservar mesa</a><a class="btn" href="#carta">Ver la carta</a></div>
     </div>
-    <div class="plate" aria-hidden="true"></div>
+    <div class="photo"><img src="https://res.cloudinary.com/xoimbfu8/image/upload/w_900,h_1125,c_fill,f_auto,q_auto/skey-demos/restaurante-hero.jpg" alt="Entrecot a la brasa con pimientos" width="900" height="1125" /><div class="cap"><b>Entrecot madurado</b>Plato estrella · 26 €</div></div>
   </div></header>
 
   <section id="historia"><div class="wrap split">
+    <div class="photo wide"><img src="https://res.cloudinary.com/xoimbfu8/image/upload/w_1000,h_625,c_fill,f_auto,q_auto/skey-demos/restaurante-interior.jpg" alt="Sala del restaurante con horno de leña" loading="lazy" width="1000" height="625" /></div>
     <div>
       <div class="eyebrow">Nuestra historia</div>
       <h2 class="serif">Una cocina pensada alrededor de las brasas</h2>
-    </div>
-    <div>
       <p class="lead">En este ejemplo, Brasa &amp; Olivo es una casa de comidas de barrio con una idea sencilla: buen producto, fuego de leña y ningún artificio. Trabajamos con proveedores cercanos y cambiamos la carta cada temporada.</p>
       <div class="stats">
         <div><b class="serif">40</b><span>cubiertos</span></div>
@@ -139,6 +143,7 @@
       <div class="eyebrow">Reservas</div>
       <h2 class="serif">Guarda tu mesa en menos de un minuto</h2>
       <p class="lead">Elige día, hora y número de personas. En una web real, la reserva llegaría al restaurante al instante y el cliente recibiría la confirmación por correo o WhatsApp.</p>
+      <div class="photo wide" style="margin-top:36px"><img src="https://res.cloudinary.com/xoimbfu8/image/upload/w_1000,h_625,c_fill,f_auto,q_auto/skey-demos/restaurante-arroz.jpg" alt="Arroz de verduras en sartén de hierro" loading="lazy" width="1000" height="625" /></div>
     </div>
     <div class="res-card">
       <form id="f">
