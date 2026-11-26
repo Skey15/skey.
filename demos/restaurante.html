@@ -4,50 +4,171 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>DEMO · Restaurante La Mesa (ejemplo)</title>
+  <title>DEMO · Brasa & Olivo — Restaurante (ejemplo de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#fbf6ef; --ink:#2b2118; --accent:#b5472b; --muted:#7a6a5c; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Georgia, "Times New Roman", serif; background:var(--bg); color:var(--ink); }
-    .demo-banner { background:#2b2118; color:#fbf6ef; text-align:center; font: 600 13px/1.4 system-ui, sans-serif; padding:10px 16px; }
-    header, section { max-width:960px; margin:0 auto; padding:56px 24px; }
-    header { text-align:center; padding-bottom:24px; }
-    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin:0 0 12px; }
-    h2 { font-size:1.6rem; margin:0 0 16px; color:var(--accent); }
-    p { line-height:1.6; }
-    .cta { display:inline-block; margin-top:20px; background:var(--accent); color:#fff; padding:14px 26px; border-radius:6px; text-decoration:none; font: 600 15px system-ui, sans-serif; }
-    .menu { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
-    .dish { border-top:2px solid var(--accent); padding-top:12px; }
-    .dish strong { display:block; font-size:1.1rem; }
-    .price { color:var(--muted); font-family: system-ui, sans-serif; font-size:14px; }
-    footer { text-align:center; color:var(--muted); font: 14px system-ui, sans-serif; padding:32px 24px 48px; }
+    :root{--bg:#14110f;--bg2:#1c1815;--cream:#f3ead9;--gold:#c9a46a;--muted:#a69a88;--line:rgba(243,234,217,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .serif{font-family:"Cormorant Garamond",Georgia,serif}
+    .demo{background:var(--gold);color:#1a140c;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px;letter-spacing:.02em}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(20,17,15,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{font-size:26px;font-weight:600;letter-spacing:.02em}
+    .logo span{color:var(--gold)}
+    nav ul{display:flex;gap:34px;list-style:none;font-size:14px;color:var(--muted)}
+    nav a{color:inherit;text-decoration:none;transition:color .2s}
+    nav a:hover{color:var(--cream)}
+    .btn{display:inline-block;padding:13px 28px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .25s;background:none;cursor:pointer;font-family:inherit}
+    .btn:hover,.btn.solid{background:var(--gold);color:#1a140c}
+    .hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 40%,rgba(201,164,106,.22),transparent 70%),radial-gradient(ellipse 40% 50% at 15% 90%,rgba(160,60,30,.18),transparent 70%)}
+    .hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+    .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+    .hero h1{font-size:clamp(3rem,7vw,5.6rem);line-height:1;font-weight:500;margin-bottom:26px}
+    .hero h1 em{color:var(--gold)}
+    .hero p{color:var(--muted);max-width:460px;font-size:17px;margin-bottom:38px}
+    .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#2a231d 0 38%,#3a3027 39% 41%,#211c18 42% 62%,#f3ead9 63% 64%,#1a1613 65%);box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 1px var(--line);position:relative}
+    .plate:after{content:"";position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 40% 40%,#c9a46a,#8a4b2a 55%,#4a2a18);filter:blur(.5px);opacity:.9}
+    section{padding:120px 0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    h2{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;margin-bottom:24px}
+    .lead{color:var(--muted);font-size:17px}
+    .stats{display:flex;gap:48px;margin-top:40px}
+    .stats b{display:block;font-size:42px;color:var(--gold);font-weight:500}
+    .stats span{font-size:13px;color:var(--muted)}
+    .menu{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .center{text-align:center;max-width:620px;margin:0 auto 64px}
+    .tabs{display:flex;justify-content:center;gap:8px;margin-bottom:56px}
+    .tab{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 22px;font:500 13px Inter;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+    .tab.on{border-color:var(--gold);color:var(--gold)}
+    .dishes{display:none;grid-template-columns:1fr 1fr;gap:34px 72px;max-width:960px;margin:0 auto}
+    .dishes.on{display:grid}
+    .dish .row{display:flex;align-items:baseline;gap:12px}
+    .dish h3{font-size:24px;font-weight:600;white-space:nowrap}
+    .dish .dots{flex:1;border-bottom:1px dotted rgba(243,234,217,.25);transform:translateY(-5px)}
+    .dish .price{font-size:22px;color:var(--gold)}
+    .dish p{color:var(--muted);font-size:14.5px;margin-top:4px}
+    .res-card{background:var(--bg2);border:1px solid var(--line);padding:48px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+    label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+    input,select{width:100%;background:transparent;border:1px solid var(--line);color:var(--cream);padding:13px 14px;font:15px Inter;outline:none;transition:border .2s}
+    input:focus,select:focus{border-color:var(--gold)}
+    select option{background:var(--bg2)}
+    .full{grid-column:1/-1}
+    .ok{display:none;margin-top:18px;color:var(--gold);font-size:14px}
+    .info{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+    .info div{background:var(--bg);padding:44px 36px}
+    .info h4{font:600 12px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .info p{color:var(--muted);font-size:15px}
+    footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:13px}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    footer a{color:var(--gold);text-decoration:none}
+    @media(max-width:860px){nav ul{display:none}.hero .wrap,.split{grid-template-columns:1fr;gap:48px}.plate{max-width:320px;margin:0 auto}.dishes{grid-template-columns:1fr}.info{grid-template-columns:1fr}form{grid-template-columns:1fr}section{padding:84px 0}.res-card{padding:30px}}
   </style>
 </head>
 <body>
-  <div class="demo-banner">Proyecto de demostración creado por Skey · No es un restaurante real</div>
+  <div class="demo">Web de demostración creada por Skey · Brasa &amp; Olivo no es un restaurante real</div>
 
-  <header>
-    <p style="color:var(--muted); letter-spacing:.15em; text-transform:uppercase; font: 13px system-ui">Cocina de mercado · Ejemplo</p>
-    <h1>Restaurante La Mesa</h1>
-    <p>Producto de temporada, carta que cambia cada mes y reservas en un clic.</p>
-    <a class="cta" href="#reservas">Reservar mesa</a>
-  </header>
+  <nav><div class="wrap">
+    <div class="logo serif">Brasa <span>&amp;</span> Olivo</div>
+    <ul><li><a href="#historia">Historia</a></li><li><a href="#carta">Carta</a></li><li><a href="#reservas">Reservas</a></li><li><a href="#visita">Visítanos</a></li></ul>
+    <a class="btn" href="#reservas">Reservar</a>
+  </div></nav>
 
-  <section>
-    <h2>Carta de ejemplo</h2>
-    <div class="menu">
-      <div class="dish"><strong>Ensalada de temporada</strong><p>Verduras asadas, queso fresco y vinagreta de miel.</p><span class="price">9,50 €</span></div>
-      <div class="dish"><strong>Arroz meloso de verduras</strong><p>Caldo casero y verduras de la huerta cercana.</p><span class="price">14,00 €</span></div>
-      <div class="dish"><strong>Pescado del día</strong><p>Consulta a nuestro equipo la pieza de hoy.</p><span class="price">Precio según mercado</span></div>
+  <header class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Cocina mediterránea a la brasa</div>
+      <h1 class="serif">Fuego lento,<br /><em>producto honesto.</em></h1>
+      <p>Carnes, pescados y verduras de temporada cocinados sobre brasa de encina. Una carta corta que cambia con el mercado.</p>
+      <div class="ctas"><a class="btn solid" href="#reservas">Reservar mesa</a><a class="btn" href="#carta">Ver la carta</a></div>
     </div>
-  </section>
+    <div class="plate" aria-hidden="true"></div>
+  </div></header>
 
-  <section id="reservas" style="background:#fff; border-radius:12px; max-width:960px;">
-    <h2>Reservas</h2>
-    <p>Elige día y hora. Te confirmamos por WhatsApp en menos de una hora en horario de servicio.</p>
-    <a class="cta" href="#">Ver disponibilidad</a>
-  </section>
+  <section id="historia"><div class="wrap split">
+    <div>
+      <div class="eyebrow">Nuestra historia</div>
+      <h2 class="serif">Una cocina pensada alrededor de las brasas</h2>
+    </div>
+    <div>
+      <p class="lead">En este ejemplo, Brasa &amp; Olivo es una casa de comidas de barrio con una idea sencilla: buen producto, fuego de leña y ningún artificio. Trabajamos con proveedores cercanos y cambiamos la carta cada temporada.</p>
+      <div class="stats">
+        <div><b class="serif">40</b><span>cubiertos</span></div>
+        <div><b class="serif">12</b><span>platos en carta</span></div>
+        <div><b class="serif">4</b><span>cartas al año</span></div>
+      </div>
+    </div>
+  </div></section>
 
-  <footer>Ejemplo de web para restaurante · Diseñada por Skey · hola@skey.es</footer>
+  <section id="carta" class="menu"><div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Carta de temporada</div>
+      <h2 class="serif">Lo que sale hoy de la cocina</h2>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-t="0">Entrantes</button>
+      <button class="tab" data-t="1">Principales</button>
+      <button class="tab" data-t="2">Postres</button>
+    </div>
+    <div class="dishes on">
+      <div class="dish"><div class="row"><h3 class="serif">Pan de masa madre</h3><span class="dots"></span><span class="price serif">4</span></div><p>Aceite de oliva virgen extra y sal en escamas.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Croquetas de jamón</h3><span class="dots"></span><span class="price serif">9</span></div><p>Bechamel cremosa, seis unidades.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Escalivada a la brasa</h3><span class="dots"></span><span class="price serif">11</span></div><p>Pimiento, berenjena y cebolla con anchoa.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Burrata y tomate</h3><span class="dots"></span><span class="price serif">13</span></div><p>Tomate de temporada y albahaca fresca.</p></div>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div class="row"><h3 class="serif">Entrecot madurado</h3><span class="dots"></span><span class="price serif">26</span></div><p>300 g, con patatas y pimientos de Padrón.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Pescado del día</h3><span class="dots"></span><span class="price serif">S/M</span></div><p>A la brasa con verduras asadas.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Arroz de verduras</h3><span class="dots"></span><span class="price serif">18</span></div><p>Mínimo dos personas, precio por persona.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Pluma ibérica</h3><span class="dots"></span><span class="price serif">21</span></div><p>Con puré de boniato y chimichurri.</p></div>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div class="row"><h3 class="serif">Torrija caramelizada</h3><span class="dots"></span><span class="price serif">7</span></div><p>Con helado de vainilla.</p></div>
+      <div class="dish"><div class="row"><h3 class="serif">Tarta de queso</h3><span class="dots"></span><span class="price serif">7</span></div><p>Horneada, textura cremosa.</p></div>
+    </div>
+  </div></section>
+
+  <section id="reservas"><div class="wrap split">
+    <div>
+      <div class="eyebrow">Reservas</div>
+      <h2 class="serif">Guarda tu mesa en menos de un minuto</h2>
+      <p class="lead">Elige día, hora y número de personas. En una web real, la reserva llegaría al restaurante al instante y el cliente recibiría la confirmación por correo o WhatsApp.</p>
+    </div>
+    <div class="res-card">
+      <form id="f">
+        <div><label>Fecha</label><input type="date" required /></div>
+        <div><label>Hora</label><select><option>13:30</option><option>14:00</option><option>14:30</option><option>20:30</option><option>21:00</option><option>21:30</option></select></div>
+        <div><label>Personas</label><select><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+        <div><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+        <button class="btn solid full" type="submit">Confirmar reserva</button>
+      </form>
+      <p class="ok" id="ok">✓ Esto es una demo: no se ha enviado ninguna reserva.</p>
+    </div>
+  </div></section>
+
+  <section id="visita" style="padding-top:0"><div class="wrap">
+    <div class="info">
+      <div><h4>Dirección</h4><p>Calle de Ejemplo, 12<br />Tu ciudad</p></div>
+      <div><h4>Horario</h4><p>Martes a sábado<br />13:00–16:00 · 20:00–23:30<br />Domingo solo mediodía</p></div>
+      <div><h4>Contacto</h4><p>Teléfono y WhatsApp<br />reservas@ejemplo.es</p></div>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap">
+    <span>Brasa &amp; Olivo · Restaurante ficticio de demostración</span>
+    <span>Diseño y desarrollo: <a href="https://skey.es">Skey</a> · ¿Quieres una web así? <a href="mailto:hola@skey.es">hola@skey.es</a></span>
+  </div></footer>
+
+  <script>
+    const tabs=document.querySelectorAll('.tab'),panes=document.querySelectorAll('.dishes');
+    tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.classList.remove('on'));panes.forEach(p=>p.classList.remove('on'));t.classList.add('on');panes[t.dataset.t].classList.add('on')});
+    document.getElementById('f').onsubmit=e=>{e.preventDefault();document.getElementById('ok').style.display='block'};
+  </script>
 </body>
 </html>

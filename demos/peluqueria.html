@@ -4,54 +4,160 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>DEMO · Peluquería Estilo Norte (ejemplo)</title>
+  <title>DEMO · Atelier Salvia — Peluquería (ejemplo de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#f4f1ee; --ink:#1d1d1f; --accent:#3d6b5c; --muted:#6b6b70; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
-    .demo-banner { background:var(--ink); color:#fff; text-align:center; font-weight:600; font-size:13px; padding:10px 16px; }
-    header { padding:64px 24px 40px; text-align:center; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin:0 0 10px; letter-spacing:-.02em; }
-    h2 { font-size:1.5rem; margin:0 0 16px; }
-    section { max-width:960px; margin:0 auto; padding:40px 24px; }
-    .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-    .card { background:#fff; border-radius:14px; padding:22px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
-    .card b { display:block; margin-bottom:6px; }
-    .muted { color:var(--muted); font-size:14px; }
-    .btn { display:inline-block; margin-top:18px; background:var(--accent); color:#fff; padding:14px 26px; border-radius:999px; text-decoration:none; font-weight:600; }
-    .hours { display:grid; grid-template-columns:1fr auto; gap:8px 20px; max-width:360px; margin:0 auto; font-size:15px; }
-    footer { text-align:center; color:var(--muted); font-size:14px; padding:32px 24px 48px; }
+    :root{--bg:#f6f3ee;--ink:#1f2421;--sage:#5f7a68;--sage2:#dfe7e0;--sand:#e9dfd0;--muted:#6c706b;--line:#e2ddd4}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .serif{font-family:Fraunces,Georgia,serif}
+    .demo{background:var(--ink);color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+    nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
+    .logo{font-size:24px;font-weight:600}
+    .logo i{color:var(--sage);font-style:normal}
+    nav ul{display:flex;gap:32px;list-style:none;font-size:14.5px;color:var(--muted)}
+    nav a{color:inherit;text-decoration:none}
+    nav a:hover{color:var(--ink)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;border:0;cursor:pointer;font-family:inherit;transition:transform .2s,background .2s}
+    .btn:hover{background:var(--sage);transform:translateY(-1px)}
+    .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+    .btn.ghost:hover{background:var(--ink);color:#fff}
+    .hero{padding:40px 0 100px}
+    .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+    .pill{display:inline-block;background:var(--sage2);color:var(--sage);font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:24px}
+    h1{font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.03;font-weight:400;letter-spacing:-.02em;margin-bottom:24px}
+    h1 em{color:var(--sage)}
+    .hero p{font-size:18px;color:var(--muted);max-width:480px;margin-bottom:36px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .meta{display:flex;gap:28px;margin-top:44px;font-size:14px;color:var(--muted)}
+    .meta b{display:block;color:var(--ink);font-size:15px}
+    .art{position:relative;aspect-ratio:4/5;border-radius:220px 220px 28px 28px;background:linear-gradient(160deg,var(--sage2),var(--sand));overflow:hidden}
+    .art:before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:var(--sage);opacity:.85;top:18%;left:19%}
+    .art:after{content:"";position:absolute;width:120%;height:46%;bottom:-8%;left:-10%;border-radius:50% 50% 0 0;background:var(--ink);opacity:.9}
+    .badge{position:absolute;bottom:28px;left:-24px;background:#fff;padding:16px 20px;border-radius:18px;box-shadow:0 20px 50px rgba(31,36,33,.14);font-size:14px;z-index:2}
+    .badge b{display:block;font-size:15px}
+    section{padding:110px 0}
+    .head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:52px;flex-wrap:wrap}
+    h2{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+    .sub{color:var(--muted);max-width:420px}
+    .services{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .list{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+    .svc{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)}
+    .svc h3{font-size:21px;font-weight:400;margin-bottom:2px}
+    .svc span{color:var(--muted);font-size:14px}
+    .svc b{font-size:17px;white-space:nowrap}
+    .book{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px;box-shadow:0 30px 60px -30px rgba(31,36,33,.18)}
+    .step{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin:22px 0 12px}
+    .step:first-child{margin-top:0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--bg);font:500 14px Inter;cursor:pointer;transition:all .15s;color:var(--ink)}
+    .chip:hover{border-color:var(--sage)}
+    .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+    .sum{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .sum p{font-size:14px;color:var(--muted)}
+    .sum p b{color:var(--ink)}
+    .ok{display:none;margin-top:16px;font-size:14px;color:var(--sage);font-weight:600}
+    .feat{display:grid;gap:22px;margin-top:34px}
+    .feat>div{display:flex;gap:16px}
+    .feat i{flex:none;width:40px;height:40px;border-radius:12px;background:var(--sage2);color:var(--sage);display:grid;place-items:center;font-style:normal;font-weight:700}
+    .feat b{display:block}
+    .feat span{color:var(--muted);font-size:14.5px}
+    .band{background:var(--ink);color:#fff;border-radius:28px;padding:64px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+    .band h2{color:#fff}
+    .band .btn{background:#fff;color:var(--ink)}
+    .band .btn:hover{background:var(--sage2)}
+    footer{padding:40px 0 56px;font-size:13.5px;color:var(--muted)}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    footer a{color:var(--ink)}
+    @media(max-width:880px){nav ul{display:none}.hero .wrap,.book{grid-template-columns:1fr;gap:48px}.art{max-width:380px;margin:0 auto;width:100%}.badge{left:12px}.list{grid-template-columns:1fr}section{padding:80px 0}.band{padding:40px}}
   </style>
 </head>
 <body>
-  <div class="demo-banner">Proyecto de demostración creado por Skey · No es una peluquería real</div>
+  <div class="demo">Web de demostración creada por Skey · Atelier Salvia no es una peluquería real</div>
 
-  <header>
-    <p class="muted" style="text-transform:uppercase; letter-spacing:.12em; font-size:13px;">Peluquería · Ejemplo</p>
-    <h1>Estilo Norte</h1>
-    <p class="muted">Cortes, color y peinados con cita previa online.</p>
-    <a class="btn" href="#citas">Pedir cita</a>
-  </header>
+  <nav><div class="wrap">
+    <div class="logo serif">Atelier <i>Salvia</i></div>
+    <ul><li><a href="#servicios">Servicios</a></li><li><a href="#cita">Cita online</a></li><li><a href="#contacto">Contacto</a></li></ul>
+    <a class="btn" href="#cita">Pedir cita</a>
+  </div></nav>
 
-  <section>
-    <h2>Servicios de ejemplo</h2>
-    <div class="services">
-      <div class="card"><b>Corte y peinado</b><span class="muted">45 min · desde 18 €</span></div>
-      <div class="card"><b>Color completo</b><span class="muted">90 min · desde 45 €</span></div>
-      <div class="card"><b>Tratamiento hidratante</b><span class="muted">30 min · desde 20 €</span></div>
+  <header class="hero"><div class="wrap">
+    <div>
+      <span class="pill">Peluquería y color · Cita previa</span>
+      <h1 class="serif">Tu pelo,<br />con <em>calma</em> y criterio.</h1>
+      <p>Cortes, color y tratamientos en un espacio tranquilo. Reserva tu hora desde el móvil en menos de un minuto.</p>
+      <div class="ctas"><a class="btn" href="#cita">Reservar ahora →</a><a class="btn ghost" href="#servicios">Ver precios</a></div>
+      <div class="meta"><div><b>Mar–Sáb</b>10:00 – 20:00</div><div><b>Sin esperas</b>Solo con cita</div></div>
     </div>
-  </section>
-
-  <section id="citas" style="text-align:center;">
-    <h2>Horario de ejemplo</h2>
-    <div class="hours">
-      <span>Lunes a viernes</span><span>10:00 – 20:00</span>
-      <span>Sábado</span><span>10:00 – 14:00</span>
-      <span>Domingo</span><span>Cerrado</span>
+    <div style="position:relative">
+      <div class="art" aria-hidden="true"></div>
+      <div class="badge"><b>Próximo hueco</b>Hoy, 17:30</div>
     </div>
-    <a class="btn" href="#">Elegir hora</a>
-  </section>
+  </div></header>
 
-  <footer>Ejemplo de web para peluquería · Diseñada por Skey · hola@skey.es</footer>
+  <section id="servicios" class="services"><div class="wrap">
+    <div class="head">
+      <h2 class="serif">Servicios y precios</h2>
+      <p class="sub">Precios orientativos de ejemplo. En una web real, cada servicio enlazaría directamente a la reserva.</p>
+    </div>
+    <div class="list">
+      <div class="svc"><div><h3 class="serif">Corte y peinado</h3><span>45 min</span></div><b>desde 22 €</b></div>
+      <div class="svc"><div><h3 class="serif">Corte caballero</h3><span>30 min</span></div><b>desde 15 €</b></div>
+      <div class="svc"><div><h3 class="serif">Color raíz</h3><span>60 min</span></div><b>desde 35 €</b></div>
+      <div class="svc"><div><h3 class="serif">Mechas balayage</h3><span>150 min</span></div><b>desde 85 €</b></div>
+      <div class="svc"><div><h3 class="serif">Tratamiento hidratante</h3><span>30 min</span></div><b>desde 20 €</b></div>
+      <div class="svc"><div><h3 class="serif">Recogido de evento</h3><span>60 min</span></div><b>desde 40 €</b></div>
+    </div>
+  </div></section>
+
+  <section id="cita"><div class="wrap book">
+    <div>
+      <h2 class="serif">Reserva en tres toques</h2>
+      <p class="sub" style="margin-top:16px">Así funcionaría la cita online: el cliente elige servicio, día y hora, y el salón recibe la reserva con recordatorio automático.</p>
+      <div class="feat">
+        <div><i>1</i><div><b>Elige el servicio</b><span>Con duración y precio a la vista.</span></div></div>
+        <div><i>2</i><div><b>Escoge día y hora</b><span>Solo aparecen los huecos libres.</span></div></div>
+        <div><i>3</i><div><b>Recibe la confirmación</b><span>Y un recordatorio el día anterior.</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="step">Servicio</div>
+      <div class="chips" data-g="s"><button class="chip on">Corte y peinado</button><button class="chip">Color raíz</button><button class="chip">Balayage</button><button class="chip">Tratamiento</button></div>
+      <div class="step">Día</div>
+      <div class="chips" data-g="d"><button class="chip on">Mar 2</button><button class="chip">Mié 3</button><button class="chip">Jue 4</button><button class="chip">Vie 5</button><button class="chip">Sáb 6</button></div>
+      <div class="step">Hora</div>
+      <div class="chips" data-g="h"><button class="chip">10:00</button><button class="chip on">11:30</button><button class="chip">13:00</button><button class="chip">16:30</button><button class="chip">17:30</button><button class="chip">19:00</button></div>
+      <div class="sum">
+        <p id="sum"><b>Corte y peinado</b> · Mar 2 · 11:30</p>
+        <button class="btn" id="go">Confirmar cita</button>
+      </div>
+      <p class="ok" id="ok">✓ Esto es una demo: no se ha reservado ninguna cita.</p>
+    </div>
+  </div></section>
+
+  <section id="contacto" style="padding-top:0"><div class="wrap">
+    <div class="band">
+      <div><h2 class="serif">¿Dudas antes de venir?</h2><p style="opacity:.7;margin-top:10px">Calle de Ejemplo, 8 · Tu ciudad · WhatsApp y teléfono</p></div>
+      <a class="btn" href="#cita">Reservar cita</a>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap">
+    <span>Atelier Salvia · Peluquería ficticia de demostración</span>
+    <span>Diseño y desarrollo: <a href="https://skey.es">Skey</a> · <a href="mailto:hola@skey.es">hola@skey.es</a></span>
+  </div></footer>
+
+  <script>
+    const sel={s:'Corte y peinado',d:'Mar 2',h:'11:30'};
+    document.querySelectorAll('.chips').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+      g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');sel[g.dataset.g]=c.textContent;
+      document.getElementById('sum').innerHTML='<b>'+sel.s+'</b> · '+sel.d+' · '+sel.h;document.getElementById('ok').style.display='none'}));
+    document.getElementById('go').onclick=()=>document.getElementById('ok').style.display='block';
+  </script>
 </body>
 </html>
