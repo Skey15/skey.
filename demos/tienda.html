@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>DEMO · Cerámica Taller Sol (ejemplo)</title>
+  <style>
+    :root { --bg:#ffffff; --ink:#1a1a1a; --accent:#2f5fd0; --soft:#eef3fc; --muted:#666; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+    .demo-banner { background:var(--accent); color:#fff; text-align:center; font-weight:600; font-size:13px; padding:10px 16px; }
+    nav { display:flex; justify-content:space-between; align-items:center; max-width:1080px; margin:0 auto; padding:18px 24px; }
+    nav b { font-size:18px; }
+    nav span { font-size:14px; color:var(--muted); }
+    .hero { background:var(--soft); padding:56px 24px; text-align:center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin:0 0 10px; }
+    .products { max-width:1080px; margin:0 auto; padding:40px 24px; display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+    .item { border:1px solid #e5e5e5; border-radius:12px; padding:18px; }
+    .thumb { height:140px; border-radius:8px; background:linear-gradient(135deg,#d9e4f7,#f3d9c8); margin-bottom:14px; }
+    .item h3 { margin:0 0 6px; font-size:17px; }
+    .price { font-weight:700; }
+    .add { margin-top:12px; width:100%; padding:11px; border:0; border-radius:8px; background:var(--ink); color:#fff; font-weight:600; cursor:pointer; }
+    .trust { max-width:1080px; margin:0 auto 48px; padding:0 24px; color:var(--muted); font-size:14px; text-align:center; }
+    footer { text-align:center; color:var(--muted); font-size:14px; padding:24px 24px 40px; border-top:1px solid #eee; }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">Proyecto de demostración creado por Skey · No es una tienda real</div>
+
+  <nav>
+    <b>Taller Sol</b>
+    <span>Tienda de ejemplo · Carrito · Contacto</span>
+  </nav>
+
+  <div class="hero">
+    <h1>Cerámica hecha a mano</h1>
+    <p class="muted" style="color:var(--muted);">Piezas únicas para tu mesa. Envío en 48 h a toda España.</p>
+  </div>
+
+  <div class="products">
+    <div class="item"><div class="thumb"></div><h3>Taza de gres azul</h3><p class="muted" style="color:var(--muted); font-size:14px;">Esmalte mate, 350 ml.</p><span class="price">24 €</span><button class="add">Añadir al carrito</button></div>
+    <div class="item"><div class="thumb"></div><h3>Bol mediano</h3><p class="muted" style="color:var(--muted); font-size:14px;">Ideal para ensaladas.</p><span class="price">32 €</span><button class="add">Añadir al carrito</button></div>
+    <div class="item"><div class="thumb"></div><h3>Set de 2 platos</h3><p class="muted" style="color:var(--muted); font-size:14px;">Porcelana blanca.</p><span class="price">58 €</span><button class="add">Añadir al carrito</button></div>
+  </div>
+
+  <p class="trust">Pago seguro con tarjeta, Apple Pay y Google Pay. Devolución gratuita durante 14 días.</p>
+
+  <footer>Ejemplo de tienda online · Diseñada por Skey · hola@skey.es</footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>DEMO · Restaurante La Mesa (ejemplo)</title>
+  <style>
+    :root { --bg:#fbf6ef; --ink:#2b2118; --accent:#b5472b; --muted:#7a6a5c; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Georgia, "Times New Roman", serif; background:var(--bg); color:var(--ink); }
+    .demo-banner { background:#2b2118; color:#fbf6ef; text-align:center; font: 600 13px/1.4 system-ui, sans-serif; padding:10px 16px; }
+    header, section { max-width:960px; margin:0 auto; padding:56px 24px; }
+    header { text-align:center; padding-bottom:24px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin:0 0 12px; }
+    h2 { font-size:1.6rem; margin:0 0 16px; color:var(--accent); }
+    p { line-height:1.6; }
+    .cta { display:inline-block; margin-top:20px; background:var(--accent); color:#fff; padding:14px 26px; border-radius:6px; text-decoration:none; font: 600 15px system-ui, sans-serif; }
+    .menu { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
+    .dish { border-top:2px solid var(--accent); padding-top:12px; }
+    .dish strong { display:block; font-size:1.1rem; }
+    .price { color:var(--muted); font-family: system-ui, sans-serif; font-size:14px; }
+    footer { text-align:center; color:var(--muted); font: 14px system-ui, sans-serif; padding:32px 24px 48px; }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">Proyecto de demostración creado por Skey · No es un restaurante real</div>
+
+  <header>
+    <p style="color:var(--muted); letter-spacing:.15em; text-transform:uppercase; font: 13px system-ui">Cocina de mercado · Ejemplo</p>
+    <h1>Restaurante La Mesa</h1>
+    <p>Producto de temporada, carta que cambia cada mes y reservas en un clic.</p>
+    <a class="cta" href="#reservas">Reservar mesa</a>
+  </header>
+
+  <section>
+    <h2>Carta de ejemplo</h2>
+    <div class="menu">
+      <div class="dish"><strong>Ensalada de temporada</strong><p>Verduras asadas, queso fresco y vinagreta de miel.</p><span class="price">9,50 €</span></div>
+      <div class="dish"><strong>Arroz meloso de verduras</strong><p>Caldo casero y verduras de la huerta cercana.</p><span class="price">14,00 €</span></div>
+      <div class="dish"><strong>Pescado del día</strong><p>Consulta a nuestro equipo la pieza de hoy.</p><span class="price">Precio según mercado</span></div>
+    </div>
+  </section>
+
+  <section id="reservas" style="background:#fff; border-radius:12px; max-width:960px;">
+    <h2>Reservas</h2>
+    <p>Elige día y hora. Te confirmamos por WhatsApp en menos de una hora en horario de servicio.</p>
+    <a class="cta" href="#">Ver disponibilidad</a>
+  </section>
+
+  <footer>Ejemplo de web para restaurante · Diseñada por Skey · hola@skey.es</footer>
+</body>
+</html>
