@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#07080c;font-family:"Inter","Inter Display",sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+#bg{position:absolute;inset:0;
+ background:
+  radial-gradient(900px 700px at 80% 8%,rgba(59,130,246,.22),transparent 60%),
+  radial-gradient(800px 800px at 10% 95%,rgba(59,130,246,.14),transparent 60%),
+  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/90px 90px,
+  linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/90px 90px,#07080c}
+.s{position:absolute;inset:0;opacity:0}
+.abs{position:absolute}
+.dot{color:#3B82F6}
+.badge{display:inline-flex;align-items:center;gap:16px;padding:16px 30px;border:2px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.04);font-size:34px;font-weight:600;color:#e5e7eb}
+.badge i{width:16px;height:16px;border-radius:50%;background:#3B82F6;box-shadow:0 0 18px #3B82F6}
+.h1{font-family:"Inter Display","Inter";font-weight:800;letter-spacing:-.045em;line-height:1.02}
+.phone{width:600px;height:1060px;border-radius:80px;background:#0b0c10;border:3px solid #2a2d36;box-shadow:0 0 0 12px #121318,0 40px 140px rgba(59,130,246,.35);padding:22px;overflow:hidden}
+.screen{width:100%;height:100%;border-radius:60px;overflow:hidden;position:relative;background:#000}
+.screen img{position:absolute;left:0;top:62px;width:100%;will-change:transform}
+.notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:150px;height:40px;border-radius:30px;background:#000;z-index:5}
+.chip{display:inline-flex;gap:14px;align-items:center;padding:16px 28px;border-radius:999px;background:rgba(20,22,30,.94);border:2px solid rgba(255,255,255,.14);font-size:34px;font-weight:600;white-space:nowrap}
+.chip b{color:#3B82F6}
+.note{font-size:26px;color:#7b8190;text-align:center;width:100%}
+.kick{font-size:30px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#60a5fa}
+.btn{display:flex;justify-content:center;align-items:center;gap:18px;width:780px;height:120px;border-radius:30px;background:#3B82F6;font-size:42px;font-weight:700;box-shadow:0 0 70px rgba(59,130,246,.5)}
+.chk{font-size:40px;color:#d1d5db;display:flex;gap:20px;align-items:center;margin-bottom:20px}.chk b{color:#3B82F6}
+.price{display:flex;gap:20px}
+.price div{flex:1;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:26px;padding:22px 26px}
+.price small{display:block;font-size:26px;color:#9ca3af;font-weight:600}
+.price strong{display:block;font-size:46px;font-weight:800;letter-spacing:-.03em;margin-top:6px}
+</style></head><body>
+<div id="bg"></div>
+
+<!-- S1 hook -->
+<div class="s" id="s1">
+  <div class="abs" style="left:90px;top:520px" id="s1b"><span class="badge"><i></i>Webs de ejemplo · Skey</span></div>
+  <div class="abs h1" style="left:90px;top:640px;width:900px;font-size:136px" id="s1h">¿Tu negocio aún sin web<span class="dot">?</span></div>
+  <div class="abs" style="left:90px;top:1100px;width:850px;font-size:54px;line-height:1.3;color:#9ca3af;font-weight:500" id="s1s">Mira cómo podría quedar.</div>
+</div>
+
+<!-- demos -->
+<div class="s" id="s2">
+  <div class="abs" style="left:0;right:0;top:160px;text-align:center" id="d1k"><span class="kick">Demo 1 · Restaurante</span></div>
+  <div class="abs h1" style="left:0;right:0;top:215px;text-align:center;font-size:72px" id="d1h">Carta y reservas<span class="dot">.</span></div>
+  <div class="abs phone" style="left:240px;top:340px" id="d1p"><div class="screen"><div class="notch"></div><img id="d1i" src="restaurante.jpg"></div></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1440px" id="d1c1"><span class="chip"><b>✓</b> Carta por categorías</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1535px" id="d1c2"><span class="chip"><b>✓</b> Reserva de mesa online</span></div>
+  <div class="abs note" style="top:1625px">Ejemplo inventado, no es un cliente real</div>
+</div>
+
+<div class="s" id="s3">
+  <div class="abs" style="left:0;right:0;top:160px;text-align:center" id="d2k"><span class="kick">Demo 2 · Peluquería</span></div>
+  <div class="abs h1" style="left:0;right:0;top:215px;text-align:center;font-size:72px" id="d2h">Cita online en 3 toques<span class="dot">.</span></div>
+  <div class="abs phone" style="left:240px;top:340px" id="d2p"><div class="screen"><div class="notch"></div><img id="d2i" src="peluqueria.jpg"></div></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1440px" id="d2c1"><span class="chip"><b>✓</b> Servicios con precio y duración</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1535px" id="d2c2"><span class="chip"><b>✓</b> Eliges día y hora libre</span></div>
+  <div class="abs note" style="top:1625px">Ejemplo inventado, no es un cliente real</div>
+</div>
+
+<div class="s" id="s4">
+  <div class="abs" style="left:0;right:0;top:160px;text-align:center" id="d3k"><span class="kick">Demo 3 · Tienda online</span></div>
+  <div class="abs h1" style="left:0;right:0;top:215px;text-align:center;font-size:72px" id="d3h">Vende las 24 horas<span class="dot">.</span></div>
+  <div class="abs phone" style="left:240px;top:340px" id="d3p"><div class="screen"><div class="notch"></div><img id="d3i" src="tienda.jpg"></div></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1440px" id="d3c1"><span class="chip"><b>✓</b> Catálogo con filtros y carrito</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1535px" id="d3c2"><span class="chip"><b>✓</b> Pago con tarjeta y Apple Pay</span></div>
+  <div class="abs note" style="top:1625px">Ejemplo inventado, no es un cliente real</div>
+</div>
+
+<!-- end card -->
+<div class="s" id="s5">
+  <div class="abs h1" style="left:110px;top:250px;font-size:96px" id="e0">Skey<span class="dot">.</span></div>
+  <div class="abs h1" style="left:110px;top:400px;width:800px;font-size:76px;line-height:1.06" id="e1">Software y webs hechas para vender y ahorrar horas<span class="dot">.</span></div>
+  <div class="abs" style="left:110px;top:720px" id="e2">
+    <div class="chk" id="k1"><b>✓</b> Propuesta cerrada en 24h</div>
+    <div class="chk" id="k2"><b>✓</b> Código y dominio 100% tuyos</div>
+    <div class="chk" id="k3"><b>✓</b> Sin cuotas obligatorias</div>
+  </div>
+  <div class="abs price" style="left:110px;top:980px;width:780px" id="e6">
+    <div><small>Web profesional</small><strong>desde 250 €</strong></div>
+    <div><small>Tienda online</small><strong>desde 850 €</strong></div>
+  </div>
+  <div class="abs btn" style="left:110px;top:1190px" id="e3">Configurar mi proyecto →</div>
+  <div class="abs" style="left:110px;width:780px;top:1360px;text-align:center;font-size:64px;font-weight:800;letter-spacing:-.03em" id="e4">skey<span class="dot">.</span>es</div>
+  <div class="abs" style="left:110px;width:780px;top:1460px;text-align:center;font-size:32px;color:#6b7280" id="e5">Mira las demos en skey.es · Ejemplos</div>
+</div>
+
+<script>
+const S=[[0,2.6],[2.6,6.9],[6.9,11.2],[11.2,15.3],[15.3,20]];
+const cl=(x)=>Math.max(0,Math.min(1,x));
+const eo=(x)=>1-Math.pow(1-cl(x),3);
+const eio=(x)=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const $=(id)=>document.getElementById(id);
+const K=550/390; // escala CSS px de la demo -> px de pantalla
+function rise(id,t,start,dur=.5,dist=60){const k=eo((t-start)/dur);const e=$(id);e.style.opacity=k;e.style.transform=`translateY(${(1-k)*dist}px)`;}
+function pop(id,t,start,dur=.4){const k=eo((t-start)/dur);const e=$(id);e.style.opacity=k;e.style.transform=`scale(${.85+.15*k})`;}
+// scroll: paradas [y CSS], empieza en a
+function scroll(id,t,a,stops){
+  // 0.7s quieto, 1.1s desliza, 0.6s quieto, 1.1s desliza
+  const seg=[[a+.7,a+1.8],[a+2.4,a+3.5]];
+  let y=stops[0];
+  if(t>=seg[0][0]) y=stops[0]+(stops[1]-stops[0])*eio((t-seg[0][0])/1.1);
+  if(t>=seg[1][0]) y=stops[1]+(stops[2]-stops[1])*eio((t-seg[1][0])/1.1);
+  $(id).style.transform=`translateY(${-y*K}px)`;
+}
+window.setT=function(t){
+  S.forEach(([a,b],i)=>{const e=$('s'+(i+1));let o=0;if(t>=a&&t<b){o=Math.min(cl((t-a)/.25),cl((b-t)/.2));if(i==0)o=Math.min(1,cl((b-t)/.2));if(i==4)o=cl((t-a)/.3);}e.style.opacity=o;});
+  rise('s1b',t,0,.35);rise('s1h',t,.05,.5,80);rise('s1s',t,1.0,.45);
+  const D=[[2.6,[0,1990,3480]],[6.9,[0,1790,3950]],[11.2,[0,1300,3330]]];
+  D.forEach(([a,st],i)=>{const n=i+1;
+    rise('d'+n+'k',t,a,.35,30);rise('d'+n+'h',t,a+.05,.4,40);rise('d'+n+'p',t,a,.5,120);
+    scroll('d'+n+'i',t,a,st);pop('d'+n+'c1',t,a+.9,.35);pop('d'+n+'c2',t,a+1.9,.35);});
+  rise('e0',t,15.35,.4);rise('e1',t,15.5,.5);
+  rise('k1',t,16.1,.35,30);rise('k2',t,16.35,.35,30);rise('k3',t,16.6,.35,30);
+  rise('e6',t,16.9,.4,30);pop('e3',t,17.3,.4);rise('e4',t,17.6,.4,30);rise('e5',t,17.8,.4,30);
+};
+setT(0);
+</script></body></html>
