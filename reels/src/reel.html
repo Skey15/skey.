@@ -43,55 +43,66 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#07080c;font-fam
 .bar{height:16px;border-radius:9px;background:#1e293b;margin-top:18px;overflow:hidden}.bar i{display:block;height:100%;width:60%;background:#3B82F6;border-radius:9px}
 .btn{display:flex;justify-content:center;align-items:center;gap:18px;width:860px;height:120px;border-radius:30px;background:#3B82F6;font-size:42px;font-weight:700;box-shadow:0 0 70px rgba(59,130,246,.5)}
 .chk{font-size:40px;color:#d1d5db;display:flex;gap:20px;align-items:center;margin-bottom:22px}.chk b{color:#3B82F6}
+
+/* web taller */
+.web{background:#f5f5f4;height:100%;color:#1c1917;position:relative}
+.wnav{position:absolute;top:0;left:0;right:0;height:150px;background:#111;display:flex;align-items:flex-end;justify-content:space-between;padding:0 32px 22px;color:#fff}
+.wnav .lg{font-size:32px;font-weight:800;letter-spacing:-.02em}.wnav .lg span{color:#f97316}
+.wnav .bt{font-size:22px;font-weight:700;background:#f97316;padding:10px 18px;border-radius:12px}
+.whero{position:absolute;top:150px;left:0;right:0;height:440px;padding:40px 34px;color:#fff;
+ background:linear-gradient(160deg,rgba(17,17,17,.2),rgba(17,17,17,.85)),repeating-linear-gradient(135deg,#292524 0 26px,#1c1917 26px 52px)}
+.whero .k{font-size:22px;font-weight:700;color:#fdba74;letter-spacing:.06em;text-transform:uppercase}
+.whero h4{font-size:56px;font-weight:800;line-height:1.04;letter-spacing:-.035em;margin:14px 0 18px}
+.whero p{font-size:25px;color:#d6d3d1;line-height:1.3}
+.whero .cta{display:flex;gap:14px;margin-top:28px}
+.whero .cta span{font-size:24px;font-weight:700;padding:16px 22px;border-radius:14px}
+.c1{background:#f97316;color:#fff}.c2{background:#fff;color:#111}
+.wsv{position:absolute;top:612px;left:28px;right:28px}
+.wsv .tt{font-size:30px;font-weight:800;margin-bottom:16px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sv{background:#fff;border-radius:20px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.sv .ic{width:52px;height:52px;border-radius:14px;background:#ffedd5;color:#ea580c;font-size:28px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.sv b{display:block;font-size:24px;margin-top:12px}.sv em{display:block;font-style:normal;font-size:19px;color:#78716c;margin-top:4px}
+.wa{position:absolute;right:22px;bottom:18px;width:72px;height:72px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 8px 20px rgba(34,197,94,.45)}
 </style></head><body>
 <div id="bg"></div>
 
-<!-- S1 hook -->
 <div class="s" id="s1">
-  <div class="abs" style="left:90px;top:520px" id="s1b"><span class="badge"><i></i>Idea de micro-SaaS · Fisioterapia</span></div>
-  <div class="abs h1" style="left:90px;top:640px;width:880px;font-size:132px" id="s1h">¿Tienes una clínica de fisio<span class="dot">?</span></div>
-  <div class="abs" style="left:90px;top:1080px;width:850px;font-size:50px;line-height:1.3;color:#9ca3af;font-weight:500" id="s1s">Y sigues dando las citas por WhatsApp…</div>
+  <div class="abs" style="left:90px;top:500px" id="s1b"><span class="badge"><i></i>Web de ejemplo · Taller mecánico</span></div>
+  <div class="abs h1" style="left:90px;top:620px;width:880px;font-size:150px" id="s1h">Tu taller sin web<span class="dot">.</span></div>
+  <div class="abs" style="left:90px;top:1000px;width:850px;font-size:50px;line-height:1.3;color:#9ca3af;font-weight:500" id="s1s">Y tus clientes buscando «taller cerca de mí» en Google…</div>
 </div>
 
-<!-- S2 problem -->
 <div class="s" id="s2">
-  <div class="abs h1" style="left:90px;top:170px;width:880px;font-size:66px;text-align:left" id="s2h">Horas cada semana contestando mensajes<span class="dot">.</span></div>
-  <div class="abs phone" style="left:240px;top:400px;height:1100px" id="s2p"><div class="screen"><div class="notch"></div>
-    <div class="chat"><div class="top"><span></span>Pacientes</div>
-      <div class="b" id="m1">Hola, ¿tienes hueco el martes?<small>9:12</small></div>
-      <div class="b" id="m2">¿Y a las 18:00?<small>9:14</small></div>
-      <div class="b" id="m3">Perdona, tengo que cancelar lo de mañana 😕<small>9:31</small></div>
-      <div class="b" id="m4">¿Cuántas sesiones me quedan del bono?<small>9:40</small></div>
-      <div class="b" id="m5">¿Me lo puedes pasar al jueves?<small>9:52</small></div>
-    </div></div></div>
-</div>
-
-<!-- S3 solution -->
-<div class="s" id="s3">
-  <div class="abs" style="left:0;right:0;top:170px;text-align:center" id="s3l"><span class="pill">Así sería tu herramienta</span></div>
-  <div class="abs" style="left:240px;top:270px;width:600px;height:1150px;transform-origin:top center" id="s3w"><div class="phone" style="height:1150px" id="s3p"><div class="screen"><div class="notch"></div>
-    <div class="app">
-      <h3>FisioAgenda</h3><div class="sub">Hoy · martes</div>
-      <div class="row"><div class="t">10:00</div><div class="n">Lucía M.<em>Lumbar · sesión 6/10</em></div><span class="tag ok">Confirmada</span></div>
-      <div class="row"><div class="t">11:00</div><div class="n">Javier R.<em>Rodilla · valoración</em></div><span class="tag rem">Avisado ✓</span></div>
-      <div class="row"><div class="t">12:00</div><div class="n">Hueco libre<em>Reservable online</em></div><span class="tag free">Libre</span></div>
-      <div class="row"><div class="t">18:00</div><div class="n">Marta G.<em>Cervical · sesión 3/5</em></div><span class="tag ok">Confirmada</span></div>
-      <div class="bono"><div class="l">Bono 10 sesiones · Lucía M.</div><div class="v">Quedan 4</div><div class="bar"><i></i></div></div>
+  <div class="abs" style="left:0;right:0;top:170px;text-align:center" id="s2l"><span class="pill">Así podría ser tu web</span></div>
+  <div class="abs" style="left:240px;top:270px;width:600px;height:1150px;transform-origin:top center" id="s2w"><div class="phone" style="height:1150px" id="s2p"><div class="screen"><div class="notch"></div>
+    <div class="web">
+      <div class="wnav"><div class="lg">Brío<span>Motor</span></div><div class="bt">Pedir cita</div></div>
+      <div class="whero"><div class="k">Mecánica general</div>
+        <h4>Tu coche a punto, sin sorpresas.</h4>
+        <p>Presupuesto antes de tocar nada y aviso cuando esté listo.</p>
+        <div class="cta"><span class="c1">Pedir cita</span><span class="c2">Llamar</span></div></div>
+      <div class="wsv"><div class="tt">Servicios</div><div class="grid">
+        <div class="sv"><div class="ic">⚙</div><b>Revisión y aceite</b><em>Mantenimiento</em></div>
+        <div class="sv"><div class="ic">◎</div><b>Frenos</b><em>Pastillas y discos</em></div>
+        <div class="sv"><div class="ic">◉</div><b>Neumáticos</b><em>Cambio y equilibrado</em></div>
+        <div class="sv"><div class="ic">✓</div><b>Pre-ITV</b><em>Llega sin sustos</em></div>
+      </div></div>
+      <div class="wa">💬</div>
     </div></div></div></div>
-  <div class="abs" style="left:0;right:0;text-align:center;top:1250px" id="c1"><span class="chip"><b>✓</b> Reservas online 24/7</span></div>
-  <div class="abs" style="left:0;right:0;text-align:center;top:1345px" id="c2"><span class="chip"><b>✓</b> Recordatorios automáticos</span></div>
-  <div class="abs" style="left:0;right:0;text-align:center;top:1440px" id="c3"><span class="chip"><b>✓</b> Control de bonos</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1250px" id="c1"><span class="chip"><b>✓</b> Carga rápido en móvil</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1345px" id="c2"><span class="chip"><b>✓</b> Citas directas a tu WhatsApp</span></div>
+  <div class="abs" style="left:0;right:0;text-align:center;top:1440px" id="c3"><span class="chip"><b>✓</b> Preparada para Google</span></div>
   <div class="abs note" style="top:1560px">Ejemplo inventado, no es un cliente real</div>
 </div>
 
-<!-- S4 -->
-<div class="s" id="s4">
-  <div class="abs h1" style="left:90px;top:640px;width:900px;font-size:118px" id="s4h">Esto te lo construimos en Skey<span class="dot">.</span></div>
-  <div class="abs" style="left:90px;top:1060px;width:880px;font-size:48px;line-height:1.35;color:#9ca3af;font-weight:500" id="s4s">Hecho a medida para tu negocio. El código es tuyo y sin cuotas obligatorias.</div>
+<div class="s" id="s3">
+  <div class="abs" style="left:90px;top:560px" id="s3b"><span class="badge"><i></i>Web profesional · pago único</span></div>
+  <div class="abs h1" style="left:90px;top:680px;width:900px;font-size:128px" id="s3h">Desde 250 €<span class="dot">.</span></div>
+  <div class="abs" style="left:90px;top:880px;width:880px;font-size:48px;line-height:1.35;color:#9ca3af;font-weight:500" id="s3s">Diseño a medida, dominio y SSL incluidos. Lista en 7–10 días.</div>
 </div>
 
-<!-- S5 end card -->
-<div class="s" id="s5">
+<div class="s" id="s4">
   <div class="abs h1" style="left:110px;top:330px;font-size:96px" id="e0">Skey<span class="dot">.</span></div>
   <div class="abs h1" style="left:110px;top:480px;width:870px;font-size:76px;line-height:1.06" id="e1">Software y webs hechas para vender y ahorrar horas<span class="dot">.</span></div>
   <div class="abs" style="left:110px;top:800px" id="e2">
@@ -101,32 +112,26 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#07080c;font-fam
   </div>
   <div class="abs btn" style="left:110px;top:1080px" id="e3">Configurar mi proyecto →</div>
   <div class="abs" style="left:0;right:0;top:1260px;text-align:center;font-size:64px;font-weight:800;letter-spacing:-.03em" id="e4">skey<span class="dot">.</span>es</div>
-  <div class="abs" style="left:0;right:0;top:1360px;text-align:center;font-size:32px;color:#6b7280" id="e5">Cuéntanos tu caso y te respondemos en 24h</div>
+  <div class="abs" style="left:0;right:0;top:1360px;text-align:center;font-size:32px;color:#6b7280" id="e5">Web profesional desde 250 €</div>
 </div>
 
 <script>
-const S=[[0,3],[3,7],[7,12.5],[12.5,15.2],[15.2,19]];
+const S=[[0,3],[3,10.5],[10.5,13.6],[13.6,18]];
 const cl=(x)=>Math.max(0,Math.min(1,x));
 const eo=(x)=>1-Math.pow(1-cl(x),3);
 const $=(id)=>document.getElementById(id);
 function rise(id,t,start,dur=.5,dist=60){const k=eo((t-start)/dur);const e=$(id);e.style.opacity=k;e.style.transform=`translateY(${(1-k)*dist}px)`;}
 function pop(id,t,start,dur=.4){const k=eo((t-start)/dur);const e=$(id);e.style.opacity=k;e.style.transform=`scale(${.85+.15*k})`;}
 window.setT=function(t){
-  S.forEach(([a,b],i)=>{const e=$('s'+(i+1));let o=0;if(t>=a&&t<b){o=Math.min(cl((t-a)/.3),cl((b-t)/.25));if(i==0)o=Math.min(1,cl((b-t)/.25));if(i==4)o=cl((t-a)/.3);}e.style.opacity=o;});
-  // S1
-  rise('s1b',t,0,.4);rise('s1h',t,.1,.55,80);rise('s1s',t,1.3,.5);
-  // S2
-  rise('s2h',t,3.05,.5);rise('s2p',t,3.0,.6,120);
-  ['m1','m2','m3','m4','m5'].forEach((m,i)=>pop(m,t,3.5+i*.6,.3));
-  // S3
-  pop('s3l',t,7.05,.4);rise('s3p',t,7.0,.6,120);$('s3w').style.transform='scale(.82)';
-  pop('c1',t,8.3);pop('c2',t,9.3);pop('c3',t,10.3);
-  // S4
-  rise('s4h',t,12.55,.55,80);rise('s4s',t,13.4,.5);
-  // S5
-  rise('e0',t,15.25,.4);rise('e1',t,15.4,.5);
-  rise('k1',t,16.0,.35,30);rise('k2',t,16.3,.35,30);rise('k3',t,16.6,.35,30);
-  pop('e3',t,17.0,.4);rise('e4',t,17.3,.4,30);rise('e5',t,17.5,.4,30);
+  const L=S.length-1;
+  S.forEach(([a,b],i)=>{const e=$('s'+(i+1));let o=0;if(t>=a&&t<b){o=Math.min(cl((t-a)/.3),cl((b-t)/.25));if(i==0)o=Math.min(1,cl((b-t)/.25));if(i==L)o=cl((t-a)/.3);}e.style.opacity=o;});
+  rise('s1b',t,0,.3);rise('s1h',t,.05,.45,80);rise('s1s',t,1.1,.5);
+  pop('s2l',t,3.05,.4);rise('s2p',t,3.0,.6,120);$('s2w').style.transform='scale(.82)';
+  pop('c1',t,4.6);pop('c2',t,6.0);pop('c3',t,7.4);
+  rise('s3b',t,10.55,.4);rise('s3h',t,10.65,.5,80);rise('s3s',t,11.4,.5);
+  rise('e0',t,13.65,.4);rise('e1',t,13.8,.5);
+  rise('k1',t,14.4,.35,30);rise('k2',t,14.7,.35,30);rise('k3',t,15.0,.35,30);
+  pop('e3',t,15.4,.4);rise('e4',t,15.7,.4,30);rise('e5',t,15.9,.4,30);
 };
 setT(0);
 </script></body></html>
