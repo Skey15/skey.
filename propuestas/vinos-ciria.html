@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Vinos y Licores Ciria, Calatayud (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--wine:#5b1a2a;--wine2:#7d2639;--gold:#c9a45c;--cream:#f7f1e8;--paper:#fffaf3;--ink:#241a17;--mut:#7a6a62;--line:#e7dccd}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .f{font-family:Fraunces,Georgia,serif}
+    .demo{background:#111;color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(91,26,42,.96);backdrop-filter:blur(8px);color:#fff}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+    .logo{font-size:23px;font-weight:650;letter-spacing:.01em}.logo small{display:block;font-family:Inter;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:-2px}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;opacity:.85}
+    nav a{color:inherit;text-decoration:none}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--wine);color:#fff;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--wine2);transform:translateY(-1px)}
+    .btn.gold{background:var(--gold);color:#2b1a10}.btn.gold:hover{background:#d8b56c}
+    .btn.wa{background:#25a35a}.btn.wa:hover{background:#1e8a4b}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}.btn.ghost:hover{background:rgba(255,255,255,.1)}
+    .hero{background:radial-gradient(ellipse 60% 70% at 85% 30%,rgba(201,164,92,.25),transparent 70%),linear-gradient(160deg,#3d0f1b,#5b1a2a 60%,#6e2133);color:#fff;padding:84px 0 96px;overflow:hidden}
+    .hero .w{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+    .eyebrow{color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+    h1{font-size:clamp(2.7rem,6.3vw,4.8rem);line-height:1.03;font-weight:500;margin-bottom:22px}
+    h1 em{color:var(--gold)}
+    .hero p{font-size:18px;opacity:.8;max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+    .chips span{border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:999px;font-size:13.5px;opacity:.9}
+    .bottle{justify-self:center;width:min(300px,80%);aspect-ratio:1/2.4;position:relative}
+    .bottle::before{content:"";position:absolute;left:36%;right:36%;top:0;height:22%;background:linear-gradient(90deg,#2a0a12,#4a1422,#2a0a12);border-radius:10px 10px 4px 4px}
+    .bottle::after{content:"";position:absolute;left:8%;right:8%;top:20%;bottom:0;background:linear-gradient(90deg,#26080f,#521728 45%,#2a0a12);border-radius:60px 60px 22px 22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6),inset 10px 0 30px rgba(255,255,255,.06)}
+    .label{position:absolute;z-index:2;left:18%;right:18%;top:52%;background:var(--cream);color:var(--wine);text-align:center;padding:18px 10px;border-radius:6px;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+    .label b{display:block;font-family:Fraunces;font-size:22px;font-weight:650}
+    section{padding:92px 0}
+    .head{margin-bottom:44px;max-width:640px}
+    .kick{color:var(--wine2);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.2rem,4.4vw,3.2rem);line-height:1.06;font-weight:500}
+    .sub{color:var(--mut);margin-top:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(91,26,42,.35)}
+    .card .ic{font-size:28px;margin-bottom:14px}
+    .card h3{font-size:22px;font-weight:650;margin-bottom:6px}.card p{color:var(--mut);font-size:15px}
+    .ph{color:#a16207;font-style:italic;font-weight:600}
+    .vermut{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .glass{aspect-ratio:1/1;border-radius:28px;background:radial-gradient(circle at 50% 62%,#b5432d 0 20%,transparent 21%),radial-gradient(circle at 50% 50%,rgba(255,255,255,.7) 0 34%,transparent 35%),linear-gradient(150deg,#e9dcc8,#d8c3a5);display:grid;place-items:end center;padding:24px;color:var(--mut);font-size:13px}
+    .list{list-style:none;display:grid;gap:12px;margin:24px 0 30px}
+    .list li{display:flex;gap:10px;color:var(--mut)}.list li::before{content:"🍇"}
+    .catas{background:var(--wine);color:#fff}
+    .catas .kick{color:var(--gold)}.catas .sub{color:rgba(255,255,255,.7)}
+    .ev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .evc{border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:26px;background:rgba(255,255,255,.04)}
+    .evc .d{font-family:Fraunces;font-size:34px;color:var(--gold)}
+    .evc h3{font-size:19px;margin:6px 0}.evc p{opacity:.7;font-size:14.5px}
+    .gift{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .gc{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .gc .img{aspect-ratio:4/3;background:linear-gradient(135deg,#efe3d1,#d9c2a0);display:grid;place-items:center;color:var(--mut);font-size:13px}
+    .gc div.t{padding:22px}.gc h3{font-size:20px;font-weight:650}.gc p{color:var(--mut);font-size:14.5px;margin:4px 0 14px}
+    .ship{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--cream);border:1px solid var(--line);border-radius:24px;padding:34px 38px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px}
+    .box h3{font-size:24px;font-weight:650;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mut)}
+    .map{display:grid;place-items:center;margin-top:18px;aspect-ratio:16/9;border-radius:16px;background:repeating-linear-gradient(45deg,#f1e8db 0 12px,#f8f2ea 12px 24px);color:var(--mut);text-decoration:none;font-size:14px}
+    footer{background:#1d1312;color:rgba(255,255,255,.6);padding:34px 0 56px;font-size:13.5px}
+    footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    footer a{color:#fff}
+    .age{font-size:12.5px;opacity:.75;margin-top:6px}
+    .fab{position:fixed;right:18px;bottom:18px;z-index:20;box-shadow:0 14px 30px -10px rgba(37,163,90,.6)}
+    @media(max-width:520px){nav .w{height:62px}.logo{font-size:18px;white-space:nowrap}.logo small{font-size:9px}nav .btn{padding:10px 14px;font-size:13.5px;white-space:nowrap}}
+    @media(max-width:900px){nav ul{display:none}.hero .w,.split,.visit{grid-template-columns:1fr}.grid3,.ev,.gift{grid-template-columns:1fr}.bottle{width:200px}section{padding:72px 0}.ship{padding:26px}}
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Vinos y Licores Ciria · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav><div class="w">
+    <div class="logo f">Vinos y Licores Ciria<small>Calatayud</small></div>
+    <ul><li><a href="#vinos">Vinos</a></li><li><a href="#vermut">Vermut</a></li><li><a href="#catas">Catas</a></li><li><a href="#regalos">Regalos</a></li><li><a href="#visita">Visítanos</a></li></ul>
+    <a class="btn gold" href="#pedido">Hacer pedido</a>
+  </div></nav>
+
+  <header class="hero"><div class="w">
+    <div>
+      <p class="eyebrow">Vinoteca · D.O.P. Calatayud</p>
+      <h1 class="f">El vino de nuestra tierra, <em>bien aconsejado.</em></h1>
+      <p>Los mejores vinos de la Denominación de Origen Calatayud, nuestro vermut casero y catas para descubrirlos. En la Plaza San Francisco o en tu casa.</p>
+      <div class="ctas">
+        <a class="btn wa" href="#pedido">💬 Pedir por WhatsApp</a>
+        <a class="btn ghost" href="#vinos">Ver vinos</a>
+      </div>
+      <div class="chips"><span>🍷 Garnacha de Calatayud</span><span>🥃 Vermut casero</span><span>🚚 Envío a domicilio</span></div>
+    </div>
+    <div class="bottle"><div class="label"><b>Garnacha</b>D.O.P. Calatayud</div></div>
+  </div></header>
+
+  <section id="vinos"><div class="w">
+    <div class="head"><p class="kick">Nuestra selección</p><h2 class="f">Vinos de la D.O.P. Calatayud</h2><p class="sub">Trabajamos con las principales bodegas de la zona. Pregúntanos y te recomendamos el vino justo para cada ocasión.</p></div>
+    <div class="grid3">
+      <div class="card"><div class="ic">🍷</div><h3 class="f">Tintos</h3><p>Garnachas de viñas viejas y altura, con la mineralidad propia de Calatayud. <span class="ph">[Bodegas y precios]</span></p></div>
+      <div class="card"><div class="ic">🥂</div><h3 class="f">Blancos y rosados</h3><p>Frescos y fáciles de beber, perfectos para el aperitivo. <span class="ph">[Bodegas y precios]</span></p></div>
+      <div class="card"><div class="ic">🥃</div><h3 class="f">Licores y destilados</h3><p>Una selección cuidada para regalar o para la sobremesa. <span class="ph">[Marcas]</span></p></div>
+    </div>
+  </div></section>
+
+  <section class="vermut" id="vermut"><div class="w split">
+    <div class="glass">Aquí iría una foto del vermut de la casa</div>
+    <div>
+      <p class="kick">La especialidad de la casa</p>
+      <h2 class="f">Nuestro vermut casero</h2>
+      <p class="sub">El que más nos piden. Para tomar en casa, llevar al pueblo o regalar.</p>
+      <ul class="list"><li>Elaboración propia <span class="ph">[confirmar]</span></li><li>Formatos <span class="ph">[botella / garrafa]</span></li><li>Precio <span class="ph">[XX €]</span></li></ul>
+      <a class="btn" href="#pedido">Reservar vermut</a>
+    </div>
+  </div></section>
+
+  <section class="catas" id="catas"><div class="w">
+    <div class="head"><p class="kick">Aprender bebiendo</p><h2 class="f">Catas en la tienda</h2><p class="sub">Un rato ameno para conocer los vinos de la zona. Plazas limitadas: apúntate por WhatsApp.</p></div>
+    <div class="ev">
+      <div class="evc"><div class="d">[Fecha]</div><h3>Garnachas de Calatayud</h3><p class="ph">[Precio · plazas]</p></div>
+      <div class="evc"><div class="d">[Fecha]</div><h3>Vinos para Navidad</h3><p class="ph">[Precio · plazas]</p></div>
+      <div class="evc"><div class="d">A medida</div><h3>Catas para grupos</h3><p>Cumpleaños, empresas o amigos. Pide presupuesto.</p></div>
+    </div>
+  </div></section>
+
+  <section id="regalos"><div class="w">
+    <div class="head"><p class="kick">Para regalar</p><h2 class="f">Lotes y cestas</h2><p class="sub">Te preparamos el regalo con el vino adecuado. Ideal para Navidad y empresas.</p></div>
+    <div class="gift">
+      <div class="gc"><div class="img">Foto del lote</div><div class="t"><h3 class="f">Lote Calatayud</h3><p>Dos vinos de la D.O. y vermut de la casa.</p><b class="ph">[XX €]</b></div></div>
+      <div class="gc"><div class="img">Foto del lote</div><div class="t"><h3 class="f">Lote gourmet</h3><p>Vino con productos de la zona.</p><b class="ph">[XX €]</b></div></div>
+      <div class="gc"><div class="img">Foto del lote</div><div class="t"><h3 class="f">Lotes para empresas</h3><p>Para clientes y equipo, con tarjeta personalizada.</p><b>A consultar</b></div></div>
+    </div>
+  </div></section>
+
+  <section id="pedido" style="padding-top:0"><div class="w">
+    <div class="ship">
+      <div><h2 class="f" style="font-size:clamp(1.8rem,3.5vw,2.4rem)">¿Te lo llevamos a casa?</h2><p class="sub" style="margin-top:6px">Haz tu pedido por WhatsApp y te lo enviamos a domicilio. <span class="ph">[Zona y condiciones de envío]</span></p></div>
+      <a class="btn wa" href="#visita">💬 Pedir por WhatsApp</a>
+    </div>
+  </div></section>
+
+  <section id="visita" style="padding-top:20px"><div class="w">
+    <div class="head"><p class="kick">Visítanos</p><h2 class="f">En la Plaza San Francisco</h2></div>
+    <div class="visit">
+      <div class="box">
+        <h3 class="f">Horario</h3>
+        <table>
+          <tr><td>Lunes a sábado</td><td>9:30–13:30 · 18:00–21:00</td></tr>
+          <tr><td>Domingo</td><td>Cerrado</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--mut);margin-top:10px">Horario tomado de Google; la tienda lo confirmará.</p>
+      </div>
+      <div class="box">
+        <h3 class="f">Dónde estamos</h3>
+        <p>Pl. San Francisco, 3 · 50300 Calatayud</p>
+        <p style="margin-top:6px"><a href="tel:+34697621086" style="font-weight:600;color:var(--wine)">697 62 10 86</a></p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Vinos+y+Licores+Ciria+Calatayud" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+    </div>
+  </div></section>
+
+  <footer><div class="w">
+    <div>Vinos y Licores Ciria · Pl. San Francisco, 3 · Calatayud · Aviso legal · Privacidad<p class="age">Venta de alcohol solo a mayores de 18 años. Bebe con moderación.</p></div>
+    <span>Propuesta de diseño: <a href="https://skey.es">Skey</a></span>
+  </div></footer>
+
+  <a class="btn wa fab" href="#pedido">💬 Pedir</a>
+</body>
+</html>

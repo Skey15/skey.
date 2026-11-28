@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Charcutería Dina, Calatayud (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--green:#2f4a3a;--green2:#3f6150;--terra:#c0642f;--cream:#f6efe3;--paper:#fbf7f0;--ink:#1f2420;--mut:#6c6a62;--line:#e6dccb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .s{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+    .demo{background:#111;color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(251,247,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:25px;color:var(--green);white-space:nowrap}.logo span{color:var(--terra)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--green2);transform:translateY(-1px)}
+    .btn.t{background:var(--terra)}.btn.t:hover{background:#a8541f}
+    .btn.wa{background:#25a35a}.btn.wa:hover{background:#1e8a4b}
+    .btn.o{background:transparent;color:var(--green);border:1.5px solid var(--green)}.btn.o:hover{background:var(--green);color:#fff}
+    .hero{padding:72px 0 88px;background:radial-gradient(ellipse 55% 60% at 90% 20%,rgba(192,100,47,.14),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+    .pill{display:inline-block;background:#e9efe9;color:var(--green);font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+    h1{font-size:clamp(2.7rem,6.2vw,4.7rem);line-height:1.02;margin-bottom:20px;color:var(--green)}
+    h1 em{color:var(--terra)}
+    .hero p{font-size:18px;color:var(--mut);max-width:500px;margin-bottom:30px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .feat{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;font-size:14px;color:var(--mut)}
+    .feat b{display:block;color:var(--ink)}
+    .board{background:var(--green);border-radius:28px;padding:30px;color:#fff;box-shadow:0 40px 80px -40px rgba(47,74,58,.7)}
+    .board h3{font-size:26px;margin-bottom:14px;color:#f3d9b9}
+    .board li{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.22);font-size:15px}
+    .board li:last-child{border:0}.board li span{opacity:.7}
+    section{padding:90px 0}
+    .head{max-width:620px;margin-bottom:42px}
+    .kick{color:var(--terra);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.2rem,4.4vw,3.2rem);line-height:1.06;color:var(--green)}
+    .sub{color:var(--mut);margin-top:12px}
+    .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .cat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;transition:transform .2s,box-shadow .2s}
+    .cat:hover{transform:translateY(-3px);box-shadow:0 20px 40px -26px rgba(47,74,58,.45)}
+    .cat .ic{font-size:30px;margin-bottom:12px}.cat h3{font-size:22px;color:var(--green)}.cat p{color:var(--mut);font-size:14.5px;margin-top:4px}
+    .ph{color:#a16207;font-style:italic;font-weight:600}
+    .alt{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .img{aspect-ratio:1/1;border-radius:28px;background:linear-gradient(140deg,#e8dcc6,#cdb48d);display:grid;place-items:end center;padding:24px;color:var(--mut);font-size:13px}
+    .checks{list-style:none;display:grid;gap:10px;margin:22px 0 28px}
+    .checks li::before{content:"✓ ";color:var(--terra);font-weight:700}
+    .lotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .lote{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+    .lote .img{aspect-ratio:4/3;border-radius:0}
+    .lote .t{padding:22px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .lote h3{font-size:22px;color:var(--green)}.lote p{color:var(--mut);font-size:14.5px;flex:1}
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:n}
+    .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+    .step::before{counter-increment:n;content:counter(n);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--terra);color:#fff;font-weight:700;margin-bottom:14px}
+    .step h3{font-size:17px}.step p{color:var(--mut);font-size:14.5px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px}
+    .box h3{font-size:24px;color:var(--green);margin-bottom:14px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mut)}
+    .map{display:grid;place-items:center;margin-top:18px;aspect-ratio:16/9;border-radius:16px;background:repeating-linear-gradient(45deg,#efe6d6 0 12px,#f7f1e7 12px 24px);color:var(--mut);text-decoration:none;font-size:14px}
+    footer{background:var(--green);color:rgba(255,255,255,.7);padding:32px 0 56px;font-size:13.5px}
+    footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{color:#fff}
+    .fab{position:fixed;right:18px;bottom:18px;z-index:20;box-shadow:0 14px 30px -10px rgba(37,163,90,.6)}
+    @media(max-width:980px){.cats{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){nav ul{display:none}.hero .w,.split,.visit{grid-template-columns:1fr}.lotes,.how{grid-template-columns:1fr}section{padding:70px 0}}
+    @media(max-width:520px){.cats{grid-template-columns:1fr}.logo{font-size:21px}nav .btn{padding:10px 14px;font-size:13.5px}}
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Charcutería Dina · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav><div class="w">
+    <div class="logo s">Charcutería <span>Dina</span></div>
+    <ul><li><a href="#productos">Productos</a></li><li><a href="#encargos">Encargos</a></li><li><a href="#lotes">Lotes</a></li><li><a href="#visita">Horario</a></li></ul>
+    <a class="btn t" href="#encargos">Hacer encargo</a>
+  </div></nav>
+
+  <header class="hero"><div class="w">
+    <div>
+      <span class="pill">Pl. Joaquín Costa, 13 · Calatayud</span>
+      <h1 class="s">Lo bueno de aquí, <em>bien escogido.</em></h1>
+      <p>Embutidos, quesos, conservas y escabeches de la tierra y de toda España, con el consejo de siempre. Encarga por WhatsApp y recógelo en tienda o te lo llevamos.</p>
+      <div class="ctas">
+        <a class="btn wa" href="#encargos">💬 Encargar por WhatsApp</a>
+        <a class="btn o" href="#lotes">Lotes de Navidad</a>
+      </div>
+      <div class="feat"><div><b>Recogida en tienda</b>Encarga y pasa a por ello</div><div><b>A domicilio</b><span class="ph">[zona de envío]</span></div></div>
+    </div>
+    <div class="board">
+      <h3 class="s">Hoy en el mostrador</h3>
+      <ul>
+        <li>Jamón y embutidos curados<span class="ph">[precio]</span></li>
+        <li>Quesos de la zona<span class="ph">[precio]</span></li>
+        <li>Atún en escabeche<span class="ph">[precio]</span></li>
+        <li>Anchoas y salazones<span class="ph">[precio]</span></li>
+        <li>Olivas y encurtidos<span class="ph">[precio]</span></li>
+      </ul>
+    </div>
+  </div></header>
+
+  <section id="productos" class="alt"><div class="w">
+    <div class="head"><p class="kick">Nuestros productos</p><h2 class="s">Para la mesa de cada día y para las fiestas</h2><p class="sub">Producto local y nacional seleccionado. Pregúntanos y te aconsejamos.</p></div>
+    <div class="cats">
+      <div class="cat"><div class="ic">🥓</div><h3 class="s">Charcutería</h3><p>Jamón, embutidos y fiambres al corte.</p></div>
+      <div class="cat"><div class="ic">🧀</div><h3 class="s">Quesos</h3><p>De la zona y de toda España.</p></div>
+      <div class="cat"><div class="ic">🐟</div><h3 class="s">Conservas y escabeches</h3><p>Anchoas, atún en escabeche, bacalao, congrio y más.</p></div>
+      <div class="cat"><div class="ic">🫒</div><h3 class="s">Gourmet y vinos</h3><p>Olivas, encurtidos, productos selectos y vino para acompañar.</p></div>
+    </div>
+  </div></section>
+
+  <section id="encargos"><div class="w">
+    <div class="head"><p class="kick">Encargos</p><h2 class="s">Encarga sin colas</h2><p class="sub">Así de fácil, sin esperar en el mostrador.</p></div>
+    <div class="how">
+      <div class="step"><h3>Escríbenos por WhatsApp</h3><p>Dinos qué quieres y cuánto. Te confirmamos disponibilidad y precio.</p></div>
+      <div class="step"><h3>Lo preparamos</h3><p>Cortado y envasado a tu gusto, listo a la hora que digas.</p></div>
+      <div class="step"><h3>Recoge o recíbelo</h3><p>Pasa por la tienda o te lo llevamos a casa. <span class="ph">[condiciones]</span></p></div>
+    </div>
+    <p style="margin-top:28px"><a class="btn wa" href="#visita">💬 Hacer un encargo</a></p>
+  </div></section>
+
+  <section id="lotes" class="alt"><div class="w">
+    <div class="head"><p class="kick">Navidad</p><h2 class="s">Lotes y cestas para regalar</h2><p class="sub">Para la familia, los amigos o los clientes de tu empresa. Reserva con tiempo.</p></div>
+    <div class="lotes">
+      <div class="lote"><div class="img">Foto del lote</div><div class="t"><h3 class="s">Lote Calatayud</h3><p>Embutido, queso, conservas y un vino de la zona.</p><b class="ph">[XX €]</b></div></div>
+      <div class="lote"><div class="img">Foto del lote</div><div class="t"><h3 class="s">Lote gourmet</h3><p>Una selección de nuestras mejores conservas y escabeches.</p><b class="ph">[XX €]</b></div></div>
+      <div class="lote"><div class="img">Foto del lote</div><div class="t"><h3 class="s">Lotes para empresas</h3><p>Preparados a medida, con tarjeta personalizada.</p><b>A consultar</b></div></div>
+    </div>
+  </div></section>
+
+  <section id="visita"><div class="w">
+    <div class="head"><p class="kick">Visítanos</p><h2 class="s">En la Plaza Joaquín Costa</h2></div>
+    <div class="visit">
+      <div class="box">
+        <h3 class="s">Horario</h3>
+        <table>
+          <tr><td>Lunes a viernes</td><td>9:00–13:30 · 17:00–20:00</td></tr>
+          <tr><td>Sábado</td><td>9:00–14:00</td></tr>
+          <tr><td>Domingo</td><td>Cerrado</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--mut);margin-top:10px">Horario tomado de Google; la tienda lo confirmará.</p>
+      </div>
+      <div class="box">
+        <h3 class="s">Dónde estamos</h3>
+        <p>Pl. Joaquín Costa, 13 · 50300 Calatayud</p>
+        <p style="margin-top:6px"><a href="tel:+34654237320" style="font-weight:600;color:var(--green)">654 23 73 20</a></p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Charcuter%C3%ADa+DINA+Calatayud" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+    </div>
+  </div></section>
+
+  <footer><div class="w">
+    <span>Charcutería Dina · Pl. Joaquín Costa, 13 · Calatayud · Aviso legal · Privacidad</span>
+    <span>Propuesta de diseño: <a href="https://skey.es">Skey</a></span>
+  </div></footer>
+
+  <a class="btn wa fab" href="#encargos">💬 Encargar</a>
+</body>
+</html>
