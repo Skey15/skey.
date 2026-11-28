@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Sami Barbershop Lleida (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bk:#0f1113;--bk2:#171a1d;--teal:#4a9eff;--teal2:#7ab8ff;--gold:#d9b25f;--mut:#8c9298;--line:#262a2e}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bk);color:#ececec;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .a{font-family:"Archivo Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+    .demo{background:#fff;color:#111;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .pend{color:var(--gold)}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(15,17,19,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:22px;white-space:nowrap;color:#fff;text-decoration:none}.logo span{color:var(--teal)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}nav ul a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#04162e;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--teal2);transform:translateY(-1px)}
+    .btn.wa{background:#25a35a;color:#fff}.btn.wa:hover{background:#1e8a4b}
+    .btn.gh{background:transparent;color:#fff;border:1px solid #444}.btn.gh:hover{background:#1d2023}
+    .hero{padding:92px 0 100px;background:radial-gradient(ellipse 50% 60% at 85% 30%,rgba(74,158,255,.16),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+    .tag{display:inline-block;border:1px solid rgba(74,158,255,.5);color:var(--teal2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+    h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1;margin-bottom:22px}
+    h1 span{color:var(--teal)}
+    .hero p{font-size:18px;color:#b6bbc0;max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .badge{justify-self:center;width:280px;max-width:100%;aspect-ratio:1;border-radius:50%;border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;box-shadow:0 0 0 14px rgba(74,158,255,.06)}
+    .badge b{font-family:"Archivo Black",Impact,sans-serif;font-size:64px;line-height:1;color:#fff}
+    .badge span{color:var(--mut);font-size:14px;margin-top:8px}
+    .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+    .stats b{display:block;font-size:22px;color:#fff;font-family:"Archivo Black",Impact,sans-serif;font-weight:400}.stats span{color:var(--mut);font-size:14px}
+    section{padding:90px 0}
+    .head{max-width:640px;margin-bottom:42px}
+    .kick{color:var(--teal2);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.05}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--bk2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .prices{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+    .prices h3{font-size:17px;color:var(--teal2);margin:6px 0 4px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 0;border-bottom:1px dashed var(--line)}
+    .row small{display:block;color:var(--mut);font-size:13px}
+    .row b{font-size:18px;white-space:nowrap}
+    .note{font-size:13px;color:var(--mut);margin-top:18px}
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .bar{border:1px solid var(--line);border-radius:8px;padding:26px;background:#131619;text-align:center}
+    .av{width:72px;height:72px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;font-family:"Archivo Black",Impact,sans-serif;font-size:28px;color:var(--teal2)}
+    .bar h3{font-size:18px}.bar p{color:var(--mut);font-size:14px}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .q{border-left:3px solid var(--teal);padding:6px 0 6px 18px;color:#c8ccd0}
+    .q small{display:block;color:var(--mut);margin-top:10px;font-size:13px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:#c8ccd0}
+    .map{display:inline-block;margin-top:18px;color:var(--teal2);text-decoration:none;font-weight:600}
+    .cta{text-align:center;background:linear-gradient(180deg,var(--bk2),#0b1626)}
+    .cta h2{margin-bottom:14px}.cta p{color:#b6bbc0;margin-bottom:28px}
+    .cta .ctas{justify-content:center}
+    footer{padding:32px 0;color:#5f656b;font-size:13px;border-top:1px solid var(--line)}
+    footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--mut)}
+    @media(max-width:900px){
+      nav ul{display:none}
+      .hero .w,.visit,.prices{grid-template-columns:1fr}
+      .badge{width:190px;order:-1;justify-self:start}
+      .badge b{font-size:46px}
+      .team,.quotes{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .logo{font-size:18px}
+      nav .btn{padding:10px 14px;font-size:14px}
+      section{padding:68px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Sami Barbershop · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav>
+    <div class="w">
+      <a href="#" class="logo a">Sami <span>Barbershop</span></a>
+      <ul>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#visita">Horario</a></li>
+      </ul>
+      <a class="btn wa" href="https://wa.me/34642406822?text=Hola%2C%20quiero%20pedir%20cita">Pedir cita</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="w">
+      <div>
+        <span class="tag">Barbería · Lleida</span>
+        <h1 class="a">Corte y barba<br /><span>a tu estilo</span></h1>
+        <p>Barbería en la calle Llitera, en Lleida. Cortes y barba sin prisas, con calma y cuidando cada detalle. Abierto todos los días, también domingo por la mañana. Pide cita por WhatsApp en un minuto.</p>
+        <div class="ctas">
+          <a class="btn" href="https://wa.me/34642406822?text=Hola%2C%20quiero%20pedir%20cita">Pedir cita por WhatsApp</a>
+          <a class="btn gh" href="tel:+34642406822">Llamar · 642 40 68 22</a>
+        </div>
+        <div class="stats">
+          <div><b>5,0 ★</b><span>en Google</span></div>
+          <div><b>59</b><span>opiniones</span></div>
+          <div><b>Llitera, 3</b><span>Lleida</span></div>
+        </div>
+      </div>
+      <div class="badge"><b>7/7</b><span>abierto todos los días</span></div>
+    </div>
+  </header>
+
+  <section id="precios">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Servicios y precios</div>
+        <h2 class="a">Servicios</h2>
+        <p class="sub">Elige tu servicio y pide cita por WhatsApp a la hora que te venga bien.</p>
+      </div>
+      <div class="prices">
+        <div>
+          <h3>Pelo</h3>
+          <div class="row"><div>Corte de pelo<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+          <div class="row"><div>Corte + lavado<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+          <div class="row"><div>Corte niño<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+        </div>
+        <div>
+          <h3>Barba</h3>
+          <div class="row"><div>Corte + barba<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+          <div class="row"><div>Arreglo de barba<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+          <div class="row"><div class="pend">[Otro servicio]<small class="pend">[duración]</small></div><b class="pend">[XX €]</b></div>
+        </div>
+      </div>
+      <p class="note">Servicios y precios pendientes de que la barbería los confirme.</p>
+    </div>
+  </section>
+
+  <section id="equipo" class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Equipo</div>
+        <h2 class="a">Quién te corta</h2>
+        <p class="sub"><span class="pend">[Equipo de la barbería]</span></p>
+      </div>
+      <div class="team" style="grid-template-columns:1fr;max-width:420px">
+        <div class="bar"><div class="av">S</div><h3>Sami</h3><p>Barbero <span class="pend">[especialidad]</span>. Cortes a tu gusto, sin prisas.</p></div>
+      </div>
+      <p class="note">Aquí irían fotos de la barbería y de sus cortes.</p>
+    </div>
+  </section>
+
+  <section id="opiniones">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Opiniones</div>
+        <h2 class="a">5,0 en Google</h2>
+        <p class="sub">Resumen de opiniones reales de clientes (59 opiniones en Google).</p>
+      </div>
+      <div class="quotes">
+        <div class="q">Se toma su tiempo, sin estrés, y el corte queda de mucha calidad.<small>Resumen de una opinión de Google</small></div>
+        <div class="q">Cliente cada semana: sabe cortarte y peinarte como mejor te queda.<small>Resumen de una opinión de Google</small></div>
+        <div class="q">Barberos muy profesionales, buen corte y buen servicio. Cada vez mejor.<small>Resumen de varias opiniones de Google</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visita" class="alt">
+    <div class="w visit">
+      <div>
+        <div class="kick">Visítanos</div>
+        <h2 class="a">C. de la Llitera, 3 · Lleida</h2>
+        <p class="sub">Escribe por WhatsApp o llama para coger hora.</p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Sami+barbershop+Lleida&query_place_id=ChIJO-05BQDhphIRf60YEqCpUzc" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+      <div>
+        <table>
+          <tr><td>Lunes a jueves</td><td>10:00–14:00 · 16:00–21:30</td></tr>
+          <tr><td>Viernes</td><td>10:00–13:00 · 15:00–21:30</td></tr>
+          <tr><td>Sábado</td><td>10:00–21:30</td></tr>
+          <tr><td>Domingo</td><td>10:00–15:00</td></tr>
+        </table>
+        <p class="note">Horario tomado de Google; la barbería lo confirmará.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="w">
+      <h2 class="a">¿Te toca corte?</h2>
+      <p>Pide tu hora por WhatsApp o llámanos.</p>
+      <div class="ctas">
+        <a class="btn" href="https://wa.me/34642406822?text=Hola%2C%20quiero%20pedir%20cita">WhatsApp</a>
+        <a class="btn gh" href="tel:+34642406822">Llamar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <span>Sami Barbershop · C. de la Llitera, 3, Lleida</span>
+      <span>Propuesta de diseño por <a href="https://skey.es">Skey</a></span>
+    </div>
+  </footer>
+</body>
+</html>
