@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Rojo Nails Teruel (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--pink:#d23a3a;--pink2:#b51f2e;--blush:#fdecec;--nude:#f7eeea;--paper:#fffafa;--ink:#2a1a1c;--mut:#7a6467;--line:#f3dcdc}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .p{font-family:"Playfair Display",Georgia,serif;font-weight:500}
+    .demo{background:#111;color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(255,250,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:25px;white-space:nowrap}.logo i{color:var(--pink2)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--pink2);transform:translateY(-1px)}
+    .btn.pk{background:var(--pink2)}.btn.pk:hover{background:#b35570}
+    .btn.wa{background:#25a35a}.btn.wa:hover{background:#1e8a4b}
+    .btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn.o:hover{background:var(--ink);color:#fff}
+    .hero{padding:70px 0 90px;background:radial-gradient(ellipse 50% 60% at 85% 25%,rgba(210,58,58,.18),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+    .tag{display:inline-block;background:var(--blush);color:var(--pink2);font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+    h1{font-size:clamp(2.8rem,6.5vw,4.9rem);line-height:1.02;margin-bottom:20px}
+    h1 em{color:var(--pink2)}
+    .hero p{font-size:18px;color:var(--mut);max-width:500px;margin-bottom:30px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .mini{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;font-size:14px;color:var(--mut)}.mini b{display:block;color:var(--ink)}
+    .nails{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end;padding:40px 30px;background:var(--nude);border-radius:32px;box-shadow:0 40px 80px -45px rgba(181,31,46,.5)}
+    .nail{border-radius:60px 60px 18px 18px;box-shadow:inset 6px 0 14px rgba(255,255,255,.35),0 10px 20px -12px rgba(0,0,0,.3)}
+    .nail:nth-child(1){height:130px;background:linear-gradient(160deg,#f4b6c6,#d9839a)}
+    .nail:nth-child(2){height:165px;background:linear-gradient(160deg,#fff,#f3d7de)}
+    .nail:nth-child(3){height:185px;background:linear-gradient(160deg,#c86a84,#8f3f57)}
+    .nail:nth-child(4){height:160px;background:linear-gradient(160deg,#f7e4c9,#d9b88f)}
+    .nail:nth-child(5){height:120px;background:linear-gradient(160deg,#2b2226,#5b4650)}
+    section{padding:90px 0}
+    .head{max-width:620px;margin-bottom:42px}
+    .kick{color:var(--pink2);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.2rem,4.4vw,3.2rem);line-height:1.06}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--blush)}
+    .svc{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;background:#fff;border-radius:28px;padding:20px 40px;border:1px solid var(--line)}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .row h3{font-size:20px}.row span{color:var(--mut);font-size:14px}
+    .ph{color:#b7791f;font-style:italic;font-weight:600;white-space:nowrap}
+    .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .g{aspect-ratio:1/1;border-radius:22px;display:grid;place-items:end center;padding:14px;font-size:12.5px;color:#fff;font-weight:600}
+    .g:nth-child(1){background:linear-gradient(140deg,#f4b6c6,#c86a84)}
+    .g:nth-child(2){background:linear-gradient(140deg,#efe2d7,#b99a86);color:#3a2c31}
+    .g:nth-child(3){background:linear-gradient(140deg,#5b4650,#2b2226)}
+    .g:nth-child(4){background:linear-gradient(140deg,#fff,#f0c9d4);color:#3a2c31}
+    .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
+    .card .ic{font-size:26px;margin-bottom:12px}.card h3{font-size:21px;margin-bottom:6px}.card p{color:var(--mut);font-size:15px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px}
+    .box h3{font-size:25px;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mut)}
+    .map{display:grid;place-items:center;margin-top:18px;aspect-ratio:16/9;border-radius:16px;background:repeating-linear-gradient(45deg,#f7e8ec 0 12px,#fdf4f6 12px 24px);color:var(--mut);text-decoration:none;font-size:14px}
+    .band{background:var(--ink);color:#fff;border-radius:28px;padding:52px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+    .band p{opacity:.7;margin-top:6px}
+    footer{padding:34px 0 56px;font-size:13.5px;color:var(--mut)}
+    footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{color:var(--ink)}
+    .fab{position:fixed;right:18px;bottom:18px;z-index:20;box-shadow:0 14px 30px -10px rgba(37,163,90,.6)}
+    @media(max-width:900px){nav ul{display:none}.hero .w,.visit{grid-template-columns:1fr}.svc{grid-template-columns:1fr;padding:10px 24px}.why{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}section{padding:70px 0}.band{padding:32px}}
+    @media(max-width:520px){.logo{font-size:21px}nav .btn{padding:10px 14px;font-size:13.5px}.nails{padding:28px 18px;gap:8px}}
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Rojo Nails · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav><div class="w">
+    <div class="logo p">Rojo <i>Nails</i></div>
+    <ul><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Diseños</a></li><li><a href="#visita">Horario</a></li></ul>
+    <a class="btn pk" href="#visita">Pedir cita</a>
+  </div></nav>
+
+  <header class="hero"><div class="w">
+    <div>
+      <span class="tag">Salón de uñas · C. Joaquín Costa, 3 · Teruel</span>
+      <h1 class="p">Tus uñas, <em>exactamente como las quieres.</em></h1>
+      <p>Semipermanente, gel y diseños a medida en pleno centro de Teruel. Trabajo rápido, cuidado y con el resultado que pediste.</p>
+      <div class="ctas">
+        <a class="btn wa" href="#visita">💬 Cita por WhatsApp</a>
+        <a class="btn o" href="tel:+34631386339">Llamar · 631 38 63 39</a>
+      </div>
+      <div class="mini"><div><b>Lunes a sábado</b>10:00 a 20:00</div><div><b>Pleno centro</b>C. Joaquín Costa, 3</div></div>
+    </div>
+    <div class="nails" aria-hidden="true"><div class="nail"></div><div class="nail"></div><div class="nail"></div><div class="nail"></div><div class="nail"></div></div>
+  </div></header>
+
+  <section class="alt" id="servicios"><div class="w">
+    <div class="head"><p class="kick">Servicios</p><h2 class="p">Lo que hacemos</h2><p class="sub">Precios orientativos. El salón confirmará sus tarifas reales.</p></div>
+    <div class="svc">
+      <div class="row"><div><h3 class="p">Manicura semipermanente</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="p">Uñas de gel</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="p">Relleno de gel</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="p">Diseños y nail art</h3><span>Por uña o set completo</span></div><b class="ph">[desde XX €]</b></div>
+      <div class="row"><div><h3 class="p">Pedicura</h3><span class="ph">[confirmar si se ofrece]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="p">Retirada</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+    </div>
+  </div></section>
+
+  <section id="galeria"><div class="w">
+    <div class="head"><p class="kick">Diseños</p><h2 class="p">Inspírate</h2><p class="sub">Aquí irían fotos reales de vuestros trabajos, conectadas con vuestro <a href="https://www.instagram.com/rojo_nails_teruel" target="_blank" rel="noopener" style="color:var(--pink2)">Instagram</a>.</p></div>
+    <div class="gal"><div class="g">Rojo clásico</div><div class="g">Nude natural</div><div class="g">Oscuro elegante</div><div class="g">Francesa</div></div>
+  </div></section>
+
+  <section class="alt"><div class="w">
+    <div class="head"><p class="kick">Por qué venir</p><h2 class="p">Lo que más valoran nuestras clientas</h2></div>
+    <div class="why">
+      <div class="card"><div class="ic">⚡</div><h3 class="p">Rápidas y cuidadosas</h3><p>Trabajo ágil sin descuidar el acabado.</p></div>
+      <div class="card"><div class="ic">💅</div><h3 class="p">Lo que pediste</h3><p>Tráenos tu foto de referencia y la hacemos realidad.</p></div>
+      <div class="card"><div class="ic">💗</div><h3 class="p">Clientas fieles</h3><p>Muchas repiten durante años. Eso lo dice todo.</p></div>
+    </div>
+  </div></section>
+
+  <section id="visita"><div class="w">
+    <div class="head"><p class="kick">Visítanos</p><h2 class="p">En el centro de Teruel</h2></div>
+    <div class="visit">
+      <div class="box">
+        <h3 class="p">Horario</h3>
+        <table>
+          <tr><td>Lunes a sábado</td><td>10:00 – 20:00</td></tr>
+          <tr><td>Domingo</td><td>Cerrado</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--mut);margin-top:10px">Horario tomado de Google; el salón lo confirmará.</p>
+      </div>
+      <div class="box">
+        <h3 class="p">Dónde estamos</h3>
+        <p>C. de Joaquín Costa, 3 · 44001 Teruel</p>
+        <p style="margin-top:6px"><a href="tel:+34631386339" style="font-weight:600;color:var(--pink2)">631 38 63 39</a></p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Rojo+Nails+Joaquin+Costa+3+Teruel" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+    </div>
+    <div class="band" style="margin-top:40px">
+      <div><h2 class="p" style="color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem)">¿Te hacemos las uñas esta semana?</h2><p>Escríbenos y te buscamos hueco.</p></div>
+      <a class="btn wa" href="#visita">💬 Pedir cita</a>
+    </div>
+  </div></section>
+
+  <footer><div class="w">
+    <span>Rojo Nails · C. Joaquín Costa, 3 · Teruel · Aviso legal · Privacidad</span>
+    <span>Propuesta de diseño: <a href="https://skey.es">Skey</a></span>
+  </div></footer>
+
+  <a class="btn wa fab" href="#visita">💬 Cita</a>
+</body>
+</html>
