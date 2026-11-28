@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Walid Barber Pamplona (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bk:#0f1113;--bk2:#171a1d;--teal:#2fb8a6;--teal2:#4fd1bf;--gold:#d9b25f;--mut:#8c9298;--line:#262a2e}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bk);color:#ececec;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .a{font-family:"Archivo Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+    .demo{background:#fff;color:#111;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .pend{color:var(--gold)}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(15,17,19,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:22px;white-space:nowrap;color:#fff;text-decoration:none}.logo span{color:var(--teal)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}nav ul a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#06201c;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--teal2);transform:translateY(-1px)}
+    .btn.wa{background:#25a35a;color:#fff}.btn.wa:hover{background:#1e8a4b}
+    .btn.gh{background:transparent;color:#fff;border:1px solid #444}.btn.gh:hover{background:#1d2023}
+    .hero{padding:92px 0 100px;background:radial-gradient(ellipse 50% 60% at 85% 30%,rgba(47,184,166,.16),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+    .tag{display:inline-block;border:1px solid rgba(47,184,166,.5);color:var(--teal2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+    h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1;margin-bottom:22px}
+    h1 span{color:var(--teal)}
+    .hero p{font-size:18px;color:#b6bbc0;max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .badge{justify-self:center;width:280px;max-width:100%;aspect-ratio:1;border-radius:50%;border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;box-shadow:0 0 0 14px rgba(47,184,166,.06)}
+    .badge b{font-family:"Archivo Black",Impact,sans-serif;font-size:64px;line-height:1;color:#fff}
+    .badge span{color:var(--mut);font-size:14px;margin-top:8px}
+    .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+    .stats b{display:block;font-size:22px;color:#fff;font-family:"Archivo Black",Impact,sans-serif;font-weight:400}.stats span{color:var(--mut);font-size:14px}
+    section{padding:90px 0}
+    .head{max-width:640px;margin-bottom:42px}
+    .kick{color:var(--teal2);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.05}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--bk2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .prices{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+    .prices h3{font-size:17px;color:var(--teal2);margin:6px 0 4px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 0;border-bottom:1px dashed var(--line)}
+    .row small{display:block;color:var(--mut);font-size:13px}
+    .row b{font-size:18px;white-space:nowrap}
+    .note{font-size:13px;color:var(--mut);margin-top:18px}
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .bar{border:1px solid var(--line);border-radius:8px;padding:26px;background:#131619;text-align:center}
+    .av{width:72px;height:72px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;font-family:"Archivo Black",Impact,sans-serif;font-size:28px;color:var(--teal2)}
+    .bar h3{font-size:18px}.bar p{color:var(--mut);font-size:14px}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .q{border-left:3px solid var(--teal);padding:6px 0 6px 18px;color:#c8ccd0}
+    .q small{display:block;color:var(--mut);margin-top:10px;font-size:13px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:#c8ccd0}
+    .map{display:inline-block;margin-top:18px;color:var(--teal2);text-decoration:none;font-weight:600}
+    .cta{text-align:center;background:linear-gradient(180deg,var(--bk2),#0c1d1b)}
+    .cta h2{margin-bottom:14px}.cta p{color:#b6bbc0;margin-bottom:28px}
+    .cta .ctas{justify-content:center}
+    footer{padding:32px 0;color:#5f656b;font-size:13px;border-top:1px solid var(--line)}
+    footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--mut)}
+    @media(max-width:900px){
+      nav ul{display:none}
+      .hero .w,.visit,.prices{grid-template-columns:1fr}
+      .badge{width:190px;order:-1;justify-self:start}
+      .badge b{font-size:46px}
+      .team,.quotes{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .logo{font-size:18px}
+      nav .btn{padding:10px 14px;font-size:14px}
+      section{padding:68px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Walid Barber · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav>
+    <div class="w">
+      <a href="#" class="logo a">Walid <span>Barber</span></a>
+      <ul>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#visita">Horario</a></li>
+      </ul>
+      <a class="btn" href="https://book.heygoldie.com/walid-barber-1ef923f95d8d" target="_blank" rel="noopener">Pedir cita</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="w">
+      <div>
+        <span class="tag">Barbería · Pamplona</span>
+        <h1 class="a">Corte y barba<br /><span>a tu estilo</span></h1>
+        <p>Barbería en la calle Tajonar con cortes, arreglo de barba, afeitado con vapor y limpieza facial. Abierto todos los días, también domingo. Reserva tu cita online en un minuto.</p>
+        <div class="ctas">
+          <a class="btn" href="https://book.heygoldie.com/walid-barber-1ef923f95d8d" target="_blank" rel="noopener">Reservar cita online</a>
+          <a class="btn gh" href="tel:+34614669577">Llamar · 614 66 95 77</a>
+        </div>
+        <div class="stats">
+          <div><b>5,0 ★</b><span>en Google</span></div>
+          <div><b>149</b><span>opiniones</span></div>
+          <div><b>Desde 10 €</b><span>corte de pelo</span></div>
+        </div>
+      </div>
+      <div class="badge"><b>7/7</b><span>abierto todos los días</span></div>
+    </div>
+  </header>
+
+  <section id="precios">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Servicios y precios</div>
+        <h2 class="a">Precios claros</h2>
+        <p class="sub">Elige tu servicio y reserva directamente la hora que te venga bien.</p>
+      </div>
+      <div class="prices">
+        <div>
+          <h3>Pelo</h3>
+          <div class="row"><div>Corte de pelo<small>30 min</small></div><b>10 €</b></div>
+          <div class="row"><div>Corte + lavado<small>35 min</small></div><b>12 €</b></div>
+          <div class="row"><div>Corte niño<small>30 min</small></div><b>10 €</b></div>
+          <div class="row"><div>Permanente (rizos)<small>2 h 30 min</small></div><b>45 €</b></div>
+          <div class="row"><div>Mechas y tinte<small>2 h 30 min</small></div><b>50 €</b></div>
+          <div class="row"><div>Keratina<small>2 h</small></div><b>50 €</b></div>
+        </div>
+        <div>
+          <h3>Barba y cuidado</h3>
+          <div class="row"><div>Corte + barba<small>45 min</small></div><b>16 €</b></div>
+          <div class="row"><div>Barba<small>15 min</small></div><b>7 €</b></div>
+          <div class="row"><div>Barba con máquina<small>15 min</small></div><b>5 €</b></div>
+          <div class="row"><div>Afeitado de barba con vapor<small>30 min</small></div><b>12 €</b></div>
+          <div class="row"><div>Cejas / cejas con hilo<small>10 min</small></div><b>2 € / 3 €</b></div>
+          <div class="row"><div>Limpieza facial<small>40 min</small></div><b>15 €</b></div>
+        </div>
+      </div>
+      <p class="note">Precios tomados de su página de reservas; la barbería los confirmará.</p>
+    </div>
+  </section>
+
+  <section id="equipo" class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Equipo</div>
+        <h2 class="a">Tus barberos</h2>
+        <p class="sub">Elige con quién quieres cortarte al reservar.</p>
+      </div>
+      <div class="team">
+        <div class="bar"><div class="av">W</div><h3>Walid</h3><p>Barbero <span class="pend">[especialidad]</span></p></div>
+        <div class="bar"><div class="av">Y</div><h3>Youssef</h3><p>Barbero <span class="pend">[especialidad]</span></p></div>
+        <div class="bar"><div class="av">B</div><h3 class="pend">[Nombre]</h3><p>Barbero <span class="pend">[especialidad]</span></p></div>
+      </div>
+      <p class="note">Aquí irían fotos del equipo y de sus cortes.</p>
+    </div>
+  </section>
+
+  <section id="opiniones">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Opiniones</div>
+        <h2 class="a">5,0 en Google</h2>
+        <p class="sub">Resumen de opiniones reales de clientes (149 opiniones en Google).</p>
+      </div>
+      <div class="quotes">
+        <div class="q">Trato muy amable y paciente, y un corte y arreglo de barba perfectos.<small>Resumen de una opinión de Google</small></div>
+        <div class="q">Buen corte, buena atención y buena limpieza facial. Muy recomendable.<small>Resumen de una opinión de Google</small></div>
+        <div class="q">Gente muy simpática, mucha habilidad y un servicio genial.<small>Resumen de varias opiniones de Google</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visita" class="alt">
+    <div class="w visit">
+      <div>
+        <div class="kick">Visítanos</div>
+        <h2 class="a">C. Tajonar, 1 · Pamplona</h2>
+        <p class="sub">Reserva online o llama para coger hora.</p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Walid+Barber+Pamplona&query_place_id=ChIJPVjnYuaTUA0RXWwrU3ozAuY" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+      <div>
+        <table>
+          <tr><td>Lunes a sábado</td><td>9:00–21:00</td></tr>
+          <tr><td>Domingo</td><td>12:00–20:00</td></tr>
+        </table>
+        <p class="note">Horario tomado de Google; la barbería lo confirmará.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="w">
+      <h2 class="a">¿Te toca corte?</h2>
+      <p>Reserva tu hora online o llámanos.</p>
+      <div class="ctas">
+        <a class="btn" href="https://book.heygoldie.com/walid-barber-1ef923f95d8d" target="_blank" rel="noopener">Reservar cita</a>
+        <a class="btn gh" href="tel:+34614669577">Llamar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <span>Walid Barber · C. Tajonar, 1, Pamplona</span>
+      <span>Propuesta de diseño por <a href="https://skey.es">Skey</a></span>
+    </div>
+  </footer>
+</body>
+</html>
