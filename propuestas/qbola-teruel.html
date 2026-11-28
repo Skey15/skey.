@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Q'bola Teruel (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cream:#fbf5ec;--cream2:#f3e9da;--ink:#2a1d16;--mut:#7a6a5e;--ember:#c8471f;--ember2:#e05a2f;--olive:#5d6b3a;--gold:#b8892b;--line:#e4d6c3}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .f{font-family:Fraunces,Georgia,serif}
+    .demo{background:var(--ink);color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .pend{color:var(--gold);font-weight:600}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(251,245,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:28px;font-weight:800;white-space:nowrap;color:var(--ink);text-decoration:none}.logo span{color:var(--ember)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}nav ul a:hover{color:var(--ink)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ember);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--ember2);transform:translateY(-1px)}
+    .btn.wa{background:#25a35a}.btn.wa:hover{background:#1e8a4b}
+    .btn.gh{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn.gh:hover{background:var(--cream2)}
+    .hero{padding:90px 0 96px;background:radial-gradient(ellipse 50% 70% at 88% 30%,rgba(200,71,31,.16),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+    .tag{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--ember);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+    h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1.02;font-weight:800;margin-bottom:22px}
+    h1 em{font-style:normal;color:var(--ember)}
+    .hero p{font-size:18px;color:var(--mut);max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .plate{justify-self:center;width:300px;max-width:100%;aspect-ratio:1;border-radius:50%;background:#fff;border:10px solid var(--cream2);box-shadow:0 30px 60px -25px rgba(80,40,20,.35);display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
+    .plate b{display:block;font-family:Fraunces,Georgia,serif;font-size:58px;color:var(--ember);line-height:1}
+    .plate span{color:var(--mut);font-size:14px}
+    .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+    .stats b{display:block;font-size:24px;font-family:Fraunces,Georgia,serif}.stats span{color:var(--mut);font-size:14px}
+    section{padding:90px 0}
+    .head{max-width:640px;margin-bottom:42px}
+    .kick{color:var(--ember);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.08;font-weight:800}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--cream2)}
+    .menu{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+    .menu h3{font-size:22px;margin:8px 0 6px;color:var(--olive)}
+    .item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+    .item b{font-weight:600}.item small{display:block;color:var(--mut);font-size:14px}
+    .note{font-size:13px;color:var(--mut);margin-top:18px}
+    .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+    .feat .ic{font-size:28px;margin-bottom:10px}
+    .feat h3{font-size:21px;margin-bottom:6px}
+    .feat p{color:var(--mut);font-size:15px}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .q{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+    .q .st{color:var(--ember);letter-spacing:2px;margin-bottom:8px}
+    .q small{display:block;color:var(--mut);margin-top:10px;font-size:13px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right}
+    .closed{color:var(--mut)}
+    .map{display:inline-block;margin-top:18px;color:var(--ember);text-decoration:none;font-weight:600}
+    .cta{text-align:center;background:var(--ink);color:#fff}
+    .cta h2{margin-bottom:14px}.cta p{color:#d9cbbb;margin-bottom:28px}
+    .cta .ctas{justify-content:center}
+    .cta .btn.gh{color:#fff;border-color:#fff}.cta .btn.gh:hover{background:#3a2a20}
+    footer{padding:30px 0;color:var(--mut);font-size:13px}
+    footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--mut)}
+    @media(max-width:900px){
+      nav ul{display:none}
+      .hero .w,.visit,.menu{grid-template-columns:1fr}
+      .plate{width:210px;order:-1;justify-self:start}
+      .plate b{font-size:44px}
+      .feats,.quotes{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .logo{font-size:23px}
+      nav .btn{padding:10px 14px;font-size:14px}
+      section{padding:68px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Q'bola · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav>
+    <div class="w">
+      <a href="#" class="logo f">Q'<span>bola</span></a>
+      <ul>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#visita">Horario</a></li>
+      </ul>
+      <a class="btn" href="tel:+34624763584">Reservar</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="w">
+      <div>
+        <span class="tag">Restaurante · Teruel</span>
+        <h1 class="f">Buena comida,<br />raciones <em>de verdad</em></h1>
+        <p>Brasa, bravas de la casa y platos para compartir en la avenida de Aragón. Reserva tu mesa en un minuto por teléfono o WhatsApp.</p>
+        <div class="ctas">
+          <a class="btn" href="tel:+34624763584">Llamar · 624 76 35 84</a>
+          <a class="btn wa" href="https://wa.me/34624763584?text=Hola%2C%20quiero%20reservar%20mesa">Reservar por WhatsApp</a>
+        </div>
+        <div class="stats">
+          <div><b>4,7 ★</b><span>en Google</span></div>
+          <div><b>+540</b><span>opiniones</span></div>
+          <div><b>Av. Aragón, 9</b><span>Teruel</span></div>
+        </div>
+      </div>
+      <div class="plate"><div><b>4,7</b><span>de media en más de 540 opiniones de Google</span></div></div>
+    </div>
+  </header>
+
+  <section id="carta">
+    <div class="w">
+      <div class="head">
+        <div class="kick">La carta</div>
+        <h2 class="f">Lo que más se pide</h2>
+        <p class="sub">Aquí iría vuestra carta completa, fácil de leer desde el móvil y de actualizar cuando cambie.</p>
+      </div>
+      <div class="menu">
+        <div>
+          <h3 class="f">Para compartir</h3>
+          <div class="item"><div><b>Patatas bravas de la casa</b><small>Con nuestra salsa</small></div><span class="pend">[XX €]</span></div>
+          <div class="item"><div><b>Ensalada mixta</b><small>Fresca y completa</small></div><span class="pend">[XX €]</span></div>
+          <div class="item"><div><b class="pend">[Plato]</b><small class="pend">[Descripción]</small></div><span class="pend">[XX €]</span></div>
+        </div>
+        <div>
+          <h3 class="f">Brasa y principales</h3>
+          <div class="item"><div><b>Costillas</b><small>Hechas a la brasa <span class="pend">[confirmar]</span></small></div><span class="pend">[XX €]</span></div>
+          <div class="item"><div><b class="pend">[Plato]</b><small class="pend">[Descripción]</small></div><span class="pend">[XX €]</span></div>
+          <div class="item"><div><b class="pend">[Plato]</b><small class="pend">[Descripción]</small></div><span class="pend">[XX €]</span></div>
+        </div>
+      </div>
+      <p class="note">Platos mencionados en opiniones de Google; los precios y la carta completa los aporta el restaurante.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Por qué Q'bola</div>
+        <h2 class="f">Ven con hambre</h2>
+      </div>
+      <div class="feats">
+        <div class="feat"><div class="ic">🍽️</div><h3 class="f">Raciones generosas</h3><p>Platos pensados para salir satisfecho, ideales para compartir en la mesa.</p></div>
+        <div class="feat"><div class="ic">🔥</div><h3 class="f">Cocina con sabor</h3><p>Brasa y cocina mediterránea, todo cocinado y servido al momento.</p></div>
+        <div class="feat"><div class="ic">🙌</div><h3 class="f">Trato cercano</h3><p>Un equipo amable que te recomienda y te hace sentir como en casa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opiniones">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Opiniones</div>
+        <h2 class="f">Lo que dicen en Google</h2>
+        <p class="sub">Resumen de opiniones reales (4,7 de media en más de 540 opiniones).</p>
+      </div>
+      <div class="quotes">
+        <div class="q"><div class="st">★★★★★</div>Ensalada, bravas de la casa y costillas en su punto, con un personal muy amable.<small>Resumen de una opinión de Google</small></div>
+        <div class="q"><div class="st">★★★★★</div>Comida muy sabrosa y raciones ideales para quedarse satisfecho. De lo mejor de Teruel.<small>Resumen de una opinión de Google</small></div>
+        <div class="q"><div class="st">★★★★★</div>Un servicio excelente de principio a fin, con muy buenas recomendaciones de la carta.<small>Resumen de una opinión de Google</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visita" class="alt">
+    <div class="w visit">
+      <div>
+        <div class="kick">Visítanos</div>
+        <h2 class="f">Av. de Aragón, 9 · Teruel</h2>
+        <p class="sub">Reserva por teléfono o WhatsApp, sobre todo los fines de semana.</p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Q%27bola+Teruel&query_place_id=ChIJj_DVMQBzXg0RKxi_Ce_OeGY" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+      <div>
+        <table>
+          <tr><td>Lunes y martes</td><td class="closed">Cerrado</td></tr>
+          <tr><td>Miércoles y jueves</td><td>12:00–22:00</td></tr>
+          <tr><td>Viernes</td><td>12:00–23:00</td></tr>
+          <tr><td>Sábado</td><td>11:00–24:00</td></tr>
+          <tr><td>Domingo</td><td>12:00–22:30</td></tr>
+        </table>
+        <p class="note">Horario tomado de Google; el restaurante lo confirmará.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="w">
+      <h2 class="f">¿Mesa para hoy?</h2>
+      <p>Llámanos o escríbenos y te la guardamos.</p>
+      <div class="ctas">
+        <a class="btn" href="tel:+34624763584">Llamar</a>
+        <a class="btn wa" href="https://wa.me/34624763584?text=Hola%2C%20quiero%20reservar%20mesa">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <span>Q'bola · Av. de Aragón, 9, Teruel</span>
+      <span>Propuesta de diseño por <a href="https://skey.es">Skey</a></span>
+    </div>
+  </footer>
+</body>
+</html>
