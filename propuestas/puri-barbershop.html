@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · Puri BarberShop Logroño (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bk:#111214;--bk2:#1a1c1f;--brass:#c9a25b;--brass2:#e0bd78;--paper:#f6f3ee;--ink:#151618;--mut:#8b8f96;--line:#2a2d31}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bk);color:#eee;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .o{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+    .demo{background:#fff;color:#111;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(17,18,20,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:24px;font-weight:700;white-space:nowrap}.logo span{color:var(--brass)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}nav ul a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brass);color:#141414;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--brass2);transform:translateY(-1px)}
+    .btn.wa{background:#25a35a;color:#fff}.btn.wa:hover{background:#1e8a4b}
+    .btn.gh{background:transparent;color:#fff;border:1px solid #444}.btn.gh:hover{background:#1d1f22}
+    .hero{padding:90px 0 100px;background:repeating-linear-gradient(-45deg,transparent 0 26px,rgba(201,162,91,.035) 26px 28px),radial-gradient(ellipse 50% 60% at 85% 30%,rgba(201,162,91,.18),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+    .tag{display:inline-block;border:1px solid rgba(201,162,91,.5);color:var(--brass2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+    h1{font-size:clamp(3rem,8vw,5.6rem);line-height:.98;margin-bottom:22px}
+    h1 span{color:var(--brass)}
+    .hero p{font-size:18px;color:#b9bcc2;max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .pole{justify-self:center;width:90px;height:340px;border-radius:45px;border:6px solid #2c2f33;background:repeating-linear-gradient(-35deg,#c0392b 0 22px,#f4f4f4 22px 44px,#1f4e8c 44px 66px,#f4f4f4 66px 88px);background-size:100% 176px;animation:spin 4s linear infinite;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+    @keyframes spin{to{background-position:0 176px}}
+    @media (prefers-reduced-motion:reduce){.pole{animation:none}}
+    .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+    .stats b{display:block;font-size:26px;color:#fff}.stats span{color:var(--mut);font-size:14px}
+    section{padding:92px 0}
+    .head{max-width:620px;margin-bottom:44px}
+    .kick{color:var(--brass);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--bk2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .prices{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .row h3{font-size:20px}.row span{color:var(--mut);font-size:14px}
+    .ph{color:#e8b64c;font-style:italic;font-weight:600;white-space:nowrap}
+    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{background:var(--bk2);border:1px solid var(--line);border-radius:16px;padding:26px}
+    .card .ic{font-size:26px;margin-bottom:12px}.card h3{font-size:19px;margin-bottom:6px}.card p{color:var(--mut);font-size:14.5px}
+    .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .g{aspect-ratio:1/1;border-radius:14px;background:linear-gradient(150deg,#2a2d31,#141517);border:1px solid var(--line);display:grid;place-items:end center;padding:12px;color:var(--mut);font-size:12.5px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .box{background:var(--bk2);border:1px solid var(--line);border-radius:18px;padding:32px}
+    .box h3{font-size:24px;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mut)}
+    .map{display:grid;place-items:center;margin-top:18px;aspect-ratio:16/9;border-radius:12px;background:repeating-linear-gradient(45deg,#1a1c1f 0 12px,#16181a 12px 24px);border:1px solid var(--line);color:var(--mut);text-decoration:none;font-size:14px}
+    footer{border-top:1px solid var(--line);padding:32px 0 58px;font-size:13.5px;color:var(--mut)}
+    footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{color:var(--brass2)}
+    .fab{position:fixed;right:18px;bottom:18px;z-index:20;border-radius:999px;box-shadow:0 14px 30px -10px rgba(37,163,90,.6)}
+    @media(max-width:980px){.why{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){nav ul{display:none}.hero .w,.prices,.visit{grid-template-columns:1fr}.pole{display:none}.gal{grid-template-columns:1fr 1fr}section{padding:70px 0}}
+    @media(max-width:520px){.why{grid-template-columns:1fr}.logo{font-size:20px}nav .btn{padding:10px 14px;font-size:13.5px}}
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para Puri BarberShop · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav><div class="w">
+    <div class="logo o">Puri <span>BarberShop</span></div>
+    <ul><li><a href="#precios">Precios</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#visita">Horario</a></li></ul>
+    <a class="btn" href="#visita">Pedir cita</a>
+  </div></nav>
+
+  <header class="hero"><div class="w">
+    <div>
+      <span class="tag">Barbería en Logroño · C. Doctores Castroviejo, 17</span>
+      <h1 class="o">Cortes limpios.<br /><span>Trato de 10.</span></h1>
+      <p>Cortes, degradados y arreglo de barba con un trato cercano y profesional. Para adultos y para los más peques. Abierto todos los días.</p>
+      <div class="ctas">
+        <a class="btn wa" href="#visita">💬 Cita por WhatsApp</a>
+        <a class="btn gh" href="tel:+34670732380">Llamar · 670 73 23 80</a>
+      </div>
+      <div class="stats">
+        <div><b class="o">7 días</b><span>abierto a la semana</span></div>
+        <div><b class="o">Hasta 21:00</b><span>de lunes a sábado</span></div>
+      </div>
+    </div>
+    <div class="pole" aria-hidden="true"></div>
+  </div></header>
+
+  <section class="alt" id="precios"><div class="w">
+    <div class="head"><p class="kick">Servicios</p><h2 class="o">Precios</h2><p class="sub">Precios orientativos. La barbería confirmará sus tarifas reales.</p></div>
+    <div class="prices">
+      <div class="row"><div><h3 class="o">Corte de pelo</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="o">Degradado / fade</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="o">Arreglo de barba</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="o">Corte + barba</h3><span>[duración]</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="o">Corte infantil</h3><span>Los peques, como en casa</span></div><b class="ph">[XX €]</b></div>
+      <div class="row"><div><h3 class="o">Bono mensual</h3><span class="ph">[si lo ofrece]</span></div><b class="ph">[XX €]</b></div>
+    </div>
+  </div></section>
+
+  <section><div class="w">
+    <div class="head"><p class="kick">Por qué volver</p><h2 class="o">Lo que dicen los clientes</h2></div>
+    <div class="why">
+      <div class="card"><div class="ic">✂️</div><h3 class="o">Corte limpio</h3><p>Acabados cuidados, corte a corte.</p></div>
+      <div class="card"><div class="ic">🧼</div><h3 class="o">Higiene</h3><p>Herramientas desinfectadas en cada servicio.</p></div>
+      <div class="card"><div class="ic">⚡</div><h3 class="o">Rápido</h3><p>Sin esperas eternas ni prisas en el resultado.</p></div>
+      <div class="card"><div class="ic">👦</div><h3 class="o">Niños bienvenidos</h3><p>Un sitio agradable donde los peques salen contentos.</p></div>
+    </div>
+  </div></section>
+
+  <section class="alt" id="trabajos"><div class="w">
+    <div class="head"><p class="kick">Trabajos</p><h2 class="o">Galería</h2><p class="sub">Aquí irían fotos reales de cortes, enlazadas con Instagram.</p></div>
+    <div class="gal"><div class="g">Degradado</div><div class="g">Barba</div><div class="g">Clásico</div><div class="g">Infantil</div></div>
+  </div></section>
+
+  <section id="visita"><div class="w">
+    <div class="head"><p class="kick">Visítanos</p><h2 class="o">Horario y ubicación</h2></div>
+    <div class="visit">
+      <div class="box">
+        <h3 class="o">Horario</h3>
+        <table>
+          <tr><td>Lunes a sábado</td><td>10:00 – 21:00</td></tr>
+          <tr><td>Domingo</td><td>12:00 – 18:00</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--mut);margin-top:10px">Horario tomado de Google; la barbería lo confirmará.</p>
+      </div>
+      <div class="box">
+        <h3 class="o">Dónde estamos</h3>
+        <p>C. Doctores Castroviejo, 17 (pasaje, bajo 9) · 26003 Logroño</p>
+        <p style="margin-top:6px"><a href="tel:+34670732380" style="color:var(--brass2);font-weight:600">670 73 23 80</a></p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Puri+BarberShop+Logro%C3%B1o" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+        <p style="margin-top:18px"><a class="btn wa" href="#visita" style="width:100%;justify-content:center">💬 Pedir cita por WhatsApp</a></p>
+      </div>
+    </div>
+  </div></section>
+
+  <footer><div class="w">
+    <span>Puri BarberShop · C. Doctores Castroviejo, 17 · Logroño · Aviso legal · Privacidad</span>
+    <span>Propuesta de diseño: <a href="https://skey.es">Skey</a></span>
+  </div></footer>
+
+  <a class="btn wa fab" href="#visita">💬 Cita</a>
+</body>
+</html>
