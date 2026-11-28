@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Propuesta de web · MoreArt Tattoo &amp; Piercing Logroño (diseño de Skey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bk:#0d0d0e;--bk2:#161618;--red:#d8402f;--red2:#ee5a48;--gold:#d9b25f;--mut:#8e9096;--line:#262629}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bk);color:#ececec;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .d{font-family:"Bebas Neue",Impact,sans-serif;letter-spacing:.03em;font-weight:400}
+    .demo{background:#fff;color:#111;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px}
+    .pend{color:var(--gold)}
+    .w{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:10;background:rgba(13,13,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav .w{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .logo{font-size:30px;white-space:nowrap}.logo span{color:var(--red)}
+    nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--mut)}
+    nav a{color:inherit;text-decoration:none}nav ul a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:14px 24px;border-radius:4px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--red2);transform:translateY(-1px)}
+    .btn.wa{background:#25a35a}.btn.wa:hover{background:#1e8a4b}
+    .btn.gh{background:transparent;border:1px solid #444}.btn.gh:hover{background:#1c1c1e}
+    .hero{padding:96px 0 104px;position:relative;overflow:hidden;background:radial-gradient(ellipse 45% 60% at 82% 35%,rgba(216,64,47,.22),transparent 70%)}
+    .hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+    .tag{display:inline-block;border:1px solid rgba(216,64,47,.55);color:var(--red2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+    h1{font-size:clamp(3.6rem,10vw,7rem);line-height:.9;margin-bottom:22px}
+    h1 span{color:var(--red)}
+    .hero p{font-size:18px;color:#b8bac0;max-width:520px;margin-bottom:32px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .mark{justify-self:center;width:300px;max-width:100%;aspect-ratio:1}
+    .mark circle,.mark path{fill:none;stroke:var(--red);stroke-width:2}
+    .mark .thin{stroke:#3a3a3e;stroke-width:1.2}
+    .stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:42px;padding-top:26px;border-top:1px solid var(--line)}
+    .stats b{display:block;font-size:30px;color:#fff;font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;letter-spacing:.03em}.stats span{color:var(--mut);font-size:14px}
+    section{padding:92px 0}
+    .head{max-width:640px;margin-bottom:44px}
+    .kick{color:var(--red2);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.6rem,6vw,4rem);line-height:.95}
+    .sub{color:var(--mut);margin-top:12px}
+    .alt{background:var(--bk2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);border-radius:6px;padding:28px;background:#121214}
+    .card h3{font-size:28px;margin-bottom:8px}
+    .card p{color:#a9abb1;font-size:15px}
+    .card .price{margin-top:16px;font-weight:600}
+    .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gal div{aspect-ratio:4/5;border:1px dashed #3a3a3e;border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;color:#5d5f65;font-size:13px;padding:12px;background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(255,255,255,.015) 12px 14px)}
+    .team{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .artist{display:flex;gap:20px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:24px;background:#121214}
+    .av{flex:none;width:76px;height:76px;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:"Bebas Neue",Impact,sans-serif;font-size:34px;color:var(--red2)}
+    .artist h3{font-size:28px;line-height:1}
+    .artist p{color:#a9abb1;font-size:14.5px}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+    .step{border-top:2px solid var(--red);padding-top:18px}
+    .step b{display:block;font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:26px;letter-spacing:.03em;margin-bottom:6px}
+    .step b::before{counter-increment:s;content:"0" counter(s) " ";color:var(--red)}
+    .step p{color:#a9abb1;font-size:15px}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .q{border-left:3px solid var(--red);padding:6px 0 6px 18px;color:#c9cbd0}
+    .q small{display:block;color:var(--mut);margin-top:10px;font-size:13px}
+    details{border-bottom:1px solid var(--line);padding:18px 0}
+    summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+    summary::after{content:"+";color:var(--red);font-size:22px;line-height:1}
+    details[open] summary::after{content:"–"}
+    details p{color:#a9abb1;margin-top:10px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:#c9cbd0}
+    .map{display:inline-block;margin-top:18px;color:var(--red2);text-decoration:none;font-weight:600}
+    .cta{text-align:center;background:linear-gradient(180deg,var(--bk2),#1d0f0d)}
+    .cta h2{margin-bottom:16px}.cta p{color:#b8bac0;margin-bottom:30px}
+    .cta .ctas{justify-content:center}
+    footer{padding:34px 0;color:#5d5f65;font-size:13px;border-top:1px solid var(--line)}
+    footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{color:#8e9096}
+    @media(max-width:900px){
+      nav ul{display:none}
+      .hero .w,.visit{grid-template-columns:1fr}
+      .mark{width:200px;order:-1;justify-self:start}
+      .cards,.quotes{grid-template-columns:1fr}
+      .team{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .gal{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:520px){
+      .logo{font-size:24px}
+      nav .btn{padding:10px 14px;font-size:14px}
+      .steps{grid-template-columns:1fr}
+      section{padding:70px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Propuesta de diseño creada por Skey para MoreArt Tattoo &amp; Piercing · No es la web oficial · Los datos en dorado están pendientes de confirmar</div>
+
+  <nav>
+    <div class="w">
+      <a href="#" class="logo d">More<span>Art</span></a>
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#proceso">Cómo trabajamos</a></li>
+        <li><a href="#visita">Visítanos</a></li>
+      </ul>
+      <a class="btn wa" href="https://wa.me/34677748259">WhatsApp</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="w">
+      <div>
+        <span class="tag">Tattoo &amp; Piercing · Centro de Logroño</span>
+        <h1 class="d">Tu idea,<br /><span>dibujada</span> para ti</h1>
+        <p>Estudio de tatuaje y piercing en la calle Sagasta. Cuéntanos tu idea, la diseñamos contigo y la llevas en la piel en un estudio limpio y cuidado.</p>
+        <div class="ctas">
+          <a class="btn wa" href="https://wa.me/34677748259?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20tatuaje">Pide presupuesto por WhatsApp</a>
+          <a class="btn gh" href="tel:+34677748259">Llamar · 677 74 82 59</a>
+        </div>
+        <div class="stats">
+          <div><b>5,0 ★</b><span>en Google</span></div>
+          <div><b>295</b><span>opiniones</span></div>
+          <div><b>Sagasta, 2</b><span>Logroño centro</span></div>
+        </div>
+      </div>
+      <svg class="mark" viewBox="0 0 200 200" aria-hidden="true">
+        <circle class="thin" cx="100" cy="100" r="96" />
+        <circle class="thin" cx="100" cy="100" r="78" />
+        <path d="M100 30 L118 82 L172 82 L128 114 L146 168 L100 136 L54 168 L72 114 L28 82 L82 82 Z" />
+        <circle cx="100" cy="100" r="18" />
+      </svg>
+    </div>
+  </header>
+
+  <section id="servicios">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Servicios</div>
+        <h2 class="d">Qué hacemos</h2>
+        <p class="sub">Cada pieza se diseña para ti. Los precios dependen del tamaño, la zona y el detalle: escríbenos y te damos presupuesto sin compromiso.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3 class="d">Tatuaje a medida</h3>
+          <p>Llegas con una idea, una referencia o solo una sensación, y la convertimos en un diseño único que nadie más lleva.</p>
+          <p class="price pend">Desde [XX €]</p>
+        </div>
+        <div class="card">
+          <h3 class="d">Piercing</h3>
+          <p>Perforaciones con material esterilizado y joyería adecuada para cada zona, con las indicaciones de cuidado para que cicatrice bien.</p>
+          <p class="price pend">Desde [XX €]</p>
+        </div>
+        <div class="card">
+          <h3 class="d">Tatuajes de recuerdo</h3>
+          <p>Fechas, viajes, personas importantes… Diseños pequeños y con significado para llevarte un recuerdo para siempre.</p>
+          <p class="price pend">Desde [XX €]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabajos" class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Portfolio</div>
+        <h2 class="d">Nuestros trabajos</h2>
+        <p class="sub">Aquí irían las fotos de vuestros tatuajes, ordenadas por estilo y artista. Es lo primero que mira alguien antes de decidirse.</p>
+      </div>
+      <div class="gal">
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+        <div>Foto de trabajo<br />(la aporta el estudio)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Equipo</div>
+        <h2 class="d">Quién te tatúa</h2>
+        <p class="sub">Cada artista con su estilo, su ficha y su galería, para que elijas con quién quieres hacerte la pieza.</p>
+      </div>
+      <div class="team">
+        <div class="artist">
+          <div class="av">C</div>
+          <div>
+            <h3 class="d pend">Celia</h3>
+            <p>Estilo y especialidad <span class="pend">[pendiente]</span>. Diseño personalizado a partir de tu idea.</p>
+          </div>
+        </div>
+        <div class="artist">
+          <div class="av">Y</div>
+          <div>
+            <h3 class="d pend">Yosu</h3>
+            <p>Estilo y especialidad <span class="pend">[pendiente]</span>. Ficha y galería propias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Cómo trabajamos</div>
+        <h2 class="d">De la idea a la piel</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><b>Cuéntanos</b><p>Escríbenos por WhatsApp con tu idea, la zona y el tamaño aproximado. Si tienes referencias, mándalas.</p></div>
+        <div class="step"><b>Diseño</b><p>Preparamos un diseño a tu medida y lo ajustamos contigo hasta que te encante.</p></div>
+        <div class="step"><b>Cita</b><p>Te damos fecha y hora y el presupuesto cerrado, sin sorpresas.</p></div>
+        <div class="step"><b>Cuidados</b><p>Te explicamos cómo cuidarlo y resolvemos tus dudas mientras cicatriza.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <div class="head">
+        <div class="kick">Opiniones</div>
+        <h2 class="d">Lo que dicen en Google</h2>
+        <p class="sub">Resumen de opiniones reales de clientes en Google (5,0 de media en 295 opiniones).</p>
+      </div>
+      <div class="quotes">
+        <div class="q">Entraron sin cita y con una idea vaga, y salieron con un diseño hecho a medida.<small>Resumen de una opinión de Google</small></div>
+        <div class="q">Un estudio limpio y bonito, con trato cercano, profesional y paciente.<small>Resumen de varias opiniones de Google</small></div>
+        <div class="q">Buen estudio en el centro de Logroño, también para piercing. Muy recomendable.<small>Resumen de una opinión de Google</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w">
+      <div class="head">
+        <div class="kick">Preguntas frecuentes</div>
+        <h2 class="d">Antes de venir</h2>
+      </div>
+      <details><summary>¿Necesito cita?</summary><p>Para tatuajes, lo mejor es escribir antes por WhatsApp para preparar el diseño. Para piercings o consultas puedes pasarte en horario de apertura <span class="pend">[confirmar]</span>.</p></details>
+      <details><summary>¿Cuánto cuesta un tatuaje?</summary><p>Depende del tamaño, la zona y el detalle. Mándanos tu idea y te damos un presupuesto cerrado antes de empezar.</p></details>
+      <details><summary>¿Hay que dejar señal?</summary><p><span class="pend">[Política de señal del estudio, pendiente de confirmar]</span></p></details>
+      <details><summary>¿Puedo tatuarme si soy menor?</summary><p><span class="pend">[Requisitos del estudio para menores, pendiente de confirmar]</span></p></details>
+      <details><summary>¿Cómo cuido el tatuaje?</summary><p>Te damos las indicaciones por escrito al terminar y puedes escribirnos con cualquier duda mientras cicatriza.</p></details>
+    </div>
+  </section>
+
+  <section id="visita">
+    <div class="w visit">
+      <div>
+        <div class="kick">Visítanos</div>
+        <h2 class="d">C. Sagasta, 2 · Logroño</h2>
+        <p class="sub">En pleno centro de Logroño.</p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=MoreArt+Tattoo+Piercing+Studio+Logro%C3%B1o&query_place_id=ChIJq4-EFxCrWg0RMJqKdS44D58" target="_blank" rel="noopener">📍 Abrir en Google Maps</a>
+      </div>
+      <div>
+        <table>
+          <tr><td>Lunes a sábado</td><td>10:00–14:00 · 16:00–19:00</td></tr>
+          <tr><td>Domingo</td><td>Cerrado</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--mut);margin-top:10px">Horario tomado de Google; el estudio lo confirmará.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="w">
+      <h2 class="d">¿Tienes una idea en mente?</h2>
+      <p>Escríbenos y la convertimos en tu próximo tatuaje.</p>
+      <div class="ctas">
+        <a class="btn wa" href="https://wa.me/34677748259?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20tatuaje">Escribir por WhatsApp</a>
+        <a class="btn gh" href="tel:+34677748259">Llamar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <span>MoreArt Tattoo &amp; Piercing Studio · C. Sagasta, 2, Logroño</span>
+      <span>Propuesta de diseño por <a href="https://skey.es">Skey</a></span>
+    </div>
+  </footer>
+</body>
+</html>
